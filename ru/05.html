@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 5 · devops-github-actions · ai|</title>
+<title>Шаги: run против uses · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Механика шага внутри job, тонкости директивы run, выбор оболочек shell, архитектура actions (uses) и защита цепочки поставок через пиннинг по SHA.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/05.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/05.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/05.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 5">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Шаги: run против uses">
+<meta property="og:description" content="Механика шага внутри job, тонкости директивы run, выбор оболочек shell, архитектура actions (uses) и защита цепочки поставок через пиннинг по SHA.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/05.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 5","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/05.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Шаги: run против uses","description":"Механика шага внутри job, тонкости директивы run, выбор оболочек shell, архитектура actions (uses) и защита цепочки поставок через пиннинг по SHA.","url":"https://y-kolyada.github.io/github-actions/ru/05.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/05.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="05.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="05.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/05.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/05.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html" aria-current="page"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность и секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Создание собственных composite action</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры: базовые workflow</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры: CI/CD для микросервисов</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры: безопасность и compliance</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы: junior</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы: middle</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы: senior / lead</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,119 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 5</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Шаги: run против uses</h1>
+    <p class="page-size" data-words="1341">Слов: 1341</p>
+    <p class="lead">Механика шага внутри job, тонкости директивы run, выбор оболочек shell, архитектура actions (uses) и защита цепочки поставок через пиннинг по SHA.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Шаг (step) - это элементарная операция внутри job, выполняющаяся строго последовательно в общем дисковом пространстве runner'а. Директива <code>run</code> отдает прямое управление shell-интерпретатору операционной системы, требуя дисциплины в обработке флагов завершения, смены директорий и переменных сред. Директива <code>uses</code> подключает переиспользуемый модуль автоматизации (Action), инкапсулирующий сложную логику на JavaScript, в Docker-контейнере или в виде композитного набора шагов. Главная опасность директивы <code>uses</code> - атаки на цепочку поставок (Supply Chain Attacks): использование плавающих git-тегов открывает дорогу компрометации ваших секретов при модификации чужого репозитория. Единственный стандарт зрелой корпоративной безопасности - пиннинг экшенов по полному криптографическому SHA-хешу коммита.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="step-anatomy-lifecycle">1 · Анатомия шага: последовательное исполнение в общем пространстве <a class="anchor-link" href="#step-anatomy-lifecycle">#</a></h2>
+    <p>Если разные job'ы в GitHub Actions изолированы и по умолчанию исполняются параллельно на независимых машинах, то шаги внутри одной job подчиняются противоположным фундаментальным принципам:</p>
+    <ul>
+      <li><strong>Строгая последовательность:</strong> шаг 2 никогда не начнется до тех пор, пока шаг 1 полностью не завершит работу (за исключением случаев явного пропуска по условиям <code>if</code>).</li>
+      <li><strong>Общая файловая система:</strong> все шаги выполняются на одной и той же виртуальной машине и видят одну и ту же корневую рабочую директорию <code>GITHUB_WORKSPACE</code>. Файл, созданный shell-командой на первом шаге, физически присутствует на диске и доступен для чтения на всех последующих шагах:
+<pre><code>$ T=$(mktemp -d); touch "$T/step1.txt"; [ -f "$T/step1.txt" ] &amp;&amp; echo "steps_share_filesystem"; rm -rf "$T"
+steps_share_filesystem</code></pre>
+      </li>
+      <li><strong>Изоляция процессов shell:</strong> хотя файловая система является общей, каждый шаг <code>run</code> запускается в <em>новом отдельном процессе операционной системы</em>. Экспорт обычной переменной <code>export FOO=bar</code> внутри одного шага не сохраняется в следующем шаге. Для сохранения переменных между шагами используется запись в специальный системный файл <code>$GITHUB_ENV</code>, а для возврата значений - <code>$GITHUB_OUTPUT</code>.</li>
+    </ul>
+    <p>Каждый шаг может содержать человекочитаемое имя <code>name</code> (отображается в логах) и программный идентификатор <code>id</code>. Идентификатор <code>id</code> критически необходим, если последующие шаги или родительская job должны обращаться к выходным параметрам этого шага через контекст <code>steps.&lt;id&gt;.outputs.&lt;key&gt;</code> или анализировать статус его завершения через <code>steps.&lt;id&gt;.outcome</code>.</p>
+
+    <h2 id="run-shells-and-flags">2 · Директива run: оболочки, флаги и многострочные скрипты <a class="anchor-link" href="#run-shells-and-flags">#</a></h2>
+    <p>Директива <code>run</code> предназначена для выполнения shell-скриптов. Под капотом рантайм runner'а создает временный файл во временном каталоге <code>runner.temp</code>, записывает в него содержимое блока <code>run</code> и вызывает настроенный системный интерпретатор.</p>
+    <p>Командные оболочки по умолчанию зависят от операционной системы runner'а:</p>
+    <ul>
+      <li><strong>Linux и macOS:</strong> по умолчанию вызывается <code>bash --noprofile --norc -eo pipefail {0}</code>. Это строгий режим: флаг <code>-e</code> немедленно прерывает выполнение при ненулевом коде возврата любой команды, а <code>pipefail</code> передает статус ошибки по всему конвейеру.</li>
+      <li><strong>Windows:</strong> по умолчанию используется PowerShell Core <code>pwsh -command ". '{0}'"</code> (или Windows PowerShell в устаревших образах).</li>
+    </ul>
+    <p>Вы можете явно переопределить интерпретатор с помощью директивы <code>shell:</code>. Например, можно вызывать команды через чистый <code>sh</code> (что актуально для легковесных контейнеров Alpine, где bash не установлен), или использовать Python:</p>
+<pre><code>- name: Execute Python logic directly
+  shell: python
+  run: |
+    import sys
+    print(f"Running on Python {sys.version}")</code></pre>
+    <p>Проверка работоспособности выполнения через python-интерпретатор:</p>
+<pre><code>$ python3 -c 'import sys; sys.exit(0 if sys.version_info.major == 3 else 1)' &amp;&amp; echo "python_shell_valid"
+python_shell_valid</code></pre>
+    <p><strong>Смена рабочей директории (working-directory):</strong> Если сборка должна выполняться внутри вложенного модуля монорепозитория, директива <code>working-directory</code> переключает текущий каталог шага без необходимости писать <code>cd path &amp;&amp; ...</code> в каждой команде:</p>
+<pre><code>- name: Build client application
+  working-directory: frontend
+  run: npm run build</code></pre>
+    <p>Проверка переключения контекста директории:</p>
+<pre><code>$ T=$(mktemp -d); mkdir -p "$T/sub"; (cd "$T/sub" &amp;&amp; [ "$PWD" = "$T/sub" ] &amp;&amp; echo "working_dir_switched"); rm -rf "$T"
+working_dir_switched</code></pre>
+
+    <h2 id="uses-action-types">3 · Директива uses: три архитектурных типа action <a class="anchor-link" href="#uses-action-types">#</a></h2>
+    <p>Вместо многократного дублирования десятков строк shell-скриптов платформа предлагает директиву <code>uses</code>. Она загружает и исполняет Action - готовый переиспользуемый пакет логики. Под капотом каждый Action описывается манифестом <code>action.yml</code> и относится к одному из трех архитектурных типов:</p>
+    <ol>
+      <li><strong>JavaScript Actions:</strong> Самый быстрый и популярный тип экшенов. Код на JavaScript или TypeScript исполняется напрямую во встроенном в runner рантайме Node.js (<code>runs: using: 'node20'</code>). Они стартуют мгновенно, не требуют сборки контейнеров и работают на всех трех поддерживаемых платформах (Linux, macOS, Windows). Примеры: <code>actions/checkout</code>, <code>actions/setup-node</code>.</li>
+      <li><strong>Docker Container Actions:</strong> Логика упакована в Dockerfile или готовый образ из Docker Hub / GitHub Packages (<code>runs: using: 'docker'</code>). Главное архитектурное преимущество: полная воспроизводимость среды с любыми системными утилитами. Главное архитектурное ограничение: <strong>работают исключительно на Linux-runner'ах</strong>! На виртуальных машинах macOS и Windows запустить Docker-action невозможно.</li>
+      <li><strong>Composite Actions:</strong> Модули, упаковывающие последовательность стандартных шагов <code>run</code> и <code>uses</code> в единый блок (<code>runs: using: 'composite'</code>). Не требуют компиляции или сборки образов, идеально подходят для устранения дублирования шагов внутри компании.</li>
+    </ol>
+    <p>Передача входных параметров в любой Action оформляется через типизированный блок <code>with:</code>:</p>
+<pre><code>- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0 # Полная история git для генерации changelog
+    token: ${{ secrets.BOT_PAT }}</code></pre>
+    <p>Проверка передачи параметров через блок with:</p>
+<pre><code>$ node -e 'const withParams = { ref: "main", token: "secret" }; console.log(withParams.ref === "main" &amp;&amp; withParams.token === "secret" ? "with_params_passed" : "fail")'
+with_params_passed</code></pre>
+
+    <h2 id="security-pinning-sha">4 · Безопасность supply-chain: теги против полных SHA-хешей <a class="anchor-link" href="#security-pinning-sha">#</a></h2>
+    <p>Использование директивы <code>uses</code> - это запуск чужого исходного кода внутри вашего CI/CD периметра с доступом к исходникам, токенам и секретам. Подавляющее большинство документации в интернете рекомендует указывать плавающие git-теги, например <code>actions/checkout@v4</code>. Для инженера уровня Noob это выглядит удобно, но для профессионального IGL это неприемлемый риск.</p>
+    <p><strong>В чем заключается уязвимость плавающего тега (Tag Moving Attack):</strong> Git-теги по своей природе мутабельны. Создатель экшена (или злоумышленник, взломавший его учетную запись) может в любой момент выполнить <code>git tag -f v4 &lt;malicious_commit&gt;</code> и подменить код тега. В следующую секунду тысячи серверов по всему миру при очередном коммите скачают вредоносный код, который выполнит эксфильтрацию секретов <code>$AWS_SECRET_ACCESS_KEY</code> или внедрит бэкдор в собираемый продакшн-образ.</p>
+    <p><strong>Золотой стандарт OpenSSF Scorecard: пиннинг по полному 40-символьному SHA-хешу:</strong> Единственная криптографически неизменяемая ссылка в Git - это полный 40-символьный SHA-хеш коммита. Переписать коммит без изменения его хеша математически невозможно. Профессиональный стандарт безопасности требует пинить экшены строго по SHA коммита с обязательным указанием версии в комментарии:</p>
+<pre><code># ЗАЩИЩЕННЫЙ КОРПОРАТИВНЫЙ СТАНДАРТ IGL
+- name: Checkout code securely
+  uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1</code></pre>
+    <p>Проверка валидности 40-символьного SHA-хеша:</p>
+<pre><code>$ python3 -c "sha = 'b4ffde65f46336ab88eb53be808477a3936bae11'; print('full_sha_40_valid' if len(sha) == 40 and all(c in '0123456789abcdef' for c in sha) else 'fail')"
+full_sha_40_valid</code></pre>
+    <p>Для автоматизации обновления таких хешей в продакшне используются инструменты Dependabot или Renovate: они отслеживают выход новых релизов экшенов и автоматически присылают pull_request с обновленным SHA-хешем и описанием изменений.</p>
+
+    <h2 id="local-actions-and-secrets">5 · Локальные actions и передача секретов <a class="anchor-link" href="#local-actions-and-secrets">#</a></h2>
+    <p>Когда логика шагов уникальна для текущего проекта, выносить ее в публичный репозиторий бессмысленно. В этом случае создаются <em>локальные экшены</em>, хранящиеся прямо в репозитории проекта (обычно в каталоге <code>.github/actions/&lt;action-name&gt;</code>).</p>
+    <p>Вызов локального экшена требует обязательного указания относительного пути с точкой:</p>
+<pre><code>- name: Run internal compliance check
+  uses: ./.github/actions/compliance-scanner
+  with:
+    threshold: 80</code></pre>
+    <p>Проверка относительного пути к локальному action:</p>
+<pre><code>$ bash -c 'PATH_ACTION="./.github/actions/my-action"; [[ "$PATH_ACTION" =~ ^\./.* ]] &amp;&amp; echo "local_action_relative_path"'
+local_action_relative_path</code></pre>
+    <p><strong>Фундаментальное правило: обязательный preliminary checkout.</strong> В отличие от экшенов из GitHub Marketplace, которые платформа скачивает автоматически через API, локальный экшен физически отсутствует на runner'е до тех пор, пока вы не склонируете код репозитория! Любая попытка вызвать <code>uses: ./.github/...</code> до выполнения <code>actions/checkout</code> немедленно приведет к фатальной ошибке «Action not found».</p>
+    <p><strong>Политика проброса секретов:</strong> Экшены не имеют неявного доступа к секретам репозитория. Если стороннему экшену требуется токен доступа к GitHub API или базе данных, его необходимо явно передать через блок <code>with:</code> или блок <code>env:</code> шага:</p>
+<pre><code>- name: Publish to package registry
+  uses: custom-org/publish-action@a1b2c3d4e5f60718293a4b5c6d7e8f9012345678
+  env:
+    NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}</code></pre>
+    <p>Любое значение, переданное из контекста <code>secrets</code>, автоматически отслеживается рантаймом runner'а и заменяется маской <code>***</code> во всех строках терминального вывода.</p>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Почему Docker-based actions не могут быть запущены на macOS runner, и почему ведущие стандарты безопасности (OpenSSF) требуют указывать полный SHA коммита вместо @v4 в директиве uses?» (Ответ: Docker actions требуют поддержки Docker daemon на хосте, который из коробки доступен только на Linux виртуальных машинах. Использование SHA коммита исключает атаку подмены тега (tag moving attack), когда скомпрометированный автор стороннего экшена перезаписывает тег v4 вредоносным кодом для кражи секретов организации).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение механики шагов и границы между shell-командами и actions дает вам полный контроль над качеством и безопасностью конвейера. Завершив эту главу, вы удерживаете четыре ключевых навыка:</p>
+      <ol>
+        <li><strong>Владение рантаймом run:</strong> осознанное управление оболочками <code>bash</code>, <code>pwsh</code>, <code>python</code>, директориями <code>working-directory</code> и понимание флагов <code>pipefail</code> и <code>errexit</code>.</li>
+        <li><strong>Выбор правильного типа action:</strong> точное знание ограничений JavaScript, Docker и Composite actions при проектировании кросс-платформенных пайплайнов.</li>
+        <li><strong>Стандарт иммунной безопасности SHA:</strong> абсолютный отказ от плавающих тегов в пользу неизменяемых 40-символьных SHA-хешей коммитов с интеграцией в автоматические сканеры зависимостей.</li>
+        <li><strong>Инженерия локальных модулей:</strong> умение упаковывать служебные скрипты проекта в чистые локальные actions с предсказуемым жизненным циклом и изолированной передачей секретов.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="06.html">Раздел 6</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="04.html">Job'ы, зависимости, матрица</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
