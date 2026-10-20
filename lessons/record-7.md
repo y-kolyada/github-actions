@@ -189,4 +189,4 @@ ae9438d feat(content): topic 07 covers security, secrets, and OIDC
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (тема 07 «Безопасность и секреты» принята 2026-10-20) |
