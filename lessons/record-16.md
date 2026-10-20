@@ -219,4 +219,4 @@ b13c6ac docs(task): define task 16 for topic 15 platform architecture questions 
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (шаг 16 «Вопросы · IGL» принят 2026-10-21) |
