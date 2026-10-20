@@ -207,4 +207,4 @@ c13cf41 feat(content): topic 12 covers enterprise platform architecture and IGL 
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (раздел 12 «Примеры · IGL» принят 2026-10-20) |
