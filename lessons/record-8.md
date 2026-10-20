@@ -195,4 +195,4 @@ b0a325f feat(content): topic 08 covers caching, restore-keys, and artifact lifec
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (тема 08 «Кэширование и артефакты» принята 2026-10-20) |
