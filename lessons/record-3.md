@@ -165,4 +165,4 @@ ab0f36e docs(task): define task 3 for topic 03 contexts and expressions
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (тема 03 «Контексты и выражения» принята 2026-10-20) |
