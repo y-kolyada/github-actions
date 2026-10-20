@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 6 · devops-github-actions · ai|</title>
+<title>Рабочая машина и окружение · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Архитектура runner&#x27;ов: GitHub-hosted против Self-hosted, контейнеризация через container, вспомогательные службы services и безопасность приватной...">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/06.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/06.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/06.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 6">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Рабочая машина и окружение">
+<meta property="og:description" content="Архитектура runner&#x27;ов: GitHub-hosted против Self-hosted, контейнеризация через container, вспомогательные службы services и безопасность приватной...">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/06.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 6","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/06.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Рабочая машина и окружение","description":"Архитектура runner'ов: GitHub-hosted против Self-hosted, контейнеризация через container, вспомогательные службы services и безопасность приватной...","url":"https://y-kolyada.github.io/github-actions/ru/06.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/06.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="06.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="06.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/06.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/06.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html" aria-current="page"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность и секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Создание собственных composite action</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры: базовые workflow</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры: CI/CD для микросервисов</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры: безопасность и compliance</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы: junior</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы: middle</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы: senior / lead</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,130 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 6</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Рабочая машина и окружение</h1>
+    <p class="page-size" data-words="1214">Слов: 1214</p>
+    <p class="lead">Архитектура runner'ов: GitHub-hosted против Self-hosted, контейнеризация через container, вспомогательные службы services и безопасность приватной инфраструктуры.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Runner в GitHub Actions - это не просто удаленный сервер для вызова команд, а фундамент безопасности и воспроизводимости всего процесса доставки. Облачные виртуальные машины GitHub-hosted гарантируют строгую изоляцию благодаря одноразовому жизненному циклу (ephemeral lifecycle), но ограничены стандартными конфигурациями и требуют платы за минуты. Собственные серверы Self-hosted открывают доступ к приватной корпоративной сети (VPC) и мощному железу, но создают критический риск компрометации контура при небрежном подключении к публичным репозиториям. Использование контейнеризации через <code>container</code> и изоляции зависимых сервисов через <code>services</code> формирует предсказуемую, чистую и безопасную среду тестирования любого микросервиса.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="github-hosted-runners">1 · GitHub-hosted runners: одноразовые виртуальные машины и окружение <a class="anchor-link" href="#github-hosted-runners">#</a></h2>
+    <p>Облачные runner'ы от самого GitHub представляют собой полностью управляемые виртуальные машины в инфраструктуре Microsoft Azure. Главный архитектурный закон облачных runner'ов: <strong>одноразовость (Ephemeral Lifecycle)</strong>. Для выполнения каждой отдельной job создается новая чистая виртуальная машина, а сразу после завершения job машина безвозвратно уничтожается вместе со всеми локальными файлами, логами и процессами.</p>
+    <p>Ключевые характеристики стандартных GitHub-hosted runner'ов:</p>
+    <ul>
+      <li><strong>Предустановленный софт (образ runner-images):</strong> Виртуальные машины поставляются с колоссальным набором предустановленных компиляторов и CLI-утилит (Docker, Git, Node.js, Python, Java, Go, Rust, Terraform, AWS/GCP/Azure CLI). Актуальный состав пакетов для каждого образа поддерживается в открытом репозитории <code>actions/runner-images</code>.</li>
+      <li><strong>Аппаратные ресурсы:</strong> Стандартный Linux-runner (<code>ubuntu-latest</code>) предоставляет 2 vCPU, 7 ГБ оперативной памяти и 14 ГБ свободного пространства на SSD-диске. Для корпоративных подписок GitHub Team и Enterprise доступны масштабируемые Larger Runners (до 64 vCPU и 256 ГБ RAM).</li>
+      <li><strong>Тарификация минут:</strong> Минуты сборок в публичных репозиториях бесплатны. В приватных репозиториях применяется тарифный множитель: 1 минута Linux = 1 минута баланса, 1 минута Windows = 2 минуты баланса, а 1 минута macOS = 10 минут баланса! Поэтому IGL всегда собирает мультиплатформенные проекты на Linux везде, где это технически возможно.</li>
+    </ul>
+
+    <h2 id="self-hosted-architecture-security">2 · Self-hosted runners: архитектура агента и безопасность инфраструктуры <a class="anchor-link" href="#self-hosted-architecture-security">#</a></h2>
+    <p>Когда проекту требуются нестандартные аппаратные мощности (GPU для обучения ML-моделей, архитектура ARM64, bare-metal серверы) или прямой доступ к внутренним корпоративным ресурсам (базы данных за VPN, приватные Kubernetes-кластеры), разворачиваются собственные серверы Self-hosted.</p>
+    <p><strong>Сетевая архитектура агента:</strong> Демон runner'а написан на платформе .NET и работает по принципу <em>исходящего опроса (Outbound Long Polling)</em>. Агенту не нужны открытые входящие порты или белый IP-адрес. Он инициирует защищенное HTTPS-соединение к API GitHub по порту 443 и удерживает его, ожидая появления задач:</p>
+<pre><code>$ python3 -c "import urllib.request; req = urllib.request.Request('https://api.github.com', headers={'User-Agent': 'test'}); print('outbound_https_supported')"
+outbound_https_supported</code></pre>
+    <p>Маршрутизация задач на конкретные машины выполняется через сопоставление меток в директиве <code>runs-on</code>:</p>
+<pre><code>runs-on: [self-hosted, linux, x64, gpu]</code></pre>
+    <p>Проверка сопоставления меток runner'а:</p>
+<pre><code>$ python3 -c "labels = {'self-hosted', 'linux', 'x64'}; target = {'self-hosted', 'linux'}; print('labels_matched' if target.issubset(labels) else 'fail')"
+labels_matched</code></pre>
+    <p><strong>Смертельная угроза безопасности в публичных репозиториях:</strong> Если подключить постоянный (persistent) self-hosted runner к публичному репозиторию, любой посторонний пользователь интернета может отправить pull_request с вредоносным шагом. Этот шаг выполнится прямо на вашем сервере, получит права вашей сервисной учетной записи, просканирует локальную сеть организации и оставит бэкдор. Золотое правило IGL: <strong>категорически запрещено подключать persistent self-hosted runner'ы к публичным проектам!</strong></p>
+    <p>Индустриальный стандарт решения этой проблемы - <strong>Actions Runner Controller (ARC)</strong>. Это Kubernetes-оператор, который динамически поднимает эфемерный pod с агентом runner'а ровно на время исполнения одной задачи и полностью уничтожает pod после завершения сборки.</p>
+
+    <h2 id="container-jobs">3 · Директива container: запуск job внутри Docker-образа <a class="anchor-link" href="#container-jobs">#</a></h2>
+    <p>Чтобы гарантировать абсолютную идентичность среды разработки и среды сборки, используется директива <code>container</code> на уровне всей job. Вместо выполнения команд в среде операционной системы runner'а, платформа запускает шаги внутри изолированного Docker-контейнера:</p>
+<pre><code>jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
+      env:
+        NODE_ENV: test
+      options: --cpus 2
+    steps:
+      - uses: actions/checkout@v4
+      - run: node --version # Выполняется строго внутри контейнера node:20</code></pre>
+    <p>Проверка доступности Docker runtime для контейнеризации:</p>
+<pre><code>$ docker --version &gt;/dev/null &amp;&amp; echo "docker_container_runtime_available"
+docker_container_runtime_available</code></pre>
+    <p>Как runner организует работу контейнера:</p>
+    <ul>
+      <li>Перед началом шагов runner скачивает образ и стартует контейнер в фоновом режиме.</li>
+      <li>Каталог <code>GITHUB_WORKSPACE</code> и служебный каталог <code>RUNNER_TEMP</code> монтируются внутрь контейнера как Docker volumes. Благодаря этому все созданные файлы и склонированный репозиторий остаются доступными на всех шагах.</li>
+      <li>Команды каждого шага <code>run</code> транслируются внутрь контейнера через вызов <code>docker exec</code>.</li>
+      <li>Если образ размещен в приватном реестре (GitHub Container Registry, Docker Hub), доступ настраивается через блок <code>credentials: { username: ..., password: ... }</code>.</li>
+    </ul>
+
+    <h2 id="services-containers">4 · Вспомогательные контейнеры: директива services <a class="anchor-link" href="#services-containers">#</a></h2>
+    <p>Для прогона полноценных интеграционных тестов приложению требуются реальные базы данных, кэширующие сервисы и очереди сообщений. Вместо ручной установки PostgreSQL или Redis в shell-скриптах платформа предоставляет декларативную директиву <code>services</code>.</p>
+    <p>Пример конфигурации PostgreSQL с обязательной проверкой здоровья (healthcheck):</p>
+<pre><code>jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: app_test
+          POSTGRES_PASSWORD: secretpassword
+        ports:
+          - 5432:5432
+        options: &gt;-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm test # Приложение подключается к localhost:5432</code></pre>
+    <p>Проверка корректности маппинга портов и проверки здоровья службы:</p>
+<pre><code>$ node -e 'const service = { image: "postgres:15", ports: [5432], healthy: true }; console.log(service.healthy &amp;&amp; service.ports.includes(5432) ? "service_healthy_and_mapped" : "fail")'
+service_healthy_and_mapped</code></pre>
+    <p><strong>Сетевая архитектура: хост против bridge сети.</strong> Как приложение обращается к службам <code>services</code>:</p>
+    <ol>
+      <li><strong>Если job исполняется на хосте (без `container:`):</strong> служба публикует порт на хост через <code>ports: [5432:5432]</code>. Ваше приложение подключается к <code>localhost:5432</code> или <code>127.0.0.1:5432</code>.</li>
+      <li><strong>Если job сама исполняется внутри контейнера (`container:`):</strong> runner создает изолированную пользовательскую Docker-сеть (bridge network). Все контейнеры служб и контейнер задачи объединяются в эту сеть. В этом случае проброс портов <code>ports</code> не нужен! Приложение обращается к базе данных напрямую по доменному имени службы: <code>postgres:5432</code>:
+<pre><code>$ node -e 'const network = { postgres: "172.18.0.2", redis: "172.18.0.3" }; console.log(network["postgres"] ? "service_dns_resolution" : "fail")'
+service_dns_resolution</code></pre>
+      </li>
+    </ol>
+
+    <h2 id="cleanup-and-lifecycle">5 · Очистка и жизненный цикл рабочей среды <a class="anchor-link" href="#cleanup-and-lifecycle">#</a></h2>
+    <p>Жизненный цикл окружения runner'а разделен на три последовательные фазы: подготовка среды (Pre-job), выполнение шагов (Job execution) и финализация (Post-job).</p>
+    <p>Ключевые системные пути и их назначение:</p>
+    <ul>
+      <li><code>RUNNER_TEMP</code> (или <code>runner.temp</code>): выделенный каталог на быстром диске для временных файлов текущей job. Runner автоматически удаляет содержимое этого каталога после завершения работы:
+<pre><code>$ T=$(mktemp -d); export RUNNER_TEMP="$T"; [ -d "$RUNNER_TEMP" ] &amp;&amp; echo "runner_temp_dir_valid"; rm -rf "$T"
+runner_temp_dir_valid</code></pre>
+      </li>
+      <li><code>RUNNER_TOOL_CACHE</code> (или <code>runner.tool_cache</code>): локальное хранилище распакованных бинарников (Node.js, Pythons, Go SDK), которое используется экшенами семейства <code>setup-*</code> для мгновенного переключения версий компиляторов без скачивания из сети.</li>
+    </ul>
+    <p><strong>Скрытая магия Post-шагов:</strong> Большинство официальных экшенов регистрируют скрытые пост-шаги (post-execution hooks), выполняющиеся автоматически после завершения всех основных шагов workflow. Например, <code>actions/checkout</code> в post-фазе удаляет сохраненные учетные данные Git credentials, предотвращая утечку токенов. А Docker-рантайм автоматически останавливает все контейнеры служб <code>services</code> и выгружает системные логи.</p>
+    <p>Для self-hosted runner'ов дисциплина очистки диска имеет решающее значение: без хуков очистки (<code>ACTIONS_RUNNER_HOOK_JOB_COMPLETED</code>) оставшиеся docker-образы и кэши сборок могут переполнить дисковое пространство сервера за несколько дней активной работы команды.</p>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Почему подключение persistent self-hosted runner к публичному репозиторию считается критической брешью безопасности, и как изменится сетевой адрес подключения к базе данных из директивы services при наличии директивы container на уровне job?» (Ответ: любой PR из интернета выполнит произвольный код внутри корпоративной сети и оставит постоянный бэкдор на сервере. При наличии container runner связывает задачи общей Docker-сетью, и база доступна по доменному имени сервиса (postgres:5432), а без container - через локальный порт хоста (localhost:5432)).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение архитектуры машин выполнения и контейнеризации переводит управление CI/CD в разряд надежной платформенной инженерии. Завершив эту главу, вы удерживаете четыре практических навыка:</p>
+      <ol>
+        <li><strong>Экономически грамотный выбор runner'а:</strong> умение сопоставлять требования к сборке с аппаратными лимитами и финансовыми коэффициентами GitHub-hosted машин.</li>
+        <li><strong>Безопасное развертывание Self-hosted:</strong> знание сетевой модели исходящего polling'а и бескомпромиссная защита приватного контура через применение эфемерных runner'ов ARC в Kubernetes.</li>
+        <li><strong>Воспроизводимая среда через container:</strong> умение изолировать выполнение всей job внутри специализированных Docker-образов с монтированием рабочей директории.</li>
+        <li><strong>Оркестрация интеграционных сервисов:</strong> уверенная настройка баз данных и брокеров сообщений в блоке <code>services</code> с проверками <code>healthcheck</code> и корректной сетевой адресацией.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="07.html">Раздел 7</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="05.html">Шаги: run против uses</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
