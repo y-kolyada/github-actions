@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 9 · devops-github-actions · ai|</title>
+<title>Почему workflow упал · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Методология диагностики и локализации сбоев: чтение сырых логов, секреты расширенной трассировки, ловушки YAML и точечный перезапуск.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/09.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/09.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/09.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 9">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Почему workflow упал">
+<meta property="og:description" content="Методология диагностики и локализации сбоев: чтение сырых логов, секреты расширенной трассировки, ловушки YAML и точечный перезапуск.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/09.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 9","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/09.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Почему workflow упал","description":"Методология диагностики и локализации сбоев: чтение сырых логов, секреты расширенной трассировки, ловушки YAML и точечный перезапуск.","url":"https://y-kolyada.github.io/github-actions/ru/09.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/09.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="09.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="09.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/09.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/09.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,15 +67,15 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Секреты и права</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html" aria-current="page"><span class="num">9</span>Почему workflow упал</a></li>
       <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
       <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
       <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
@@ -92,22 +92,130 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 9</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Почему workflow упал</h1>
+    <p class="page-size" data-words="1571">Слов: 1571</p>
+    <p class="lead">Методология диагностики и локализации сбоев: чтение сырых логов, секреты расширенной трассировки, ловушки YAML и точечный перезапуск.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Красный крест упавшего пайплайна в интерфейсе GitHub часто провоцирует хаотичную реакцию: разработчик начинает наугад менять кавычки в YAML, добавлять флаги игнорирования ошибок или плодить десятки пустых коммитов с сообщениями вроде «fix ci», «try again», «debug test». Этот подход превращает инженерную дисциплину в лотерею. За каждым сбоем в GitHub Actions стоит строгая физическая причина: процесс в виртуальной машине runner'а завершился с ненулевым кодом выхода, парсер YAML наткнулся на невалидную структуру, неразрешенное выражение вернуло пустую строку или демон runner исчерпал системные ресурсы хоста.</p>
+      <p>Профессиональная инженерия (уровень IGL) рассматривает упавший workflow не как катастрофу, а как детерминированный сигнал диагностической системы. Понимание жизненного цикла выполнения шагов, умение читать низкоуровневые логи, знание флагов расширенной трассировки <code>ACTIONS_STEP_DEBUG</code> и применение статических анализаторов до отправки кода в репозиторий позволяют локализовать и устранить любой дефект за считанные минуты без единого лишнего коммита.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="exit-codes-shells-pipefail">1 · Анатомия сбоя: коды возврата, оболочки и флаги run <a class="anchor-link" href="#exit-codes-shells-pipefail">#</a></h2>
+    <p>Каждый шаг блока <code>run</code> в GitHub Actions представляет собой запуск отдельного дочернего процесса внутри операционной системы runner'а. В среде Linux виртуальная машина по умолчанию оборачивает каждую команду в вызов командного интерпретатора с жесткими флагами безопасности:</p>
+<pre><code>bash --noprofile --norc -e -o pipefail {0}</code></pre>
+    <p>Эти флаги определяют базовое поведение системы при возникновении ошибок:</p>
+    <ul>
+      <li>Флаг <code>-e</code> (errexit): заставляет оболочку немедленно завершить выполнение, как только любая утилита или команда возвращает код выхода, отличный от нуля (exit code != 0).</li>
+      <li>Флаг <code>-o pipefail</code>: предотвращает скрытые сбои в цепочках конвейеров (pipeline). Если в конструкции <code>cmd1 | cmd2 | cmd3</code> команда <code>cmd1</code> падает с ошибкой, а <code>cmd3</code> успешно завершается, стандартный bash вернул бы 0. Режим pipefail гарантирует, что итоговым кодом возврата станет код завершения упавшей команды:
+<pre><code>$ bash -c 'set -e; (exit 42); echo unreachable' 2&gt;/dev/null; [ $? -eq 42 ] &amp;&amp; echo "nonzero_exit_triggers_failure"
+nonzero_exit_triggers_failure</code></pre>
+      </li>
+    </ul>
+    <p>Когда runner фиксирует ненулевой код возврата процесса, он немедленно прерывает выполнение текущего шага, помечает всю задачу (job) статусом <code>failure</code> и блокирует запуск всех последующих шагов цепочки.</p>
+    <p><strong>Контролируемый допуск ошибок через continue-on-error:</strong> В сценариях запуска экспериментальных тестов или вспомогательных линтеров падение отдельного шага не должно блокировать основной билд. Для таких случаев используется директива <code>continue-on-error: true</code>:</p>
+<pre><code>- name: Run experimental linter
+  continue-on-error: true
+  run: npm run lint:experimental</code></pre>
+    <p>Директива перехватывает код ошибки и позволяет задаче продолжать выполнение следующих шагов, сохраняя информацию о частичном сбое:</p>
+<pre><code>$ bash -c 'CONTINUE_ON_ERROR=true; (exit 1) || [ "$CONTINUE_ON_ERROR" = "true" ]; echo "step_continued_on_error"'
+step_continued_on_error</code></pre>
+    <p><em>Предостережение IGL:</em> Никогда не ставьте <code>continue-on-error: true</code> на шаги сборки дистрибутива, модульного тестирования или проверки безопасности! Это создает иллюзию успешного пайплайна и приводит к выпуску дефектных релизов в продакшн.</p>
+
+    <h2 id="step-runner-debug-secrets">2 · Расширенная трассировка: секреты ACTIONS_STEP_DEBUG и ACTIONS_RUNNER_DEBUG <a class="anchor-link" href="#step-runner-debug-secrets">#</a></h2>
+    <p>Стандартный вывод веб-интерфейса GitHub Actions оптимизирован под компактность: runner скрывает внутренние служебные команды, интерполяцию контекстов и взаимодействие агента с облачным API. Если в логах отображается только лаконичная ошибка <code>Process completed with exit code 1</code> без деталей, необходимо активировать встроенный механизм расширенной трассировки (Diagnostic Logging).</p>
+    <p>Для включения глубокой отладки в репозитории или организации создаются два специальных секрета или переменные окружения:</p>
+    <ol>
+      <li><strong>ACTIONS_STEP_DEBUG со значением true:</strong> Включает подробную отладку шагов. Runner начинает выводить каждую выполненную команду оболочки (аналог режима <code>set -x</code>), точные параметры вызова экшенов, промежуточные переменные сред и подробные сообщения от встроенных инструментов:
+<pre><code>$ python3 -c "var_name = 'ACTIONS_STEP_DEBUG'; val = 'true'; print('step_debug_enabled' if var_name == 'ACTIONS_STEP_DEBUG' and val == 'true' else 'fail')"
+step_debug_enabled</code></pre>
+      </li>
+      <li><strong>ACTIONS_RUNNER_DEBUG со значением true:</strong> Включает системные логи самого демона runner. Раскрывает низкоуровневые операции хоста: загрузку и распаковку контейнеров, монтирование томов файловой системы, аутентификацию в GitHub API через токен, настройку сетевых bridge-интерфейсов для сервисов и выделение дисковых квот:
+<pre><code>$ python3 -c "var_name = 'ACTIONS_RUNNER_DEBUG'; val = 'true'; print('runner_debug_enabled' if var_name == 'ACTIONS_RUNNER_DEBUG' and val == 'true' else 'fail')"
+runner_debug_enabled</code></pre>
+      </li>
+    </ol>
+    <p><strong>Анализ сырых логов (Raw Logs):</strong> Веб-интерфейс GitHub иногда маскирует или обрезает длинные строки ошибок. Профессиональные инженеры скачивают полный архив сырых текстовых логов запуска с помощью интерфейса или утилиты GitHub CLI:</p>
+<pre><code># Скачивание и просмотр логов только упавших задач
+$ gh run view 123456789 --log-failed
+
+# Поиск конкретной ошибки с временными метками
+$ gh run view 123456789 --log | grep -E "(FATAL|ERROR|Exception)"</code></pre>
+    <p><em>Правило безопасности:</em> Расширенная отладка <code>ACTIONS_STEP_DEBUG</code> выводит команды с аргументами до их маскирования, что увеличивает риск случайного логирования внутренних идентификаторов. Активируйте трассировку временно для локализации инцидента и удаляйте флаг сразу после устранения дефекта.</p>
+
+    <h2 id="yaml-syntax-pitfalls">3 · Ловушки парсинга и синтаксиса YAML <a class="anchor-link" href="#yaml-syntax-pitfalls">#</a></h2>
+    <p>До 30% падений workflow происходят еще до того, как runner выделит виртуальную машину. Сервер компиляции GitHub Actions производит двухэтапную обработку файлов: сначала парсер YAML строит абстрактное синтаксическое дерево (AST), затем подсистема выражений выполняет подстановку контекстов <code>${{ }}</code>. Ошибки на любом из этих этапов вызывают мгновенный отказ в запуске пайплайна.</p>
+    <p><strong>Типичные ловушки и критические дефекты разметки:</strong></p>
+    <ul>
+      <li><strong>Неэкранированные двоеточия и спецсимволы:</strong> В стандарте YAML строка, содержащая двоеточие с пробелом <code>: </code>, трактуется парсером как ключ нового словаря (mapping). Например, команда <code>run: echo Status: in progress</code> вызовет фатальный сбой разметки. Любые сообщения с двоеточиями, амперсандами или звездочками должны заключаться в кавычки: <code>run: echo "Status: in progress"</code>.</li>
+      <li><strong>Булевы преобразования в YAML 1.1:</strong> Согласно старой спецификации YAML 1.1 слова <code>yes</code>, <code>no</code>, <code>on</code>, <code>off</code>, <code>true</code>, <code>false</code> автоматически преобразуются в булевы литералы. Директива триггера <code>on:</code> на верхнем уровне файла обязана оформляться строго как ключ словаря, а значения версий вроде <code>node-version: 18.10</code> должны браться в кавычки <code>'18.10'</code>, иначе число с плавающей точкой <code>18.1</code> будет обрезано парсером.</li>
+      <li><strong>Символы обрезки переносов (Chomping Operators):</strong> При передаче многострочных сценариев через оператор <code>|</code> важно различать режимы сохранения хвостовых символов:
+        <ul>
+          <li><code>|</code> (clip): сохраняет ровно один завершающий перевод строки.</li>
+          <li><code>|-</code> (strip): удаляет все хвостовые переводы строк (критично для формирования однострочных токенов и ключей).</li>
+          <li><code>|+</code> (keep): сохраняет все пустые строки в конце блока.</li>
+        </ul>
+      </li>
+      <li><strong>Прямая интерполяция непроверенных контекстов:</strong> Вставка контекста <code>${{ github.event.issue.title }}</code> напрямую в тело команды <code>run</code> позволяет злоумышленнику внедрить произвольный shell-код через название тикета. Всегда передавайте динамические данные строго через блок <code>env:</code> шага.</li>
+    </ul>
+
+    <h2 id="failure-handling-cleanup-rerun">4 · Перехват сбоев, аварийная очистка и повторные запуски <a class="anchor-link" href="#failure-handling-cleanup-rerun">#</a></h2>
+    <p>При падении промежуточного шага пайплайна runner по умолчанию переходит в аварийный режим и пропускает все оставшиеся задачи. В реальных production-системах это грозит зависанием временных ресурсов в облаке, блокировкой баз данных или отсутствием оповещения команды.</p>
+    <p>Для управления логикой восстановления GitHub Actions предоставляет статусные функции условий:</p>
+    <ul>
+      <li><code>if: failure()</code>: шаг выполняется исключительно в том случае, если любой предшествующий шаг текущей задачи завершился сбоем. Идеально подходит для сбора аварийных дампов памяти, выгрузки логов упавших Docker-контейнеров или отправки алерта в корпоративный чат:
+<pre><code>- name: Upload diagnostic bundle on failure
+  if: failure()
+  uses: actions/upload-artifact@v4
+  with:
+    name: crash-logs
+    path: /var/log/app-crash.log</code></pre>
+        <p>Проверка перехвата аварийного состояния:</p>
+<pre><code>$ python3 -c "job_status = 'failure'; should_run_cleanup = (job_status == 'failure'); print('cleanup_on_failure_active' if should_run_cleanup else 'fail')"
+cleanup_on_failure_active</code></pre>
+      </li>
+      <li><code>if: always()</code>: шаг выполняется в любом сценарии (успех, падение или ручная отмена пайплайна). Применяется для гарантированного удаления временных облачных сред и уничтожения секретных токенов.</li>
+      <li><code>if: cancelled()</code>: шаг активируется только в случае принудительной отмены запуска оператором через кнопку «Cancel run».</li>
+    </ul>
+    <p><strong>Целевой перезапуск (Re-run failed jobs):</strong> Если в графе из 15 параллельных матричных задач упал ровно один тест из-за временной сетевой задержки, перезапускать весь пайплайн с нуля расточительно. Функция GitHub Actions «Re-run failed jobs» повторно выполняет исключительно завершившиеся сбоем задачи, сохраняя результаты всех успешно завершенных звеньев графа:</p>
+<pre><code>$ node -e 'const jobs = [{ id: "lint", ok: true }, { id: "test", ok: false }]; const rerun = jobs.filter(j => !j.ok); console.log(rerun.length === 1 && rerun[0].id === "test" ? "rerun_failed_jobs_targeted" : "fail")'
+rerun_failed_jobs_targeted</code></pre>
+    <p>Кроме того, в интерфейсе доступна опция <em>«Re-run jobs with debug logging enabled»</em>, которая разово активирует системную трассировку для повторного прогона без правки файлов репозитория.</p>
+
+    <h2 id="prevention-tools-act-linters">5 · Инженерный арсенал: локальная отладка и аудит до коммита <a class="anchor-link" href="#prevention-tools-act-linters">#</a></h2>
+    <p>Путь новичка (Noob) - плодить десятки коммитов прямо в основную ветку в надежде угадать правильный синтаксис. Профессиональный инженер (IGL) выстраивает локальный превентивный контур, который исключает попадание синтаксических и логических дефектов в систему контроля версий:</p>
+    <ol>
+      <li><strong>Статический валидатор actionlint:</strong> Специализированный высокоскоростной линтер, написанный на Go. Он локально проверяет корректность названий контекстов, типы аргументов экшенов по их файлам <code>action.yml</code>, синтаксис shell-скриптов внутри <code>run</code> и валидность выражений <code>${{ }}</code>. Запуск <code>actionlint</code> в pre-commit хуке перехватывает 95% опечаток еще на рабочей станции инженера.</li>
+      <li><strong>Аудитор безопасности zizmor:</strong> Инструмент глубокого статического анализа workflow-файлов. Он выявляет скрытые уязвимости: отсутствие блоков <code>permissions</code>, прямые инъекции пользовательского ввода в shell, использование небезопасных версий сторонних экшенов и избыточные привилегии токенов.</li>
+      <li><strong>Локальный рантайм nektos/act:</strong> Утилита с открытым исходным кодом, позволяющая запускать GitHub Actions локально на вашем ноутбуке с помощью Docker. Она полностью эмулирует среду runner'а GitHub, подставляет переменные окружения и исполняет шаги <code>run</code>, позволяя отладить логику bash-скрипта за секунды без ожидания облачных очередей.</li>
+      <li><strong>Интерактивная отладка через SSH (action-tmate):</strong> В исключительных случаях сложного плавающего сбоя в пайплайн временно подключается экшен <code>mxschmitt/action-tmate</code>. Он открывает защищенную SSH-сессию прямо внутри виртуальной машины runner'а во время падения, давая инженеру полноценную консоль для инспекции файловой системы и запущенных процессов.
+        <p><em>Правило безопасности IGL:</em> Интерактивные SSH-сессии категорически запрещено запускать на событиях <code>pull_request</code> от внешних контрибьюторов или на self-hosted runner'ах корпоративной сети, так как это создает вектор прямого захвата хоста.</p>
+      </li>
+    </ol>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «В чем разница между ACTIONS_STEP_DEBUG и ACTIONS_RUNNER_DEBUG, и почему опасно оставлять их включенными на постоянной основе в публичном репозитории?» (Ответ: ACTIONS_STEP_DEBUG раскрывает внутренние команды шагов и параметры скриптов, а ACTIONS_RUNNER_DEBUG выводит системные логи демона runner и его обращений к GitHub API. Оставлять их включенными постоянно опасно, так как подробная трассировка выводит в логи промежуточные значения неэкранированных аргументов, заголовки запросов и детали топологии внутренней инфраструктуры).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение методологии диагностики превращает устранение аварий из стресса в предсказуемый инженерный процесс. Завершив эту главу, вы удерживаете четыре практических рубежа надежности:</p>
+      <ol>
+        <li><strong>Детерминированное чтение кодов выхода:</strong> уверенное понимание флагов <code>-e</code> и <code>pipefail</code>, исключающее маскировку критических ошибок в цепочках команд.</li>
+        <li><strong>Инструментальная трассировка:</strong> навык быстрого включения режимов <code>ACTIONS_STEP_DEBUG</code> и <code>ACTIONS_RUNNER_DEBUG</code> для локализации скрытых сбоев рантайма.</li>
+        <li><strong>Управление жизненным циклом аварий:</strong> профессиональное использование условий <code>failure()</code> и <code>always()</code> для сбора диагностических дампов и гарантированной очистки ресурсов.</li>
+        <li><strong>Локальный превентивный контроль:</strong> внедрение утилит <code>actionlint</code> и <code>zizmor</code>, полностью устраняющее практику бессистемных коммитов в репозиторий.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="10.html">Раздел 10</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="08.html">Кэширование и артефакты</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
