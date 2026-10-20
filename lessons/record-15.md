@@ -211,7 +211,10 @@
 ## Список коммитов смены
 
 ```
+da3f873 chore(agents): mandate bottom-up landing page sync for example and question chapters
+f90e225 docs(record): update record 15 with landing page sync commit and check output
 f01c5fe refactor(page): synchronize landing page description of topic 14 with actual content
+743722a docs(record): record step 15 delivery for topic 14
 983c93a feat(content): topic 14 covers 50 professional qualification questions on pipelines and security
 414a932 docs(task): define task 15 for topic 14 professional questions bank
 ```
