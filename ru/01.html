@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 1 · devops-github-actions · ai|</title>
+<title>Что такое workflow и где он выполняется · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Анатомия GitHub Actions: файловая структура.github/workflows, рантайм runner&#x27;а, передача состояния через дескрипторы и путь от push до зеленой галочки.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/01.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/01.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/01.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 1">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Что такое workflow и где он выполняется">
+<meta property="og:description" content="Анатомия GitHub Actions: файловая структура.github/workflows, рантайм runner&#x27;а, передача состояния через дескрипторы и путь от push до зеленой галочки.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/01.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 1","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/01.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Что такое workflow и где он выполняется","description":"Анатомия GitHub Actions: файловая структура.github/workflows, рантайм runner'а, передача состояния через дескрипторы и путь от push до зеленой галочки.","url":"https://y-kolyada.github.io/github-actions/ru/01.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/01.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="01.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="01.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/01.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/01.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html" aria-current="page"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Секреты и права</a></li>
+      <li><a href="08.html"><span class="num">8</span>Артефакты и кеш</a></li>
+      <li><a href="09.html"><span class="num">9</span>Почему workflow упал</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,118 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 1</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Что такое workflow и где он выполняется</h1>
+    <p class="page-size" data-words="1629">Слов: 1629</p>
+    <p class="lead">Анатомия GitHub Actions: файловая структура .github/workflows, рантайм runner'а, передача состояния через дескрипторы и путь от push до зеленой галочки.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>GitHub Actions - это не просто интерпретатор сценариев в облаке, а распределенный событийно-ориентированный оркестратор задач. Он преобразует декларативный YAML-файл в направленный ациклический граф (DAG), планирует выполнение независимых узлов графа на изолированных одноразовых виртуальных машинах (runner'ах) и связывает разрозненные шаги в единый конвейер через системные файлы окружения. Пока инженер пытается настраивать пайплайн слепым редактированием манифестов, сборки остаются источником сбоев. Но как только становится понятна физическая модель рантайма - где запускается контейнер, как изолирован shell и через какие дескрипторы передаются переменные - автоматизация становится полностью предсказуемой и надежной.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="workflows-and-events">1 · Файловая структура в .github/workflows и модель событий <a class="anchor-link" href="#workflows-and-events">#</a></h2>
+    <p>Любая автоматизация в GitHub Actions начинается со строго определенного места в репозитории: каталога <code>.github/workflows/</code>. Оркестратор GitHub игнорирует любые конфигурации, расположенные в корне проекта или в произвольных подкаталогах. Каждый файл в этой директории с расширением <code>.yml</code> или <code>.yaml</code> представляет собой отдельный независимый workflow (сценарий автоматизации):</p>
+<pre><code>$ mkdir -p .github/workflows
+$ touch .github/workflows/ci.yml
+$ test -f .github/workflows/ci.yml &amp;&amp; echo "workflow_path_ok"
+workflow_path_ok</code></pre>
+    <p>Workflow запускается в ответ на внешние события (events). Событием может быть фиксация изменений в ветке (<code>push</code>), открытие или синхронизация пулл-реквеста (<code>pull_request</code>), срабатывание таймера планировщика (<code>schedule</code>) или ручной вызов через веб-интерфейс либо API (<code>workflow_dispatch</code>). При возникновении события GitHub генерирует JSON-объект полезной нагрузки (webhook payload), сопоставляет событие с триггерами файлов workflow в ветке по умолчанию и ставит задачи в очередь.</p>
+    <p>Здесь кроется знаменитая ловушка синтаксиса YAML 1.1: ключевое слово <code>on</code> в старых парсерах является зарезервированным логическим значением и без кавычек интерпретируется как <code>true</code>. Если линтер или парсер работает по спецификации YAML 1.1, декларация триггера без кавычек может привести к трудноуловимой ошибке структуры:</p>
+<pre><code># Ловушка спецификации YAML 1.1:
+on: push        # Парсер может прочитать это как "true: push"
+"on": push      # Надежная форма: строковый ключ гарантированно сохраняет имя события</code></pre>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Что произойдет, если положить файл workflow в каталог .github/ci/test.yml?» (Ответ: GitHub Actions полностью проигнорирует этот файл. Оркестратор парсит конфигурации строго в каталоге .github/workflows/).</div>
+
+    <h2 id="hierarchy">2 · Иерархия выполнения: Workflow, Job, Step, Action <a class="anchor-link" href="#hierarchy">#</a></h2>
+    <p>Структура GitHub Actions выстроена в строгую четырехуровневую иерархию, где каждый уровень обладает четкими границами изоляции и ответственности:</p>
+    <ul>
+      <li><strong>Workflow (Конвейер)</strong> - верхний уровень автоматизации, привязанный к одному файлу манифеста. Определяет правила запуска (события), глобальные переменные окружения и набор задач.</li>
+      <li><strong>Job (Задача)</strong> - независимый вычислительный блок графа. Каждая job по умолчанию выполняется на <em>отдельной свежей виртуальной машине или контейнере</em>. Если в файле описано пять job, GitHub выделит пять независимых runner'ов и запустит их параллельно, если между ними явно не задана зависимость через директиву <code>needs</code>.</li>
+      <li><strong>Step (Шаг)</strong> - последовательная операция внутри конкретной job. Все шаги одной job выполняются строго по очереди на одной и той же машине в общем рабочем каталоге. Если один из шагов завершается с ненулевым кодом возврата, выполнение последующих шагов немедленно прерывается (если не задано условие <code>if: always()</code>).</li>
+      <li><strong>Action (Действие)</strong> - минимальный переиспользуемый строительный блок шага. Может быть внешней программой на JavaScript/TypeScript, Docker-контейнером или композитным набором команд оболочки, подключаемым через директиву <code>uses</code>. Альтернатива action - прямой запуск произвольных команд операционной системы через директиву <code>run</code>.</li>
+    </ul>
+    <p>Понимание этой иерархии снимает главное заблуждение начинающих инженеров: невозможно передать локальную переменную или временный файл из одной job в другую простым сохранением на диск. Поскольку job'ы работают на физически изолированных машинах, диск одной задачи полностью недоступен для другой.</p>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «В каком порядке по умолчанию выполняются job'ы внутри одного workflow-файла?» (Ответ: по умолчанию все job'ы выполняются параллельно и независимо, если между ними не выстроен направленный граф через директиву needs).</div>
+
+    <h2 id="runner-mechanics">3 · Механика runner'а: виртуальная машина, окружение и изоляция <a class="anchor-link" href="#runner-mechanics">#</a></h2>
+    <p>Runner (исполнитель) - это сервер с запущенной агентской службой runner application, который опрашивает очередь задач GitHub, получает инструкции конкретной job, выполняет шаги и отправляет логи обратно в платформу. Существует два принципиальных класса runner'ов:</p>
+    <ol>
+      <li><strong>GitHub-hosted runners</strong> - полностью управляемые облачные виртуальные машины под управлением Ubuntu, Windows Server или macOS (на архитектурах x64 и arm64). Главное свойство этих машин - эфемерность (ephemeral nature): каждая job получает кристально чистую ОС, а после завершения задачи виртуальная машина безвозвратно уничтожается вместе со всеми файлами. Это гарантирует стопроцентную изоляцию и исключает взаимное влияние сборок.</li>
+      <li><strong>Self-hosted runners</strong> - собственные серверы инженера или компании, развернутые в приватной инфраструктуре (на виртуалках, физическом железе или в Kubernetes через Actions Runner Controller). Они позволяют использовать специализированное оборудование, постоянные кэши и доступ к внутренним сетям без выхода в публичный интернет. Однако постоянный runner требует регулярной чистки рабочего каталога между запусками, иначе накапливающийся мусор создаст недетерминированное поведение сборок.</li>
+    </ol>
+    <p>На каждом runner'е создается рабочая директория, путь к которой передается в системной переменной <code>$GITHUB_WORKSPACE</code>. Когда первым шагом вызывается <code>actions/checkout</code>, репозиторий клонируется именно в этот каталог:</p>
+<pre><code>$ export GITHUB_WORKSPACE="$(mktemp -d)"
+$ test -d "$GITHUB_WORKSPACE" &amp;&amp; echo "workspace_dir_valid"
+workspace_dir_valid</code></pre>
+    <p>Критически важная деталь рантайма: как запускаются команды <code>run</code>. На runner'ах под управлением Ubuntu команда по умолчанию оборачивается в вызов <code>bash -e -o pipefail {0}</code>. Флаг <code>-e</code> предписывает оболочке немедленно прерывать выполнение при ненулевом коде возврата любой команды, а <code>-o pipefail</code> заставляет конвейер возвращать код ошибки последнего упавшего звена, а не последней выполненной команды. Докажем это на практике:</p>
+<pre><code># В стандартном bash без pipefail конвейер маскирует сбой:
+$ bash -c '(exit 42) | true; echo "status:$?"'
+status:0
+
+# На runner'е GitHub Actions включен pipefail, исключающий скрытые сбои:
+$ bash -eo pipefail -c '(exit 42) | true; echo unreachable'
+# Процесс мгновенно завершается с кодом 42, шаг падает:
+exit_code:42</code></pre>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Почему конвейер curl http://example.com/script.sh | bash на Linux-runner'е уронит шаг, если curl вернет 404?» (Ответ: благодаря флагу pipefail в дефолтной оболочке runner'а. Код ошибки 22 от curl не перекрывается успешным завершением bash).</div>
+
+    <h2 id="environment-and-outputs">4 · Обмен данными: дескрипторы GITHUB_ENV и GITHUB_OUTPUT <a class="anchor-link" href="#environment-and-outputs">#</a></h2>
+    <p>Поскольку каждый шаг <code>run</code> исполняется в отдельном порожденном подпроцессе оболочки (subshell), стандартная команда <code>export VAR=value</code> умирает вместе с завершением процесса текущего шага. Следующий шаг этой же job запустится в новом субокружении и не увидит экспортированную переменную. Это фундаментальное свойство операционных систем POSIX: дочерний процесс не может модифицировать переменные окружения родителя.</p>
+    <p>Для преодоления этой границы рантайм Actions использует специальные коммуникационные файлы на диске runner'а, передавая пути к ним через переменные среды агента:</p>
+    <ul>
+      <li><strong>Переменные окружения для последующих шагов: <code>$GITHUB_ENV</code></strong><br>
+      Если шагу требуется установить переменную среды, которая будет доступна всем следующим шагам текущей job, он дописывает строку вида <code>ИМЯ=ЗНАЧЕНИЕ</code> в файл, на который указывает переменная <code>$GITHUB_ENV</code>. Перед запуском каждого следующего шага агент runner'а считывает этот файл и внедряет новые переменные в процесс:
+<pre><code>$ echo "DEPLOY_ENV=production" &gt;&gt; "$GITHUB_ENV"
+$ grep -q '^DEPLOY_ENV=production$' "$GITHUB_ENV" &amp;&amp; echo "env_recorded"
+env_recorded</code></pre>
+      </li>
+      <li><strong>Выходные параметры шагов: <code>$GITHUB_OUTPUT</code></strong><br>
+      Если шаг вычисляет скалярное значение (например, сгенерированную версию пакета или хеш коммита), он экспортирует его через файл <code>$GITHUB_OUTPUT</code>. После завершения шага оркестратор парсит файл и наполняет контекст <code>steps.&lt;step_id&gt;.outputs.&lt;key&gt;</code>:
+<pre><code>$ echo "token=secret123" &gt;&gt; "$GITHUB_OUTPUT"
+$ grep -q '^token=secret123$' "$GITHUB_OUTPUT" &amp;&amp; echo "output_captured"
+output_captured</code></pre>
+      </li>
+      <li><strong>Многострочные значения через разделитель EOF</strong><br>
+      Если значение содержит переносы строк (например, приватный ключ сертификата или changelog релизных заметок), синтаксис <code>name=value</code> вызовет ошибку парсинга. Для многострочных данных рантайм требует использовать синтаксис потокового разделителя (heredoc / EOF):
+<pre><code>$ printf 'multiline&lt;&lt;EOF\nline1\nline2\nEOF\n' &gt;&gt; "$GITHUB_OUTPUT"
+$ grep -A 2 'multiline&lt;&lt;EOF' "$GITHUB_OUTPUT" | grep -q 'line2' &amp;&amp; echo "multiline_output_ok"
+multiline_output_ok</code></pre>
+      </li>
+    </ul>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Почему устаревший синтаксис ::set-output name=val:: был выведен из эксплуатации и заменен на GITHUB_OUTPUT?» (Ответ: соображения безопасности. Перехват стандартного потока вывода позволял злоумышленнику инжектировать команды runner'а через недоверенный вывод сторонних программ).</div>
+
+    <h2 id="lifecycle">5 · Путь от git push до зеленой галочки: пошаговый цикл оркестратора <a class="anchor-link" href="#lifecycle">#</a></h2>
+    <p>Чтобы ориентироваться в поведении сложных пайплайнов, необходимо представлять полный маршрут прохождения события от клавиатуры инженера до отчета в веб-интерфейсе GitHub. Этот маршрут состоит из семи детерминированных фаз:</p>
+    <ol>
+      <li><strong>Фаза 1: Генерация события.</strong> Инженер выполняет <code>git push origin main</code>. Git-сервер GitHub принимает коммиты, обновляет ссылку ветки и генерирует внутреннее событие <code>push</code> с метаданными (коммиты, автор, измененные файлы).</li>
+      <li><strong>Фаза 2: Маршрутизация и парсинг YAML.</strong> Сервис Workflow Orchestration считывает каталог <code>.github/workflows/</code> в целевой ветке. Для каждого файла проверяется блок <code>on</code>: совпадает ли тип события, подходят ли фильтры веток, тегов и путей. Если фильтр пройден, манифест валидируется на соответствие схеме и компилируется в граф задач.</li>
+      <li><strong>Фаза 3: Постановка в очередь (Queued).</strong> Каждая готовая к запуску job (не имеющая незавершенных предков <code>needs</code>) помещается в глобальную очередь пула runner'ов с учетом лейблов операционной системы (например, <code>runs-on: ubuntu-latest</code>).</li>
+      <li><strong>Фаза 4: Выделение ресурсов и старт агента.</strong> Облачный гипервизор GitHub разворачивает свежую виртуальную машину из предварительно собранного образа, запускает агент runner application и передает ему контекст задачи вместе со временным токеном аутентификации <code>GITHUB_TOKEN</code>.</li>
+      <li><strong>Фаза 5: Выполнение шагов (In Progress).</strong> Агент последовательно загружает необходимые экшены, поднимает Docker-контейнеры сервисов (если объявлены <code>services</code>), клонирует репозиторий через <code>actions/checkout</code> и запускает команды <code>run</code> в изолированных субоболочках, непрерывно передавая логи по защищенному каналу.</li>
+      <li><strong>Фаза 6: Завершающие пост-шаги (Post Actions).</strong> После завершения основного сценария агент в обратном порядке исполняет этапы очистки: сохранение кэша (<code>actions/cache</code>), выгрузка артефактов и завершение процессов. Эти шаги выполняются даже при падении основного скрипта, предотвращая утечки ресурсов.</li>
+      <li><strong>Фаза 7: Агрегация статуса (Completed).</strong> Runner завершает сессию, виртуальная машина отправляется на физическое уничтожение, а оркестратор GitHub обновляет статус задачи в интерфейсе репозитория (Check Run API). Если все задачи графа завершились с кодом 0, коммит получает зеленую галочку.</li>
+    </ol>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Что происходит с runner'ом GitHub-hosted после того, как job завершилась падением по таймауту?» (Ответ: виртуальная машина немедленно уничтожается. Следующая job любого репозитория получит абсолютно новую, изолированную ВМ).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение фундаментального устройства рантайма навсегда отделяет профессионального инженера от того, кто настраивает пайплайны случайными догадками. Закрыв эту тему, вы уносите с собой четыре ключевых практических понимания:</p>
+      <ol>
+        <li><strong>Топологическая ясность архитектуры:</strong> вы точно знаете, где граница изоляции job (отдельная виртуальная машина), а где граница шага (отдельный subshell на общей машине), и никогда не пытаетесь передавать файлы через локальные переменные между независимыми задачами.</li>
+        <li><strong>Контроль над поведением оболочки:</strong> знание флагов <code>-eo pipefail</code> на Linux-runner'ах позволяет вам заранее исключать ложно-положительные успешные сборки и уверенно локализовать сбои в цепочках команд.</li>
+        <li><strong>Владение рантайм-дескрипторами:</strong> умение безопасно экспортировать переменные среды и многострочные выходные параметры через системные файлы <code>$GITHUB_ENV</code> и <code>$GITHUB_OUTPUT</code> по современному стандарту безопасности.</li>
+        <li><strong>Сквозное видение жизненного цикла:</strong> знание всех семи фаз обработки события позволяет вам безошибочно определять узкие места пайплайна - от задержек в очереди ожидания runner'а до неэффективных пост-шагов выгрузки артефактов.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="02.html">Раздел 2</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="index.html">Посадочная страница</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>

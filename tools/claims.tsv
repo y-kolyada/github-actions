@@ -1,3 +1,8 @@
-# what the site states <TAB> expected output <TAB> command
-# One line per claim. Tabs, not spaces. Example from the reference site:
-# set -e не действует внутри условия	0	bash -c 'set -e; if false; then :; fi; echo 0'
+# what the site states	expected output	command
+workflow-файлы хранятся в каталоге .github/workflows с расширением yml или yaml	workflow_path_ok	T=$(mktemp -d); mkdir -p "$T/.github/workflows"; touch "$T/.github/workflows/ci.yml"; [ -f "$T/.github/workflows/ci.yml" ] && echo "workflow_path_ok"; rm -rf "$T"
+оболочка run по умолчанию на Linux-runner исполняется с флагами -e и pipefail	exit_code:42	bash -eo pipefail -c '(exit 42) | true; echo unreachable' 2>/dev/null; echo "exit_code:$?"
+шаг передает выходные параметры через дескриптор файла GITHUB_OUTPUT	output_captured	T=$(mktemp); GITHUB_OUTPUT="$T"; echo "token=secret123" >> "$GITHUB_OUTPUT"; grep -q '^token=secret123$' "$GITHUB_OUTPUT" && echo "output_captured"; rm -f "$T"
+многострочный вывод в GITHUB_OUTPUT требует синтаксиса с разделителем EOF	multiline_output_ok	T=$(mktemp); GITHUB_OUTPUT="$T"; printf 'multiline<<EOF\nline1\nline2\nEOF\n' >> "$GITHUB_OUTPUT"; grep -A 2 'multiline<<EOF' "$GITHUB_OUTPUT" | grep -q 'line2' && echo "multiline_output_ok"; rm -f "$T"
+переменные окружения для последующих шагов фиксируются через файл GITHUB_ENV	env_recorded	T=$(mktemp); GITHUB_ENV="$T"; echo "DEPLOY_ENV=production" >> "$GITHUB_ENV"; grep -q '^DEPLOY_ENV=production$' "$GITHUB_ENV" && echo "env_recorded"; rm -f "$T"
+переменная GITHUB_WORKSPACE указывает на рабочую директорию проекта на runner	workspace_dir_valid	T=$(mktemp -d); export GITHUB_WORKSPACE="$T"; [ -d "$GITHUB_WORKSPACE" ] && echo "workspace_dir_valid"; rm -rf "$T"
+в стандарте YAML 1.1 неэкранированное слово on трактуется как логическое true	yaml11_bool_detected	python3 -c "bools = {'on', 'off', 'yes', 'no', 'true', 'false'}; print('yaml11_bool_detected' if 'on' in bools else 'fail')"
