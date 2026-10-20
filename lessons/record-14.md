@@ -217,4 +217,4 @@ f1b37dc docs(record): record step 14 delivery for topic 13
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (шаг 14 «Вопросы · Noob» принят 2026-10-20) |
