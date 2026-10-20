@@ -203,4 +203,4 @@ d189cf7 chore(agents): sync course skills and communication rules from seed a2d9
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (шаг 13 «Посев новой оснастки и правил» принят 2026-10-20) |
