@@ -65,16 +65,16 @@
 
 <div class="cols">
 
-  <nav class="contents" aria-label="Разделы сайта">
+      <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
-      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow</a></li>
+      <li><a href="02.html"><span class="num">2</span>События и триггеры</a></li>
       <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
-      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы и матрица</a></li>
       <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
-      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
-      <li><a href="07.html"><span class="num">7</span>Секреты и права</a></li>
-      <li><a href="08.html"><span class="num">8</span>Артефакты и кеш</a></li>
+      <li><a href="06.html"><span class="num">6</span>Раннер и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность и секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
       <li><a href="09.html"><span class="num">9</span>Почему workflow упал</a></li>
       <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
       <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
@@ -128,9 +128,9 @@
 
     <h3>Безопасность, данные и отладка (главы 07-09)</h3>
     <ol start="7">
-      <li><strong><a href="07.html">Секреты и права</a></strong><br>
+      <li><strong><a href="07.html">Безопасность и секреты</a></strong><br>
       Модель привилегий: автоматический токен `GITHUB_TOKEN`, принцип наименьших привилегий (least privilege) и явный блок `permissions` на уровне файла и job. Защита зашифрованных секретов репозитория и организации (`secrets`). Механика маскирования значений в логах runner'а. Современный стандарт аутентификации в публичных облаках: federation через OIDC (OpenID Connect) без выпуска долгоживущих API-ключей. Окружения `environments` с ручным подтверждением (approvals) и защитой веток.</li>
-      <li><strong><a href="08.html">Артефакты и кеш</a></strong><br>
+      <li><strong><a href="08.html">Кэширование и артефакты</a></strong><br>
       Сохранение промежуточных результатов: передача данных между независимыми job'ами через `actions/upload-artifact` и `actions/download-artifact`. Ускорение сборки зависимостей через `actions/cache`: структура ключа кэша, первичный ключ и вторичные префиксы `restore-keys`, эвикция старых записей и лимиты размера. Изоляция кэша по веткам и предотвращение отравления кэша (cache poisoning).</li>
       <li><strong><a href="09.html">Почему workflow упал</a></strong><br>
       Методология диагностики и локализации сбоев: чтение логов, артефактов и сырого вывода шагов. Включение расширенной трассировки через секреты `ACTIONS_STEP_DEBUG` и `ACTIONS_RUNNER_DEBUG`. Перезапуск отдельных упавших задач (re-run failed jobs). Анализ распространенных ловушек синтаксиса YAML: отступы, неэкранированные двоеточия, булевы значения `on:` и проблемы подстановки пустых переменных в кавычках.</li>
