@@ -203,4 +203,4 @@ eaf5ac4 docs(notes): record engine proposals for seed swa on examples and questi
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (раздел 10 «Примеры · Noob» принят 2026-10-20) |
