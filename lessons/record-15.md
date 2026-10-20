@@ -181,7 +181,7 @@
   примеры (10-12)          1374-1525        25        18        22
   банк вопросов (13-15)      48-3313        25        18        22
   словарь                         22        25        18        22
-  посадочная                    1773        29        22        26
+  посадочная                    1797        29        22        26
   ------------------------------------------------------
 
 
@@ -211,6 +211,7 @@
 ## Список коммитов смены
 
 ```
+f01c5fe refactor(page): synchronize landing page description of topic 14 with actual content
 983c93a feat(content): topic 14 covers 50 professional qualification questions on pipelines and security
 414a932 docs(task): define task 15 for topic 14 professional questions bank
 ```
