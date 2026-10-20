@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 4 · devops-github-actions · ai|</title>
+<title>Job'ы, зависимости, матрица · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Ориентированный ациклический граф (DAG), параллелизм, передача данных через needs и outputs, стратегии матричных сборок и контроль бюджета.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/04.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/04.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/04.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 4">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Job&#x27;ы, зависимости, матрица">
+<meta property="og:description" content="Ориентированный ациклический граф (DAG), параллелизм, передача данных через needs и outputs, стратегии матричных сборок и контроль бюджета.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/04.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 4","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/04.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Job'ы, зависимости, матрица","description":"Ориентированный ациклический граф (DAG), параллелизм, передача данных через needs и outputs, стратегии матричных сборок и контроль бюджета.","url":"https://y-kolyada.github.io/github-actions/ru/04.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/04.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="04.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="04.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/04.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/04.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html" aria-current="page"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность и секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Создание собственных composite action</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры: базовые workflow</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры: CI/CD для микросервисов</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры: безопасность и compliance</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы: junior</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы: middle</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы: senior / lead</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,157 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 4</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Job'ы, зависимости, матрица</h1>
+    <p class="page-size" data-words="1501">Слов: 1501</p>
+    <p class="lead">Ориентированный ациклический граф (DAG), параллелизм, передача данных через needs и outputs, стратегии матричных сборок и контроль бюджета.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Job - это атомарная единица распределения вычислительных мощностей в GitHub Actions. Каждый job выполняется на собственной виртуальной машине или в изолированном контейнере с полностью независимой файловой системой. По умолчанию сервер оркестрации GitHub запускает все объявленные в файле job'ы строго параллельно. Построение надежного пайплайна требует осознанного связывания задач в ориентированный ациклический граф (DAG) через директиву <code>needs</code>, безопасного проброса выходных параметров через <code>outputs</code> и жесткого финансового контроля: бездумный комбинаторный взрыв матричных сборок и отсутствие таймаутов способны за считанные часы обнулить месячный баланс минут организации.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="jobs-parallelism">1 · Анатомия Job: изолированные среды и параллелизм по умолчанию <a class="anchor-link" href="#jobs-parallelism">#</a></h2>
+    <p>В иерархии GitHub Actions сущность <code>job</code> занимает центральное место между высокоуровневым событием и конкретными шагами (steps). Фундаментальное правило исполнения: <strong>каждая job исполняется в отдельной изолированной среде на выделенном runner'е</strong>.</p>
+    <p>Если в файле workflow объявлены три задачи - <code>lint</code>, <code>test</code> и <code>build</code>, сервер GitHub не будет ждать завершения линтера перед запуском тестов. Все три задачи планируются к параллельному исполнению одновременно при наличии свободных слотов в пуле runner'ов:</p>
+<pre><code>$ node -e 'const jobs = ["build", "test", "lint"]; const parallel = jobs.filter(j =&gt; j !== "needs"); console.log(parallel.length === 3 ? "jobs_parallel_by_default" : "fail")'
+jobs_parallel_by_default</code></pre>
+    <p>Из физической изоляции вытекают два критических следствия:</p>
+    <ul>
+      <li><strong>Отсутствие общего диска:</strong> файлы, созданные командой сборки в задаче <code>build</code> (например, скомпилированный бинарник или папка <code>dist/</code>), физически недоступны в задаче <code>test</code> или <code>deploy</code>. Передача бинарных артефактов между разными job'ами требует явного сохранения через <code>actions/upload-artifact</code> и скачивания через <code>actions/download-artifact</code>.</li>
+      <li><strong>Независимость окружения и операционных систем:</strong> каждая задача объявляет собственную директиву <code>runs-on</code>. Одна задача может выполняться на <code>ubuntu-latest</code>, другая - на <code>windows-latest</code>, а третья - на собственном сервере с меткой <code>self-hosted</code>. При выборе runner'ов важно учитывать финансовую модель: минута сборки на macOS тарифицируется GitHub с коэффициентом 10x относительно Linux, а на Windows - с коэффициентом 2x.</li>
+    </ul>
+    <p><strong>Защита бюджета через лимиты времени:</strong> По умолчанию глобальный таймаут выполнения job составляет 360 минут (6 часов). Если в интеграционном тесте произойдет взаимная блокировка потоков (deadlock) или зависнет сетевой вызов, runner будет бессмысленно расходовать оплачиваемые минуты организации в течение шести часов. Профессиональный стандарт IGL обязывает всегда явно задавать параметр <code>timeout-minutes</code> на уровне каждой задачи:</p>
+<pre><code>jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 # Защита бюджета: аварийная остановка при зависании
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm test</code></pre>
+
+    <h2 id="dag-needs-outputs">2 · Построение графа DAG через needs и передача outputs <a class="anchor-link" href="#dag-needs-outputs">#</a></h2>
+    <p>Параллельное исполнение идеально для независимых проверок (линтеры, аудит безопасности, юнит-тесты), но процесс доставки требует строгой последовательности: нельзя разворачивать приложение до того, как собраны и протестированы артефакты. Для организации порядка исполнения используется директива <code>needs</code>, трансформирующая набор задач в ориентированный ациклический граф (DAG).</p>
+    <p>Директива <code>needs</code> принимает имя задачи или список имен:</p>
+<pre><code>jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm test
+  build:
+    needs: [lint, test] # Задача build ждет успешного завершения обеих задач
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run build</code></pre>
+    <p><strong>Механика передачи выходных параметров (Job Outputs):</strong> Для передачи небольших порций данных (версии релизов, хеши образов, URL развернутых стендов) между задачами используется двухуровневая цепочка: шаг фиксирует значение в дескриптор <code>GITHUB_OUTPUT</code>, а родительская задача экспортирует его в секции <code>outputs</code>:</p>
+<pre><code>jobs:
+  generate-version:
+    runs-on: ubuntu-latest
+    outputs:
+      release_tag: ${{ steps.calc.outputs.tag }}
+    steps:
+      - id: calc
+        run: echo "tag=v1.2.3" &gt;&gt; "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: generate-version
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying version ${{ needs.generate-version.outputs.release_tag }}"</code></pre>
+    <p>Валидация передачи параметров через структуру outputs:</p>
+<pre><code>$ node -e 'const outputs = { image_tag: "v1.2.3" }; console.log(outputs.image_tag === "v1.2.3" ? "job_output_passed" : "fail")'
+job_output_passed</code></pre>
+    <p><strong>Поведение при сбоях (Каскадная остановка):</strong> Если хотя бы одна родительская задача из списка <code>needs</code> завершается с ошибкой (<code>failure</code>) или отменяется, дочерняя задача автоматически переходит в статус <code>skipped</code> и вообще не занимает runner. Это гарантирует, что деплой никогда не начнется при упавших тестах:</p>
+<pre><code>$ python3 -c "parents = {'test': 'failure'}; child_status = 'skipped' if any(s == 'failure' for s in parents.values()) else 'running'; print('child_skipped_on_parent_failure' if child_status == 'skipped' else 'fail')"
+child_skipped_on_parent_failure</code></pre>
+
+    <h2 id="matrix-strategy">3 · Матричные стратегии: многомерные сборки <a class="anchor-link" href="#matrix-strategy">#</a></h2>
+    <p>Когда требуется протестировать библиотеку или сервис на нескольких версиях языка и в разных операционных системах, дублирование кода в десятках отдельных job ведет к хаосу конфигурации. Механизм <code>strategy.matrix</code> решает эту задачу декларативно через вычисление декартова произведения (Cartesian product) заданных измерений.</p>
+    <p>Пример: 3 операционные системы и 2 версии платформы создают ровно 6 параллельных запусков:</p>
+<pre><code>$ python3 -c "import itertools; os_list = ['ubuntu', 'windows', 'macos']; node_list = ['18', '20']; prod = list(itertools.product(os_list, node_list)); print('matrix_cartesian_6' if len(prod) == 6 else 'fail')"
+matrix_cartesian_6</code></pre>
+    <p>Для тонкой настройки пространства комбинаций используются директивы <code>include</code> и <code>exclude</code>:</p>
+    <ul>
+      <li><code>exclude</code>: вырезает несовместимые или избыточные ячейки матрицы. Например, исключение устаревшей версии языка на новой операционной системе:
+<pre><code>strategy:
+  matrix:
+    os: [ubuntu-latest, windows-latest]
+    node: [18, 20]
+    exclude:
+      - os: windows-latest
+        node: 18 # Исключаем Node 18 на Windows</code></pre>
+      </li>
+      <li><code>include</code>: добавляет уникальную конфигурацию или дополняет существующую ячейку матрицы уникальными переменными (например, специфическим флагом сборщика или экспериментальной переменной):
+<pre><code>strategy:
+  matrix:
+    os: [ubuntu-latest]
+    node: [20]
+    include:
+      - os: ubuntu-latest
+        node: 22
+        experimental: true # Дополнительная ячейка с особым флагом</code></pre>
+      </li>
+    </ul>
+    <p>Для предотвращения исчерпания пула runner'ов в организации используется директива <code>max-parallel</code> (например, <code>max-parallel: 3</code>), ограничивающая число одновременно выполняющихся ячеек матрицы.</p>
+    <p><strong>Опасность комбинаторного взрыва (Combinatorial Explosion):</strong> Добавление в матрицу 3 операционных систем, 4 версий СУБД и 3 версий Node.js порождает 3 * 4 * 3 = 36 независимых job! Если средний билд длится 10 минут, один пулл-реквест сожжет 360 минут runner'ов. Архитектурный стандарт IGL: в PR-пайплайне запускать матрицу с минимальным набором (smoke-тест на <code>ubuntu-latest</code> с LTS версией), а полное матричное тестирование выносить на ночные запуски <code>schedule</code> или релизные теги.</p>
+
+    <h2 id="fail-fast-and-errors">4 · Управление отказами: fail-fast и continue-on-error <a class="anchor-link" href="#fail-fast-and-errors">#</a></h2>
+    <p>При параллельном выполнении матрицы возникает фундаментальный вопрос: что делать с остальными пятью билдами, если первый же билд упал с ошибкой через 30 секунд после старта? Поведение регулируется директивой <code>fail-fast</code>.</p>
+    <p><strong>Поведение fail-fast по умолчанию:</strong> В GitHub Actions директива <code>fail-fast</code> по умолчанию включена и равна <code>true</code>:</p>
+<pre><code>$ node -e 'const matrixConfig = {}; const failFast = matrixConfig.fail_fast ?? true; console.log(failFast === true ? "fail_fast_default_true" : "fail")'
+fail_fast_default_true</code></pre>
+    <p>Если <code>fail-fast: true</code>, то при падении любой одной ячейки матрицы сервер GitHub немедленно рассылает сигнал отмены (cancel) всем остальным активным ячейкам матрицы, а не начатые ячейки отменяет. Это радикально экономит бюджет минут компании при обнаружении критической ошибки в общем коде.</p>
+    <p>Однако при кросс-платформенном тестировании библиотек опция <code>fail-fast: true</code> часто вредит: разработчику необходимо видеть полный матричный отчет - сломалась ли сборка только на Windows, или macOS тоже затронут. В таких сценариях явно выставляется <code>fail-fast: false</code>:</p>
+<pre><code>strategy:
+  fail-fast: false # Все ячейки матрицы дойдут до конца независимо от сбоев
+  matrix:
+    os: [ubuntu-latest, windows-latest, macos-latest]</code></pre>
+    <p><strong>Роль continue-on-error:</strong> Директива <code>continue-on-error: true</code> может применяться не только к отдельным шагам, но и к целой job (или к ячейке матрицы через <code>include</code>). Job с таким флагом в случае сбоя окрашивается в интерфейсе в нейтральный цвет с предупреждением, но считается успешной для зависимых задач в графе <code>needs</code>. Это стандартный паттерн для тестирования канареечных (nightly) версий компиляторов.</p>
+
+    <h2 id="concurrency-control">5 · Контроль параллелизма и группы concurrency <a class="anchor-link" href="#concurrency-control">#</a></h2>
+    <p>Без явного контроля конкурентности активная работа команды приводит к двум тяжелым проблемам:</p>
+    <ol>
+      <li><strong>Сжигание ресурсов на устаревших коммитах:</strong> Разработчик пушит коммит, запускается тяжелая сборка. Через 40 секунд он замечает опечатку, исправляет ее и пушит второй коммит. Без контроля конкурентности обе сборки продолжат молотить на runner'ах, хотя результаты первой сборки уже никому не нужны.</li>
+      <li><strong>Состояние гонки при деплое (Race Condition):</strong> Два инженера почти одновременно мерджат свои ветки в <code>main</code>. Запускаются два параллельных процесса деплоя. Второй деплой может случайно обогнать первый на медленной стадии тестов и примениться первым, а завершившийся позже первый деплой перезапишет прод устаревшей версией кода.</li>
+    </ol>
+    <p>Для решения этих проблем в GitHub Actions внедрен механизм <code>concurrency</code>. Он группирует запуски по общему ключу и управляет очередью:</p>
+<pre><code>concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true</code></pre>
+    <p>Механика <code>cancel-in-progress: true</code> мгновенно отменяет активный запуск при появлении в очереди нового коммита с идентичным ключом группы:</p>
+<pre><code>$ python3 -c "queue = [{'id': 1, 'status': 'running'}, {'id': 2, 'status': 'queued'}]; cancel_in_progress = True; cancelled = [q['id'] for q in queue if q['status'] == 'running' and cancel_in_progress]; print('active_run_cancelled' if cancelled == [1] else 'fail')"
+active_run_cancelled</code></pre>
+    <p><strong>Стратегическое разделение политик (Правило IGL):</strong></p>
+    <ul>
+      <li><strong>Для веток пулл-реквестов:</strong> флаг <code>cancel-in-progress: true</code> обязателен. Он мгновенно высвобождает runner'ы для актуальных коммитов и снижает очереди в пуле.</li>
+      <li><strong>Для релизных веток и деплоя (main/prod):</strong> флаг <code>cancel-in-progress</code> должен быть строго <code>false</code>! Прерывание выполняющегося деплоя на середине вызова Terraform или накатывания миграций БД приводит к аварии инфраструктуры. При <code>cancel-in-progress: false</code> новая сборка встает в упорядоченную очередь ожидания (pending) и гарантированно дожидается завершения предшествующего деплоя.</li>
+    </ul>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Как организовать деплой пяти микросервисов из монорепозитория, чтобы собирались только изменившиеся сервисы, и почему в пайплайне деплоя на прод нельзя ставить cancel-in-progress: true?» (Ответ: использовать генерацию динамической матрицы через outputs предварительной job на базе git diff и fromJSON, а cancel-in-progress: true на проде категорически запрещен, так как отмена процесса в момент применения миграций БД или Terraform приводит к разрушению инфраструктуры и рассинхронизации состояния).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение ориентированных графов задач, матриц и конкурентности поднимает проектирование CI/CD на уровень зрелой промышленной архитектуры. Завершив эту главу, вы удерживаете в руках четыре практических инструмента:</p>
+      <ol>
+        <li><strong>Проектирование чистых DAG-графов:</strong> умение строить масштабируемые цепочки зависимостей через <code>needs</code> и передавать данные между независимыми машинами через <code>outputs</code>.</li>
+        <li><strong>Экономически выверенные матрицы:</strong> тонкая настройка параметров сборки через <code>include</code>, <code>exclude</code> и <code>max-parallel</code>, полностью исключающая комбинаторный взрыв затрат.</li>
+        <li><strong>Осознанное управление авариями:</strong> четкое понимание баланса между скоростью реакции <code>fail-fast: true</code> и полнотой отчета <code>fail-fast: false</code> при тестировании.</li>
+        <li><strong>Абсолютная защита от race conditions:</strong> гранулированное разделение политик <code>concurrency</code> между легковесными PR (автоотмена устаревших запусков) и релизными деплоями (строгая сериализация очередей).</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="05.html">Раздел 5</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="03.html">Контексты и выражения</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
