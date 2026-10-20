@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 11 · devops-github-actions · ai|</title>
+<title>Примеры · Pro · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть практических сценариев командного конвейера GitHub Actions: от сборки Docker и релизов до Pages, защищенных окружений и динамической матрицы.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/11.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/11.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/11.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 11">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Примеры · Pro">
+<meta property="og:description" content="Шесть практических сценариев командного конвейера GitHub Actions: от сборки Docker и релизов до Pages, защищенных окружений и динамической матрицы.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/11.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 11","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Pro","description":"Шесть практических сценариев командного конвейера GitHub Actions: от сборки Docker и релизов до Pages, защищенных окружений и динамической матрицы.","url":"https://y-kolyada.github.io/github-actions/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/11.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="11.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="11.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/11.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/11.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,17 +67,17 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Секреты и права</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Почему workflow упал</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html" aria-current="page"><span class="num">11</span>Примеры · Pro</a></li>
       <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
       <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
       <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
@@ -92,22 +92,277 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 11</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Примеры · Pro</h1>
+    <p class="page-size" data-words="1471">Слов: 1471</p>
+    <p class="lead">Шесть практических сценариев командного конвейера GitHub Actions: от сборки Docker и релизов до Pages, защищенных окружений и динамической матрицы.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>На уровне Pro инженер решает задачи не отдельного скрипта, а распределенной продуктовой команды. Главная цель - устранить узкие горлышки обратной связи (feedback loop), исключить гонки при параллельных пушах, автоматизировать рутинные релизные операции и выстроить защищенный контур непрерывной поставки (CD). Шесть сценариев ниже охватывают инженерные практики промышленного уровня: оптимизированную сборку Docker-образов с облачным кэшированием слоев в GitHub Cache backend, автоматический семантический выпуск релизов с историей изменений, деплой на GitHub Pages через современный безветковый API с точечными правами, многоконтурную доставку Staging -> Production с ручным гейткипингом, отмену устаревших сборок пулл-реквестов через группы конкурентности и динамическое вычисление матриц сборки из JSON на лету.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="docker-buildx-ghcr">1 · Сборка Docker-образа: публикация в GHCR с кэшированием слоев через Buildx <a class="anchor-link" href="#docker-buildx-ghcr">#</a></h2>
+    <p><strong>Задача:</strong> собрать production-образ микросервиса, закэшировать промежуточные слои сборщика в хранилище GitHub Actions и опубликовать готовый образ в GitHub Packages (GHCR) с тегами коммита и ветки.</p>
+<pre><code>name: Build and Publish Container Image
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*.*.*' ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  docker:
+    name: Build &amp; Push OCI Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata for tags and labels
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=sha,format=short
+
+      - name: Build and push Docker image with layer caching
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Стандартный запуск <code>docker build</code> на эфемерном runner'е всегда начинает сборку с нуля, так как локальный Docker daemon очищается после каждой задачи. Использование связки Buildx и бэкенда <code>cache-from: type=gha</code> / <code>cache-to: type=gha,mode=max</code> сохраняет бинарные слои напрямую в облачный сервис кэша GitHub Actions. При повторной сборке неизмененные слои мгновенно подтягиваются из кэша, сокращая время с 12 минут до 25 секунд. Для аутентификации в GHCR не требуются персональные токены доступа (PAT): системный токен <code>GITHUB_TOKEN</code> при наличии права <code>packages: write</code> имеет легитимные полномочия на загрузку контейнеров в пространство репозитория.</div>
+
+    <h2 id="semantic-release-tags">2 · Автоматический семантический релиз: расчет SemVer и GitHub Release <a class="anchor-link" href="#semantic-release-tags">#</a></h2>
+    <p><strong>Задача:</strong> автоматизировать подготовку официального релиза в ветке <code>main</code>: сформировать список изменений (Release Notes) из заголовков смерженных PR, прикрепить скомпилированный архив дистрибутива и опубликовать тег без ручного ввода версий.</p>
+<pre><code>name: Automated Release Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Generate Semantic Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full git history for tag resolution
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js and build distribution
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - name: Package release archive
+        run: tar -czf release-dist.tar.gz -C dist .
+
+      - name: Create or update GitHub Release with notes
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.${{ github.run_number }}.0
+          name: Release v1.${{ github.run_number }}.0
+          generate_release_notes: true
+          files: release-dist.tar.gz</code></pre>
+    <div class="prints"><strong>Почему так:</strong> По умолчанию экшен <code>actions/checkout</code> выполняет поверхностное клонирование с глубиной <code>fetch-depth: 1</code> (только последний коммит). Для любых утилит анализа истории и генерации заметок о релизе это фатально: Git не видит предыдущих тегов. Указание <code>fetch-depth: 0</code> гарантирует полную загрузку дерева коммитов. Директива <code>generate_release_notes: true</code> активирует встроенный движок GitHub, который автоматически группирует связанные тикеты, вычисляет контрибьюторов и строит идеальный changelog. Право <code>contents: write</code> строго необходимо для создания git-тегов и прикрепления бинарных ассетов к релизу.</div>
+
+    <h2 id="deploy-github-pages">3 · Деплой на GitHub Pages: минимальные permissions и actions/deploy-pages <a class="anchor-link" href="#deploy-github-pages">#</a></h2>
+    <p><strong>Задача:</strong> опубликовать статический сайт на GitHub Pages с использованием современного OIDC-ориентированного API, полностью отказавшись от устаревшей практики засорения истории коммитами в ветку <code>gh-pages</code>.</p>
+<pre><code>name: Deploy Static Documentation to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build &amp; Deploy Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages configuration
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact archive
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site-dist
+
+      - name: Deploy to GitHub Pages target host
+        id: deployment
+        uses: actions/deploy-pages@v4</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Исторический подход к Pages требовал создания служебной ветки <code>gh-pages</code>, в которую бот пушил коммиты с HTML. Это раздувало размер <code>.git</code> директории и приводило к конфликтам параллельных правок. Современный архитектурный стандарт GitHub Pages работает без выделенной ветки: экшен <code>upload-pages-artifact</code> упаковывает файлы в специальный защищенный tarball, а <code>deploy-pages</code> передает его внутреннему веб-серверу GitHub. Для безопасной валидации права публикации токен runner'а обязан содержать пару <code>pages: write</code> и <code>id-token: write</code>, а вызов привязан к специальному системному окружению <code>github-pages</code>. Флаг <code>cancel-in-progress: false</code> гарантирует, что активная выкатка сайта не прервется на середине.</div>
+
+    <h2 id="multi-environment-gate">4 · Защищенные окружения: Staging -> Production с approval-гейтом <a class="anchor-link" href="#multi-environment-gate">#</a></h2>
+    <p><strong>Задача:</strong> настроить безопасную двухконтурную доставку: изменения автоматически развертываются на тестовый контур Staging, но выкатка в Production блокируется до явного ручного подтверждения ответственным инженером.</p>
+<pre><code>name: Multi-Environment Continuous Delivery
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging Environment
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://staging.example.com
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute staging deployment script
+        run: ./deploy.sh --env staging
+        env:
+          API_KEY: ${{ secrets.STAGING_API_KEY }}
+
+  deploy-production:
+    name: Deploy to Production Environment
+    needs: [ deploy-staging ]
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://example.com
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute production deployment script
+        run: ./deploy.sh --env production
+        env:
+          API_KEY: ${{ secrets.PROD_API_KEY }}</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Использование директивы <code>environment: production</code> подключает функционал корпоративного управления GitHub Environments. В настройках репозитория для контура <code>production</code> настраиваются правила защиты (Protection Rules): список обязательных ревьюеров (Required Reviewers) и ограничение веток (Deployment branches). Когда первая задача <code>deploy-staging</code> завершается успехом, задача <code>deploy-production</code> переходит в состояние ожидания (Waiting for review). Рантайм посылает оповещение в чат или на почту тимлидам, и сборка продолжается только после нажатия кнопки «Approve and deploy» в веб-интерфейсе. При этом секрет <code>PROD_API_KEY</code> физически недоступен первой задаче и открывается runner'у строго после прохождения аппрува.</div>
+
+    <h2 id="concurrency-management">5 · Управление конкурентными сборками: concurrency и отмена устаревших запусков PR <a class="anchor-link" href="#concurrency-management">#</a></h2>
+    <p><strong>Задача:</strong> исключить гонки и нерациональный расход минут runner'а при быстрой серии пушей в один и тот же пулл-реквест, автоматически отменяя предыдущие незаконченные билды.</p>
+<pre><code>name: Pull Request Verification
+
+on:
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Heavy End-to-End Test Suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run test:e2e</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Типичный сценарий командной работы: разработчик пушит коммит, через минуту находит опечатку и делает второй пуш. Без директивы <code>concurrency</code> оба запуска выполняются параллельно до конца, расходуя дисковые квоты и минуты runner'а. Конструкция <code>group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}</code> объединяет все события ветки пулл-реквеста в уникальную очередь. При поступлении второго коммита директива <code>cancel-in-progress: true</code> мгновенно завершает устаревший запуск статусом <code>cancelled</code>, освобождая runner для актуального кода. Фоллбэк <code>|| github.run_id</code> гарантирует, что для пушей в основную ветку запуски не отменят друг друга ошибочно.</div>
+
+    <h2 id="dynamic-matrix-generation">6 · Динамическая матрица: генерация списка микросервисов на лету <a class="anchor-link" href="#dynamic-matrix-generation">#</a></h2>
+    <p><strong>Задача:</strong> в монорепозитории с десятками микросервисов тестировать только те директории, в которых реально произошли изменения, динамически формируя список задач матрицы из JSON.</p>
+<pre><code>name: Monorepo Selective Testing
+
+on:
+  pull_request:
+
+jobs:
+  detect-changes:
+    name: Discover Modified Microservices
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.filter.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compute changed service directories
+        id: filter
+        run: |
+          # В реальном сценарии используется git diff --name-only origin/main...HEAD
+          # Формируем компактный JSON-массив измененных модулей
+          CHANGED_SERVICES='["auth-service", "billing-api"]'
+          echo "matrix=$CHANGED_SERVICES" &gt;&gt; "$GITHUB_OUTPUT"
+
+  test-services:
+    name: Test ${{ matrix.service }}
+    needs: [ detect-changes ]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: ${{ fromJSON(needs.detect-changes.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute test suite for target service
+        run: |
+          echo "Running targeted test suite for microservice: ${{ matrix.service }}"
+          # cd services/${{ matrix.service }} &amp;&amp; npm test</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Жестко закодированная матрица на 40 микросервисов запускала бы 40 runner'ов даже при исправлении одной строки в документации сервиса авторизации. Связка выходных параметров <code>GITHUB_OUTPUT</code> и встроенной функции <code>fromJSON()</code> позволяет первой легкой задаче составить валидный JSON-массив и передать его во вторую задачу. Рантайм GitHub Actions парсит JSON и создает ровно столько параллельных runner'ов, сколько сервисов затронуто диффом, сокращая расходы организации на 80-90%.</div>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «Как организовать двухэтапное развертывание в production с обязательным ручным подтверждением через GitHub Actions, и почему нельзя хранить production-секреты на уровне репозитория?» (Ответ: Использовать сущность GitHub Environments с правилом защиты Required Reviewers и привязать production-секреты строго к данному environment. Секреты уровня репозитория открыты любому шагу в любой ветке, тогда как секреты уровня environment изолированы и становятся доступны runner'у только после явного прохождения approval-гейта в интерфейсе).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение шести продвинутых сценариев уровня Pro переводит работу инженера от локальных запусков к промышленной архитектуре непрерывной поставки. Завершив эту главу, вы удерживаете шесть проверенных производственных решений:</p>
+      <ol>
+        <li><strong>Высокоскоростная сборка OCI-образов:</strong> публикация контейнеров в GHCR с эффективным кэшированием слоев через Docker Buildx и бэкенд <code>type=gha</code>.</li>
+        <li><strong>Автоматизированный релизный цикл:</strong> расчет SemVer-версий, автогенерация Release Notes и публикация бинарных артефактов без ручных операций.</li>
+        <li><strong>Безопасный статический деплой:</strong> развертывание документации и приложений на GitHub Pages через современный безветковый API с гранулярными правами.</li>
+        <li><strong>Многоконтурная доставка с гейткипингом:</strong> конвейер Staging -> Production с защитой через Environment Protection Rules и ручным подтверждением тимлидов.</li>
+        <li><strong>Оптимизация параллелизма:</strong> предотвращение race conditions и экономия минут runner'а с помощью групп конкурентности <code>concurrency</code>.</li>
+        <li><strong>Динамические масштабируемые пайплайны:</strong> генерация списков матричных задач на лету через функцию <code>fromJSON()</code> для эффективной работы в монорепозиториях.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="12.html">Раздел 12</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="10.html">Примеры · Noob</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
