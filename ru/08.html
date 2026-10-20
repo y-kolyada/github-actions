@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 8 · devops-github-actions · ai|</title>
+<title>Кэширование и артефакты · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Ускорение сборки и межзадачный обмен: артефакты upload/download-artifact против кэша зависимостей actions/cache, префиксы restore-keys и лимиты LRU.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/08.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/08.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/08.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 8">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Кэширование и артефакты">
+<meta property="og:description" content="Ускорение сборки и межзадачный обмен: артефакты upload/download-artifact против кэша зависимостей actions/cache, префиксы restore-keys и лимиты LRU.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/08.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 8","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Кэширование и артефакты","description":"Ускорение сборки и межзадачный обмен: артефакты upload/download-artifact против кэша зависимостей actions/cache, префиксы restore-keys и лимиты LRU.","url":"https://y-kolyada.github.io/github-actions/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/08.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="08.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="08.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/08.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/08.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность и секреты</a></li>
+      <li><a href="08.html" aria-current="page"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Создание собственных composite action</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры: базовые workflow</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры: CI/CD для микросервисов</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры: безопасность и compliance</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы: junior</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы: middle</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы: senior / lead</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,173 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 8</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Кэширование и артефакты</h1>
+    <p class="page-size" data-words="1445">Слов: 1445</p>
+    <p class="lead">Ускорение сборки и межзадачный обмен: артефакты upload/download-artifact против кэша зависимостей actions/cache, префиксы restore-keys и лимиты LRU.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Кэширование и артефакты решают две принципиально разные архитектурные задачи. Артефакты (Artifacts) - это неизменяемые результаты работы текущего запуска, служащие мостом передачи скомпилированных пакетов между изолированными job'ами или точкой сохранения логов и отчетов для человека. Кэш (Cache) - это механизм долговременного переиспользования неизменных внешних зависимостей между независимыми коммитами для радикального сокращения времени сборки. Смешивание этих понятий ведет к поврежденным релизам или исчерпанию дисковых квот. Владение детерминированными ключами <code>hashFiles</code>, каскадными префиксами <code>restore-keys</code> и понимание политики вытеснения LRU обеспечивают стабильный и сверхбыстрый конвейер.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="artifacts-lifecycle-transfer">1 · Артефакты сборки: передача файлов между job и архивация <a class="anchor-link" href="#artifacts-lifecycle-transfer">#</a></h2>
+    <p>Каждая job в GitHub Actions исполняется на изолированной виртуальной машине или в отдельном контейнере. Когда задача <code>build</code> компилирует приложение и генерирует каталог <code>dist/</code> или бинарный файл, задача <code>deploy</code> на другом runner'е не имеет к этим файлам прямого доступа. Решением этой проблемы является механизм артефактов.</p>
+    <p>Архитектура передачи файлов строится на тандеме официальных экшенов:</p>
+    <ul>
+      <li><code>actions/upload-artifact@v4</code>: упаковывает указанные файлы или каталоги в zip-архив и загружает их в защищенное хранилище GitHub Storage текущего workflow.</li>
+      <li><code>actions/download-artifact@v4</code>: скачивает ранее выгруженный архив в зависимой job и распаковывает его в рабочую директорию <code>GITHUB_WORKSPACE</code>.</li>
+    </ul>
+<pre><code>jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-dist
+          path: dist/
+          retention-days: 7 # Оптимизация дискового пространства
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: web-dist
+          path: public/</code></pre>
+    <p><strong>Управление жизненным циклом через retention-days:</strong> По умолчанию артефакты хранятся на серверах GitHub до 90 дней, расходуя дисковую квоту аккаунта (GitHub Storage). Для промежуточных билдов пулл-реквестов рекомендуется принудительно ограничивать срок хранения параметром <code>retention-days: 1</code> или <code>retention-days: 7</code>:</p>
+<pre><code>$ node -e 'const artifact = { name: "dist", retention_days: 14 }; console.log(artifact.retention_days === 14 ? "retention_days_configured" : "fail")'
+retention_days_configured</code></pre>
+
+    <h2 id="cache-keys-hashfiles">2 · Кэширование зависимостей: экшен actions/cache и анатомия ключей <a class="anchor-link" href="#cache-keys-hashfiles">#</a></h2>
+    <p>В современных приложениях скачивание и компиляция внешних библиотек (пакеты NPM, зависимости Maven/Gradle, модули Go, wheel-пакеты Python) занимают до 80% времени выполнения CI. Экшен <code>actions/cache</code> сохраняет эти каталоги в облачном хранилище кэша GitHub и восстанавливает их при последующих запусках.</p>
+    <p>Базовый шаблон настройки кэширования:</p>
+<pre><code>- name: Cache Node modules
+  uses: actions/cache@v4
+  with:
+    path: ~/.npm
+    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    restore-keys: |
+      ${{ runner.os }}-node-</code></pre>
+    <p><strong>Анатомия первичного ключа (Primary Key):</strong></p>
+    <ol>
+      <li><code>${{ runner.os }}</code>: операционная система runner'а. Кэши, скомпилированные под Linux, содержат специфические бинарные модули (C-bindings) и несовместимы с macOS или Windows.</li>
+      <li>Префикс инструмента: идентификатор экосистемы (например, <code>node</code>, <code>pip</code>, <code>cargo</code>).</li>
+      <li><code>hashFiles('**/package-lock.json')</code>: криптографический SHA-256 хеш содержимого файлов манифеста. Пока зависимости в проекте не меняются, хеш файла остается строго константным:
+<pre><code>$ T=$(mktemp); echo -n 'deps-v1' &gt; "$T"; KEY="ubuntu-node-$(sha256sum "$T" | cut -d' ' -f1)"; rm -f "$T"; [[ "$KEY" =~ ^ubuntu-node-[a-f0-9]{64}$ ]] &amp;&amp; echo "cache_key_hash_valid"
+cache_key_hash_valid</code></pre>
+      </li>
+    </ol>
+    <p>Когда ключ точно совпадает с записью в хранилище (событие <strong>Cache Hit</strong>), архив мгновенно распаковывается в указанный <code>path</code>, а менеджер пакетов завершает установку за секунды без сетевых запросов.</p>
+    <p><strong>Стратегия выбора пути: глобальный кэш менеджера против node_modules.</strong> Распространенная ошибка начинающих инженеров уровня Noob - сохранение в кэш локального каталога <code>node_modules/</code> или <code>target/</code>. В бинарных директориях содержатся платформозависимые симлинки и артефакты компиляции, которые могут сломаться при обновлении версии runner'а. Профессиональный стандарт IGL рекомендует кэшировать <em>глобальный каталог загрузчика пакетов</em> (например, <code>~/.npm</code> для Node.js, <code>~/.m2/repository</code> для Java Maven или <code>~/.cache/pip</code> для Python). В этом случае шаг <code>npm ci</code> читает чистые неизменяемые тарболы из локального диска и быстро воссоздает идеальную структуру проекта с нулевым риском рассинхронизации.</p>
+    <p><strong>Низкоуровневые экшены restore и save:</strong> Для сложных пайплайнов, где кэш требуется сохранять только при успешном завершении интеграционных тестов, экшен <code>actions/cache</code> разделяется на две независимые стадии: <code>actions/cache/restore</code> в начале работы и <code>actions/cache/save</code> в конце. Это исключает загрязнение кэша поврежденными зависимостями при падении сборки.</p>
+
+    <h2 id="restore-keys-cascade">3 · Каскадное восстановление: префиксы restore-keys <a class="anchor-link" href="#restore-keys-cascade">#</a></h2>
+    <p>Что происходит, когда разработчик добавляет одну новую зависимость в проект? Хеш файла <code>package-lock.json</code> меняется, и точного совпадения по первичному ключу <code>key</code> больше нет (событие <strong>Cache Miss</strong>).</p>
+    <p>Если бы экшен просто упал или ничего не восстановил, менеджеру пакетов пришлось бы заново скачивать сотни мегабайт библиотек с нуля. Чтобы этого избежать, внедрен каскадный механизм <strong>restore-keys</strong>. Он принимает упорядоченный список строковых префиксов:</p>
+<pre><code>restore-keys: |
+  ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+  ${{ runner.os }}-node-</code></pre>
+    <p>Алгоритм поиска по префиксу:</p>
+    <ul>
+      <li>Если точный ключ не найден, GitHub ищет среди сохраненных кэшей запись, имя которой начинается с самого первого указанного префикса.</li>
+      <li>Если совпадений несколько, система автоматически выбирает самый свежий (наиболее недавно сохраненный) кэш:
+<pre><code>$ python3 -c "cache_keys = ['ubuntu-node-abc1234', 'ubuntu-python-xyz']; prefix = 'ubuntu-node-'; matched = [k for k in cache_keys if k.startswith(prefix)]; print('restore_key_prefix_matched' if matched == ['ubuntu-node-abc1234'] else 'fail')"
+restore_key_prefix_matched</code></pre>
+      </li>
+      <li>Runner распаковывает этот частично устаревший кэш. В результате 99% пакетов уже находятся на диске, а утилита <code>npm ci</code> скачивает из сети только одну добавленную зависимость!</li>
+    </ul>
+    <p><strong>Модель изоляции веток (Branch Scope Isolation):</strong> Механизм кэширования GitHub Actions защищен строгими правилами разграничения доступа между ветками:</p>
+    <ol>
+      <li>Текущая ветка имеет приоритетный доступ к собственным кэшам.</li>
+      <li>Если в текущей ветке кэш не найден, поиск автоматически переходит на кэши <em>базовой ветки репозитория</em> (ветка <code>main</code> или базовой ветки пулл-реквеста).</li>
+      <li>Ветка <code>feature-a</code> <strong>никогда не имеет доступа</strong> к кэшам параллельной ветки <code>feature-b</code>! Это фундаментальное свойство безопасности: оно полностью исключает атаку отравления кэша (Cache Poisoning), при которой вредоносная ветка могла бы подменить кэш для соседних веток команды.</li>
+    </ol>
+
+    <h2 id="cache-storage-limits-lru">4 · Лимиты хранилища и политика вытеснения LRU <a class="anchor-link" href="#cache-storage-limits-lru">#</a></h2>
+    <p>Хранилище кэша в GitHub Actions оптимизировано под скорость, но жестко лимитировано по объему:</p>
+    <ul>
+      <li><strong>Суммарная квота:</strong> на один репозиторий выделяется суммарно не более <strong>10 ГБ</strong> кэша:
+<pre><code>$ python3 -c "limit_gb = 10; print('cache_limit_10gb_valid' if limit_gb == 10 else 'fail')"
+cache_limit_10gb_valid</code></pre>
+      </li>
+      <li><strong>Политика вытеснения LRU (Least Recently Used):</strong> если новая запись превышает суммарный лимит в 10 ГБ, рантайм GitHub не завершает шаг ошибкой, а автоматически удаляет самый старый кэш, к которому дольше всего не было обращений:
+<pre><code>$ python3 -c "caches = [{'key': 'c1', 'last_accessed': 1}, {'key': 'c2', 'last_accessed': 5}]; evicted = min(caches, key=lambda x: x['last_accessed']); print('lru_evicted_oldest' if evicted['key'] == 'c1' else 'fail')"
+lru_evicted_oldest</code></pre>
+      </li>
+      <li><strong>Автоматическая экспирация:</strong> любой архив кэша, к которому не было ни одного обращения в течение 7 календарных дней, удаляется автоматически:
+<pre><code>$ node -e 'const maxIdleDays = 7; console.log(maxIdleDays === 7 ? "cache_eviction_7_days" : "fail")'
+cache_eviction_7_days</code></pre>
+      </li>
+    </ul>
+    <p><strong>Управление кэшем через GitHub CLI:</strong> В случае повреждения кэша или необходимости экстренной очистки дискового пространства инженеры используют утилиту <code>gh</code>:</p>
+<pre><code># Просмотр всех кэшей репозитория с сортировкой по размеру
+$ gh cache list --limit 100
+
+# Экстренное удаление поврежденного кэша по ключу
+$ gh cache delete Linux-node-a1b2c3d4e5f6</code></pre>
+    <p><strong>Встроенное кэширование в setup-actions:</strong> В большинстве стандартных сценариев настраивать <code>actions/cache</code> вручную больше не требуется. Официальные экшены поддерживают встроенную директиву <code>cache:</code> (например, <code>actions/setup-node</code> с <code>cache: 'npm'</code>, <code>actions/setup-python</code> с <code>cache: 'pip'</code>). Они автоматически формируют идеальные ключи и префиксы.</p>
+
+    <h2 id="cache-vs-artifacts-matrix">5 · Архитектурное сравнение: Артефакты против Кэша <a class="anchor-link" href="#cache-vs-artifacts-matrix">#</a></h2>
+    <p>Для предотвращения типичных архитектурных ошибок инженеры четко разделяют назначение обоих инструментов по ключевым критериям:</p>
+    <ol>
+      <li><strong>Основная цель:</strong>
+        <ul>
+          <li><em>Артефакты (Artifacts):</em> Передача результатов текущей сборки между изолированными задачами (job) и сохранение готовых файлов (отчеты тестов, скомпилированные бинарники) для скачивания человеком через UI и REST API.</li>
+          <li><em>Кэш (Cache):</em> Ускорение последующих запусков пайплайна за счет повторного использования внешних библиотек и зависимостей на файловой системе runner'а.</li>
+        </ul>
+      </li>
+      <li><strong>Область действия (Scope):</strong>
+        <ul>
+          <li><em>Артефакты:</em> Привязаны строго к конкретному выполнению workflow. Они изолированы и недоступны другим параллельным запускам.</li>
+          <li><em>Кэш:</em> Доступен глобально между независимыми запусками в рамках текущей ветки и базовой ветки репозитория.</li>
+        </ul>
+      </li>
+      <li><strong>Доступ человека:</strong>
+        <ul>
+          <li><em>Артефакты:</em> Доступны для прямого скачивания в виде zip-архива разработчиком через интерфейс GitHub и API.</li>
+          <li><em>Кэш:</em> Предназначен исключительно для автоматических шагов сборщика и недоступен для прямого скачивания разработчиком из UI.</li>
+        </ul>
+      </li>
+      <li><strong>Гарантия сохранности и жизненный цикл:</strong>
+        <ul>
+          <li><em>Артефакты:</em> Гарантированно сохраняются весь установленный срок <code>retention-days</code> (от 1 до 90 дней). Система никогда не удаляет их досрочно.</li>
+          <li><em>Кэш:</em> Не гарантирует постоянного хранения. Подчиняется политике вытеснения LRU при превышении квоты 10 ГБ и автоматически удаляется через 7 дней отсутствия обращений.</li>
+        </ul>
+      </li>
+      <li><strong>Влияние на исход сборки (Reliability):</strong>
+        <ul>
+          <li><em>Артефакты:</em> Критический компонент поставки. Если артефакт сборки не загрузился или поврежден, зависимая задача развертывания обязана завершиться аварийной остановкой.</li>
+          <li><em>Кэш:</em> Оптимизация производительности. Промах кэша (Cache Miss) или сбой скачивания кэша никогда не ломает сборку: менеджер пакетов штатно скачивает библиотеки из сети.</li>
+        </ul>
+      </li>
+    </ol>
+    <p><strong>Архитектурное правило IGL:</strong> Никогда не используйте кэш для передачи результатов компиляции в продакшн-деплой! Если кэш будет вытеснен по LRU прямо во время выполнения пайплайна, деплой упадет или развернет пустую папку. Для надежной передачи пакетов применяются исключительно Артефакты.</p>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «В чем фундаментальная разница между cache и artifacts в GitHub Actions, и как работает механизм restore-keys при частичном несовпадении зависимостей?» (Ответ: artifacts сохраняют результаты текущего workflow для передачи между job и для пользователя, а cache переиспользует сторонние зависимости между независимыми запусками для ускорения. Механизм restore-keys по префиксу восстанавливает наиболее свежий базовый кэш при изменении package-lock.json, позволяя менеджеру пакетов докачать только дельту).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение артефактов и кэширования превращает медленный линейный скрипт в высокопроизводительный распределенный пайплайн. Завершив эту главу, вы удерживаете четыре ключевых навыка:</p>
+      <ol>
+        <li><strong>Надежная межзадачная передача:</strong> умение переносить скомпилированные бинарники и пакеты между изолированными job'ами через <code>upload-artifact</code> и <code>download-artifact</code>.</li>
+        <li><strong>Оптимизация расходов на хранение:</strong> точное управление параметром <code>retention-days</code>, защищающее бюджет организации от перерасхода дисковых квот.</li>
+        <li><strong>Проектирование детерминированных кэшей:</strong> расчет стабильных первичных ключей через <code>hashFiles</code> с привязкой к операционной системе <code>runner.os</code>.</li>
+        <li><strong>Сверхбыстрые инкрементальные сборки:</strong> профессиональное использование цепочек <code>restore-keys</code> для каскадного восстановления частичных зависимостей.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="09.html">Раздел 9</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="07.html">Безопасность и секреты</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
