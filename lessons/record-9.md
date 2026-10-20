@@ -201,4 +201,4 @@ d706063 docs(task): define task 9 for topic 09 troubleshooting and debugging
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (тема 09 «Почему workflow упал» принята 2026-10-20) |
