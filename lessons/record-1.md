@@ -163,4 +163,4 @@ e0a716a docs(record): correct the branch line and re-verify the check after the 
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | Посадочная страница `ru/index.html` принята; тема 01 `ru/01.html` сдана на рассмотрение |
+| Conductor | принято (посадочная страница `ru/index.html` и тема 01 `ru/01.html` приняты 2026-10-20) |
