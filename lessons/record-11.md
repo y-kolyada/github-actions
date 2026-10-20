@@ -204,4 +204,4 @@ df80396 docs(task): define task 11 for topic 11 practical pro examples
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (раздел 11 «Примеры · Pro» принят 2026-10-20) |
