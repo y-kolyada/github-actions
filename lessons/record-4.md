@@ -171,4 +171,4 @@ ff67d69 docs(task): define task 4 for topic 04 jobs, dependencies, and matrix
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (тема 04 «Job'ы, зависимости, матрица» принята 2026-10-20) |
