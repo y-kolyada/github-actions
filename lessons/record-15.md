@@ -223,4 +223,4 @@ f01c5fe refactor(page): synchronize landing page description of topic 14 with ac
 
 | Кто | Вердикт |
 | :-- | :-- |
-| | |
+| Conductor | принято (шаг 15 «Вопросы · Pro» принят 2026-10-21) |
