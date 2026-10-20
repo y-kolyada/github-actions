@@ -183,4 +183,4 @@ caad0d9 docs(task): define task 6 for topic 06 runner and environment
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | принято (тема 06 «Рабочая машина и окружение» принята 2026-10-20) |
