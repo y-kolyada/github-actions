@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru" data-site="gha">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Навигатор инженера · devops-github-actions · ai|</title>
+<!-- meta: built by tools/build-meta.py - do not edit by hand -->
+<meta name="description" content="Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.">
+<link rel="canonical" href="https://y-kolyada.github.io/github-actions/ru/navigator.html">
+<link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/github-actions/ru/navigator.html">
+<link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/github-actions/en/navigator.html">
+<link rel="alternate" hreflang="uk" href="https://y-kolyada.github.io/github-actions/uk/navigator.html">
+<link rel="alternate" hreflang="de" href="https://y-kolyada.github.io/github-actions/de/navigator.html">
+<link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/github-actions/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="devops-github-actions">
+<meta property="og:title" content="Навигатор инженера">
+<meta property="og:description" content="Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.">
+<meta property="og:url" content="https://y-kolyada.github.io/github-actions/ru/navigator.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Навигатор инженера","description":"Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.","url":"https://y-kolyada.github.io/github-actions/ru/navigator.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-github-actions","url":"https://y-kolyada.github.io/github-actions/"}}</script>
+<!-- /meta -->
+<link rel="stylesheet" href="../assets/style.css?v=1">
+<script>
+  (function() {
+    var s = document.documentElement.dataset.site || 'swa';
+    var t = localStorage.getItem('swa-' + s + '-theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    var f = localStorage.getItem('swa-' + s + '-font');
+    if (f) document.documentElement.setAttribute('data-font', f);
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand-group">
+    <a class="home" href="index.html">
+      <span class="badge-ai">ai|</span>
+      <span class="sub-brand">devops-github-actions</span>
+    </a>
+    <div class="three" aria-hidden="true">инструменты · <span class="topic">GitHub Actions</span> · практика · 150 вопросов</div>
+  </div>
+  <div class="utility-tray" role="toolbar" aria-label="Настройки отображения и язык">
+    <nav class="lang-switcher" aria-label="Язык страницы">
+      <a href="../en/navigator.html" lang="en" hreflang="en" aria-label="English">EN</a>
+      <a href="navigator.html" lang="ru" hreflang="ru" aria-label="Русский" class="active" aria-current="page">RU</a>
+      <a href="../uk/navigator.html" lang="uk" hreflang="uk" aria-label="Українська">UK</a>
+      <a href="../de/navigator.html" lang="de" hreflang="de" aria-label="Deutsch">DE</a>
+    </nav>
+    <div class="font-scaler" role="group" aria-label="Размер шрифта">
+      <button type="button" class="font-btn font-s" data-size="s" title="Мелкий шрифт" aria-label="Мелкий шрифт">A</button>
+      <button type="button" class="font-btn font-m active" data-size="m" title="Стандартный шрифт" aria-label="Стандартный шрифт">A</button>
+      <button type="button" class="font-btn font-l" data-size="l" title="Крупный шрифт" aria-label="Крупный шрифт">A</button>
+    </div>
+    <button type="button" class="theme-toggle" id="themeToggle" title="Сменить тему (День/Ночь)" aria-label="Сменить тему день/ночь">
+      <span class="theme-icon" aria-hidden="true"><svg class="icon" data-icon="sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="3.8"/><path d="M10 1.2v2.2M10 16.6v2.2M1.2 10h2.2M16.6 10h2.2M3.7 3.7l1.6 1.6M14.7 14.7l1.6 1.6M16.3 3.7l-1.6 1.6M5.3 14.7l-1.6 1.6"/></svg></span>
+    </button>
+  </div>
+</header>
+
+<div class="cols">
+
+  <nav class="contents" aria-label="Разделы сайта">
+    <ol>
+      <li><a href="01.html"><span class="num">1</span>Что такое workflow</a></li>
+      <li><a href="02.html"><span class="num">2</span>События и триггеры</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контекст и выражения</a></li>
+      <li><a href="04.html"><span class="num">4</span>Job'ы и матрица</a></li>
+      <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
+      <li><a href="06.html"><span class="num">6</span>Раннер и окружение</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность, секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэш и артефакты</a></li>
+      <li><a href="09.html"><span class="num">9</span>Почему workflow упал</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
+    </ol>
+    <div class="nav-extra">
+      <div><a href="navigator.html" aria-current="page"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
+      <div><a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a></div>
+    </div>
+    <div class="page-toc" id="pageToc" aria-label="Разделы этой страницы" hidden>
+      <ul class="toc-list" id="tocList"></ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <h1>Навигатор инженера</h1>
+    <p class="page-size" data-words="1604">Слов: 1604</p>
+    <p class="lead">Сквозная матрица инженерных линз: компоненты, код, сила, слабости, экосистема, AI, облака, DevOps и SRE.</p>
+
+    <div class="box key" id="key-idea">
+      <h2>Главная мысль навигатора <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
+      <p>Навигатор инженера систематизирует устройство и эксплуатацию платформы автоматизации GitHub Actions через девять канонических инженерных линз серии Simple Web Architecture. Каждая линза исследует платформу под отдельным профессиональным ракурсом: от физической модели рантайма раннеров и дескрипторов обмена данными до изоляции секретов в форках, бесключевой облачной федерации OIDC, защиты цепочки поставок ПО по стандарту SLSA и ликвидации инцидентов в распределённых пайплайнах.</p>
+    </div>
+
+    <h2 id="lens-components">1 · Компоненты (Components) <a class="anchor-link" href="#lens-components">#</a></h2>
+    <p>Архитектура GitHub Actions построена на трёхуровневой иерархической модели исполнения: Workflow, Job и Step. Конфигурационные файлы размещаются в каталоге <code>.github/workflows/</code> с расширением <code>.yml</code> или <code>.yaml</code>. На верхнем уровне Workflow Engine прослушивает события вебхуков репозитория или внешние сигналы API и преобразует декларацию в ориентированный ациклический граф задач (Directed Acyclic Graph). Задачи (jobs) по умолчанию выполняются полностью параллельно на независимых виртуальных машинах или изолированных контейнерах, если между ними явно не задана зависимость через директиву <code>needs</code>.</p>
+    <p>Шаги (steps) внутри одной задачи исполняются строго последовательно на одном и том же раннере и разделяют общее дисковое пространство рабочей директории <code>GITHUB_WORKSPACE</code>. Шаг может быть прямой командой операционной системы (блок <code>run</code>) либо модульным компонентом (блок <code>uses</code>). Модули Actions подразделяются на три типа: JavaScript actions (нативные легковесные модули на Node.js), Docker container actions (изолированные Linux-контейнеры со всеми бинарными зависимостями) и Composite actions (переиспользуемые последовательности шагов run и uses без отдельного рантайма). Для интеграционных сценариев раннер умеет автоматически поднимать вспомогательные сервисные контейнеры через блок <code>services</code> с пробросом портов на локальный хост.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">01 · Что такое workflow</a>, <a href="04.html">04 · Job'ы и матрица</a>, <a href="05.html">05 · Шаги: run против uses</a>, <a href="06.html">06 · Раннер и окружение</a>, <a href="10.html">10 · Примеры Noob</a>, <a href="13.html">13 · Вопросы Noob</a>.</p>
+
+    <h2 id="lens-code">2 · Код и скрипты (Code / Scripts) <a class="anchor-link" href="#lens-code">#</a></h2>
+    <p>Синтаксическая основа GitHub Actions опирается на диалект YAML 1.1, в котором присутствуют исторические особенности парсинга: например, неэкранированное ключевое слово <code>on:</code> интерпретируется парсером как булево значение <code>true</code>, поэтому имена событий рекомендуется кавычить или указывать в формате списка. Динамическое поведение пайплайнов управляется специализированным языком выражений <code>${{ &lt;expression&gt; }}</code>, вычисляемым парсером рантайма до передачи команд операционной системе. Выражения имеют доступ к богатому набору контекстов: <code>github</code> (метаданные события и коммита), <code>env</code> (переменные окружения), <code>vars</code> (конфигурационные переменные репозитория), <code>secrets</code> (зашифрованные секреты), <code>steps</code> (выходные параметры шагов), <code>matrix</code> (значения текущей итерации матрицы) и <code>inputs</code> (входные параметры ручного запуска).</p>
+    <p>Для надежного обмена данными между шагами запрещено использовать глобальные переменные оболочки. Раннер предоставляет безопасные файловые дескрипторы, пути к которым передаются через переменные окружения: <code>GITHUB_OUTPUT</code> для экспорта параметров в последующие шаги (с обязательным синтаксисом heredoc <code>delimiter &lt;&lt; EOF</code> для многострочных значений), <code>GITHUB_ENV</code> для объявления постоянных переменных окружения, <code>GITHUB_PATH</code> для добавления каталогов в системный PATH и <code>GITHUB_STEP_SUMMARY</code> для генерации богатых Markdown-отчетов о результатах сборки. На Linux-раннерах шаги <code>run</code> по умолчанию исполняются с жесткими флагами отказоустойчивости <code>bash -e -o pipefail {0}</code>, что предотвращает скрытые сбои конвейеров.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">01 · Что такое workflow</a>, <a href="02.html">02 · События и триггеры</a>, <a href="03.html">03 · Контексты и выражения</a>, <a href="05.html">05 · Шаги: run против uses</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="14.html">14 · Вопросы Pro</a>.</p>
+
+    <h2 id="lens-strength">3 · Сила и преимущества (Strength) <a class="anchor-link" href="#lens-strength">#</a></h2>
+    <p>Ключевое конкурентное преимущество GitHub Actions заключается в глубокой нативной интеграции с инфраструктурой кода, пулл-реквестов и релизов GitHub. Платформе не требуются внешние вебхуки или сторонние серверы оркестрации: workflow реагирует на мельчайшие события жизненного цикла репозитория (коммиты, открытие PR, смена лейблов, комментарии, создание тегов, ручной вызов через UI с типизированными полями <code>workflow_dispatch</code>). Обширный публичный маркетплейс GitHub Marketplace содержит десятки тысяч проверенных сообществом и производителями экшенов, что позволяет развернуть полноценный промышленный конвейер сборки и тестирования буквально из 20 строк декларативного кода.</p>
+    <p>Мощным механизмом масштабирования выступает матричная стратегия <code>strategy.matrix</code>, вычисляющая декартово произведение произвольного набора параметров (версии операционных систем, рантаймы Python/Node/Go, базы данных) для одновременного параллельного прогона десятков сборок. Встроенное управление конкурентностью через блок <code>concurrency</code> с параметром <code>cancel-in-progress: true</code> мгновенно отменяет устаревшие незавершенные билды при поступлении нового коммита в ветку или пулл-реквест, экономя время разработчиков и часы процессорного времени раннеров.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="02.html">02 · События и триггеры</a>, <a href="04.html">04 · Job'ы и матрица</a>, <a href="08.html">08 · Кэширование и артефакты</a>, <a href="10.html">10 · Примеры Noob</a>, <a href="13.html">13 · Вопросы Noob</a>, <a href="14.html">14 · Вопросы Pro</a>.</p>
+
+    <h2 id="lens-weaknesses">4 · Слабости и границы (Weaknesses and Limits) <a class="anchor-link" href="#lens-weaknesses">#</a></h2>
+    <p>Главная зона риска в GitHub Actions связана с безопасностью подстановки контекстов: прямая интерполяция непроверенных пользовательских данных (заголовки коммитов, тела PR, имена веток форка) в виде <code>${{ github.event.* }}</code> прямо в тело скрипта <code>run</code> приводит к уязвимости Script Injection (выполнение произвольного шелл-кода злоумышленника в контексте раннера). Надежным архитектурным решением является обязательный маппинг любых внешних данных в промежуточные переменные окружения через блок <code>env:</code> шага, где переменные передаются как изолированные строки среды без интерпретации шеллом.</p>
+    <p>Существуют жесткие системные ограничения платформы: максимальная длительность выполнения одной задачи составляет 6 часов, а всего запуска workflow - 72 часа. Общий объем кэша ограничен 10 ГБ на репозиторий: при превышении лимита рантайм вытесняет наименее востребованные архивы по алгоритму LRU, а неиспользуемый кэш удаляется через 7 дней. Дополнительные риски несет триггер <code>pull_request_target</code>, который выполняется в контексте целевого репозитория и имеет доступ к секретам: если в таком пайплайне неосторожно сделать checkout непроверенного кода из ветки форка, атакующий получает полный контроль над секретами и токенами проекта. Наконец, ссылки на сторонние экшены по плавающим тегам (<code>@v1</code>, <code>@main</code>) создают угрозу supply chain атак при компрометации репозитория автора экшена, требуя строгого закрепления по 40-символьному SHA-хешу коммита.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="03.html">03 · Контексты и выражения</a>, <a href="07.html">07 · Безопасность и секреты</a>, <a href="09.html">09 · Почему workflow упал</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="15.html">15 · Вопросы IGL</a>.</p>
+
+    <h2 id="lens-ecosystem">5 · Связи в экосистеме (Ecosystem Interconnections) <a class="anchor-link" href="#lens-ecosystem">#</a></h2>
+    <p>В современной корпоративной инфраструктуре GitHub Actions выступает центральным диспетчером процессов непрерывной интеграции и доставки. Платформа бесшовно сопрягается с реестрами контейнерных образов (GitHub Packages GHCR, Docker Hub, AWS ECR, Google Artifact Registry) через стандартные экшены <code>docker/login-action</code> и <code>docker/build-push-action</code> с поддержкой многоархитектурных сборок QEMU и Buildx. Инструменты Infrastructure as Code (Terraform, OpenTofu, Ansible) встраиваются в автоматические гейты валидации, форматирования и планирования инфраструктурных изменений при открытии пулл-реквестов.</p>
+    <p>Цепочка обеспечения надежности программного кода включает автоматическое сканирование уязвимостей зависимостей (Dependabot, Snyk, Trivy), статический анализ безопасности (Semgrep, SonarQube, CodeQL) и генерацию криптографических аттестаций артефактов по спецификации SLSA Provenance через экшен <code>actions/attest-build-provenance</code>. Связывание цифровой подписи с прозрачным журналом Sigstore гарантирует, что двоичный артефакт в продакшне был собран именно из заявленного коммита доверенным workflow без промежуточных модификаций.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="05.html">05 · Шаги: run против uses</a>, <a href="07.html">07 · Безопасность и секреты</a>, <a href="08.html">08 · Кэширование и артефакты</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="14.html">14 · Вопросы Pro</a>.</p>
+
+    <h2 id="lens-ai">6 · В контексте AI (In AI Context) <a class="anchor-link" href="#lens-ai">#</a></h2>
+    <p>Развитие больших языковых моделей и автономных сред разработки радикально трансформировало взаимодействие с CI/CD-пайплайнами. Искусственный интеллект (GitHub Copilot, специализированные агентные ассистенты) ускоряет синтез сложных регулярных выражений, генерацию типовых YAML-конфигураций и автоматический аудит логических связей в графах <code>needs</code>. В то же время LLM склонны генерировать устаревшие директивы (например, обращение к устаревшему механизму <code>::set-output</code> вместо <code>GITHUB_OUTPUT</code>) и небезопасные конструкции без экранирования контекстов, требуя от инженера глубокого понимания семантики рантайма.</p>
+    <p>На уровне выполнения пайплайнов GitHub Actions всё чаще используется как оркестратор для AI-агентов: автоматизированные ревьюеры кода инспектируют дифф пулл-реквеста, формируют саммари архитектурных изменений в <code>GITHUB_STEP_SUMMARY</code> и запускают регрессионные тесты промптов. Для ресурсоемких задач машинного обучения и дообучения моделей на собственных серверах раннеры GitHub Actions оснащаются графическими ускорителями GPU через кластеры Kubernetes и оператор Actions Runner Controller (ARC), динамически масштабируя пул вычислителей по требованию.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="06.html">06 · Раннер и окружение</a>, <a href="07.html">07 · Безопасность и секреты</a>, <a href="09.html">09 · Почему workflow упал</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="15.html">15 · Вопросы IGL</a>.</p>
+
+    <h2 id="lens-cloud">7 · В облачном контексте (In Cloud Context) <a class="anchor-link" href="#lens-cloud">#</a></h2>
+    <p>Золотым стандартом облачной интеграции в GitHub Actions стал отказ от долгоживущих статических учетных записей (AWS Access Keys, сервисные аккаунты GCP с JSON-ключами) в пользу бесключевой аутентификации через OpenID Connect (OIDC). Каждый запуск раннера получает уникальный криптографически подписанный JWT-токен, содержащий клеймы репозитория, ветки, окружения и хеша коммита. Облачные провайдеры (AWS STS, GCP Workload Identity Federation, Azure Federated Credentials, HashiCorp Vault) валидируют этот токен через OIDC-эндпоинт GitHub и выдают временные краткосрочные права доступа строго в рамках назначенной IAM-роли.</p>
+    <p>Для реализации OIDC-федерации workflow объявляет минимально необходимые права через директиву <code>permissions: id-token: write, contents: read</code>. В закрытых корпоративных контурах облачные раннеры развертываются внутри приватных подсетей VPC без прямого доступа в публичный интернет. Использование официальных облачных экшенов (<code>aws-actions/configure-aws-credentials</code>, <code>google-github-actions/auth</code>) исключает риск утечки постоянных учетных данных через логи или дампы оперативной памяти раннеров.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="04.html">04 · Job'ы и матрица</a>, <a href="06.html">06 · Раннер и окружение</a>, <a href="07.html">07 · Безопасность и секреты</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="14.html">14 · Вопросы Pro</a>, <a href="15.html">15 · Вопросы IGL</a>.</p>
+
+    <h2 id="lens-devops">8 · Практики DevOps (DevOps Practices) <a class="anchor-link" href="#lens-devops">#</a></h2>
+    <p>В парадигме DevOps GitHub Actions реализует концепцию конвейеров как кода с акцентом на модульность и переиспользование. Вместо дублирования десятков одинаковых шагов между репозиториями инженеры проектируют переиспользуемые пайплайны (Reusable Workflows), запускаемые через триггер <code>workflow_call</code>. Reusable workflow позволяет централизовать корпоративные политики безопасности, передавая входные параметры через <code>inputs</code> и контролируя доступ к секретам через явный маппинг или директиву <code>secrets: inherit</code>.</p>
+    <p>Для непрерывной доставки широко используются среды развертывания (Environments), поддерживающие правила защиты релизов: обязательное ручное утверждение доверенными ревьюерами (Required Reviewers), таймеры ожидания (Wait Timers) и жесткие ограничения веток (Deployment Branch Policies). В GitOps-архитектурах Actions берет на себя роль валидатора манифестов и сборщика артефактов, передавая обновление тегов образов в репозиторий конфигураций для последующей синхронизации контроллерами ArgoCD или Flux.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="01.html">01 · Что такое workflow</a>, <a href="04.html">04 · Job'ы и матрица</a>, <a href="05.html">05 · Шаги: run против uses</a>, <a href="08.html">08 · Кэширование и артефакты</a>, <a href="10.html">10 · Примеры Noob</a>, <a href="11.html">11 · Примеры Pro</a>, <a href="14.html">14 · Вопросы Pro</a>.</p>
+
+    <h2 id="lens-sre">9 · Практики SRE (SRE Practices) <a class="anchor-link" href="#lens-sre">#</a></h2>
+    <p>С точки зрения Site Reliability Engineering надежность конвейеров сборки и деплоя напрямую влияет на доступность продакшна и среднее время восстановления (MTTR). Базовым правилом SRE является жесткое ограничение времени выполнения каждой задачи через директиву <code>timeout-minutes</code>: без нее зависший процесс или ожидание сетевого ответа удерживают раннер до системного таймаута в 360 минут, исчерпывая лимиты организации и блокируя релизную очередь.</p>
+    <p>Для расследования инцидентов инженеры включают расширенную диагностику платформы через секреты <code>ACTIONS_STEP_DEBUG</code> и <code>ACTIONS_RUNNER_DEBUG</code> со значением <code>true</code>, раскрывая подробные системные вызовы раннера. В сложных графах задач функция статуса <code>failure()</code> в директиве <code>if</code> позволяет реализовать автоматические шаги очистки ресурсов и отправки уведомлений об аварии. Интеллектуальный перезапуск упавших задач («Re-run failed jobs») экономит вычислительные ресурсы, перезапуская только сбойные вершины графа без повторного прогона успешных тестов и сборок.</p>
+    <p><strong>Связанные главы курса:</strong> <a href="04.html">04 · Job'ы и матрица</a>, <a href="06.html">06 · Раннер и окружение</a>, <a href="08.html">08 · Кэширование и артефакты</a>, <a href="09.html">09 · Почему workflow упал</a>, <a href="12.html">12 · Примеры IGL</a>, <a href="15.html">15 · Вопросы IGL</a>.</p>
+  
+
+    <footer>
+      <nav class="pager" aria-label="Соседние темы">
+        <p class="pager-prev">Предыдущая тема: <a href="glossary.html">Словарь понятий</a></p>
+      </nav>
+      <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
+    </footer>
+  </main>
+
+</div>
+</div>
+<script src="../assets/swa.js?v=1"></script>
+<script src="../assets/terms.js?v=1"></script>
+<script src="../assets/cp.js?v=1"></script>
+</body>
+</html>

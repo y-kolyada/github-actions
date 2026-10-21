@@ -69,12 +69,12 @@
     <ol>
       <li><a href="01.html"><span class="num">1</span>Что такое workflow</a></li>
       <li><a href="02.html"><span class="num">2</span>События и триггеры</a></li>
-      <li><a href="03.html"><span class="num">3</span>Контексты и выражения</a></li>
+      <li><a href="03.html"><span class="num">3</span>Контекст и выражения</a></li>
       <li><a href="04.html"><span class="num">4</span>Job'ы и матрица</a></li>
       <li><a href="05.html"><span class="num">5</span>Шаги: run против uses</a></li>
       <li><a href="06.html"><span class="num">6</span>Раннер и окружение</a></li>
-      <li><a href="07.html"><span class="num">7</span>Безопасность и секреты</a></li>
-      <li><a href="08.html"><span class="num">8</span>Кэширование и артефакты</a></li>
+      <li><a href="07.html"><span class="num">7</span>Безопасность, секреты</a></li>
+      <li><a href="08.html"><span class="num">8</span>Кэш и артефакты</a></li>
       <li><a href="09.html"><span class="num">9</span>Почему workflow упал</a></li>
       <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
       <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
@@ -84,7 +84,8 @@
       <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
-      <a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a>
+      <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
+      <div><a href="glossary.html"><svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg> Словарь понятий</a></div>
     </div>
     <div class="page-toc" id="pageToc" aria-label="Разделы этой страницы" hidden>
       <ul class="toc-list" id="tocList"></ul>
@@ -93,7 +94,7 @@
 
   <main id="main">
     <h1>GitHub Actions: от первого workflow до промышленного CI/CD</h1>
-    <p class="page-size" data-words="1822">Слов: 1822</p>
+    <p class="page-size" data-words="1849">Слов: 1849</p>
     <p class="lead">Практический справочник-ассессмент по GitHub Actions для инженера: от runner'а и графа job'ов до OIDC, безопасности и 150 экзаменационных вопросов.</p>
 
     <div class="box key" id="key-idea">
@@ -149,7 +150,13 @@
       <a href="15.html">15 · Вопросы · IGL</a> - 50 вопросов системного и архитектурного уровня с глубоким техническим разбором и пояснениями «Зачем спрашивают:»: векторы атак на CI/CD (Pwn Request, Script Injection, компрометация кэша), бесключевая федерация OIDC с AWS/GCP/Vault без статических секретов, криптографическая provenance-аттестация артефактов (SLSA, Sigstore Cosign, SBOM), корпоративный масштаб через переиспользуемые шаблоны <code>workflow_call</code>, автомасштабируемые раннеры ARC в Kubernetes и FinOps-оптимизация затрат на инфраструктуру.</li>
     </ol>
 
-    <h2 id="levels">Три уровня зрелости, и зачем они разделены <a class="anchor-link" href="#levels">#</a></h2>
+    <h3>Сквозные инструменты инженера</h3>
+    <ol start="16">
+      <li><strong><a href="navigator.html">Инженерный Навигатор</a></strong><br>
+      Сквозная синтез-матрица курса через 9 канонических линз: компоненты, код и скрипты, сила, слабости и ограничения, связи в экосистеме, в контексте AI, в облачном контексте, практики DevOps и практики SRE с гипертекстовым графом взаимосвязей.</li>
+      <li><strong><a href="glossary.html">Словарь понятий</a></strong><br>
+      Справочник ключевых терминов и сущностей GitHub Actions с прямыми ссылками на первичное появление в главах курса.</li>
+    </ol>
     <p>В современной индустрии владение CI/CD измеряется не знанием названий директив в YAML, а пониманием архитектурных последствий каждого решения. Одна и та же практическая задача в GitHub Actions решается совершенно по-разному в зависимости от уровня ответственности инженера:</p>
     <ul>
       <li><strong>Noob (Начинающий)</strong> - специалист закрывает локальные потребности конкретного репозитория. Главная цель: снять страх перед синтаксисом YAML, разобраться в базовой структуре пайплайна и научиться надежно запускать тесты на каждый коммит без слепого копирования чужих решений.</li>
@@ -188,13 +195,13 @@
         <li><strong>Навык детерминированного проектирования CI/CD:</strong> отказ от хаотичного метода «коммит наудачу» в пользу осознанного построения графа задач, оптимизации времени сборки кэшированием и использования переиспользуемых модулей.</li>
       </ol>
     </div>
+  
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
         <p class="pager-next">Следующая тема: <a href="01.html">Что такое workflow и где он выполняется</a></p>
       </nav>
-      Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS,
-      проверка на bash, публикация через GitHub Pages.
+      <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>
   </main>
 
