@@ -219,4 +219,4 @@ fb88099 docs(record): record step 19 acceptance by Conductor
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | Принято (2026-10-21) |
