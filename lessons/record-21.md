@@ -219,4 +219,4 @@ e3f4683 chore(agents): adopt rule 5.17 and record upstream seed notes for terms 
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | Принято (2026-10-22) |
