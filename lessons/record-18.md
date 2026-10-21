@@ -223,4 +223,4 @@ cbcd1be chore(engine): sync from seed/swa
 
 | Кто | Вердикт |
 | :-- | :-- |
-| Conductor | |
+| Conductor | Принято (указание в чате: «Шаг 18 принят. Перейди к Словарю понятий glossary.html в courses/github-actions... Действуй.») |
