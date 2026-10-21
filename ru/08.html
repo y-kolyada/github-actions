@@ -93,7 +93,7 @@
 
   <main id="main">
     <h1>Кэширование и артефакты</h1>
-    <p class="page-size" data-words="1423">Слов: 1423</p>
+    <p class="page-size" data-words="1472">Слов: 1472</p>
     <p class="lead">Ускорение сборки и межзадачный обмен: артефакты upload/download-artifact против кэша зависимостей actions/cache, префиксы restore-keys и лимиты LRU.</p>
 
     <div class="box key" id="key-idea">
@@ -102,7 +102,7 @@
     </div>
 
     <h2 id="artifacts-lifecycle-transfer">1 · Артефакты сборки: передача файлов между job и архивация <a class="anchor-link" href="#artifacts-lifecycle-transfer">#</a></h2>
-    <p>Каждая job в GitHub Actions исполняется на изолированной виртуальной машине или в отдельном контейнере. Когда задача <code>build</code> компилирует приложение и генерирует каталог <code>dist/</code> или бинарный файл, задача <code>deploy</code> на другом runner'е не имеет к этим файлам прямого доступа. Решением этой проблемы является механизм артефактов.</p>
+    <p>Каждая job в GitHub Actions исполняется на изолированной виртуальной машине или в отдельном контейнере. Когда задача <code>build</code> компилирует приложение и генерирует каталог <code>dist/</code> или бинарный файл, задача <code>deploy</code> на другом runner'е не имеет к этим файлам прямого доступа. Решением этой проблемы является механизм <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">артефактов (Artifacts)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Артефакты (Artifacts)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Файлы и архивы, сохраняемые после завершения задачи для передачи между job.</span><span class="term-links"><a href="glossary.html#term-artifact">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</p>
     <p>Архитектура передачи файлов строится на тандеме официальных экшенов:</p>
     <ul>
       <li><code>actions/upload-artifact@v4</code>: упаковывает указанные файлы или каталоги в zip-архив и загружает их в защищенное хранилище GitHub Storage текущего workflow.</li>
@@ -133,7 +133,7 @@
 retention_days_configured</code></pre>
 
     <h2 id="cache-keys-hashfiles">2 · Кэширование зависимостей: экшен actions/cache и анатомия ключей <a class="anchor-link" href="#cache-keys-hashfiles">#</a></h2>
-    <p>В современных приложениях скачивание и компиляция внешних библиотек (пакеты NPM, зависимости Maven/Gradle, модули Go, wheel-пакеты Python) занимают до 80% времени выполнения CI. Экшен <code>actions/cache</code> сохраняет эти каталоги в облачном хранилище кэша GitHub и восстанавливает их при последующих запусках.</p>
+    <p>В современных приложениях скачивание и компиляция внешних библиотек (пакеты NPM, зависимости Maven/Gradle, модули Go, wheel-пакеты Python) занимают до 80% времени выполнения CI. Экшен <code>actions/cache</code> сохраняет эти каталоги в облачном хранилище <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">кэша зависимостей (Cache)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Кэш зависимостей (Cache)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Эфемерное межпрогонное хранилище зависимостей по вычисляемым ключам hashFiles.</span><span class="term-links"><a href="glossary.html#term-cache">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> GitHub и восстанавливает их при последующих запусках.</p>
     <p>Базовый шаблон настройки кэширования:</p>
 <pre><code>- name: Cache Node modules
   uses: actions/cache@v4
@@ -184,7 +184,7 @@ restore_key_prefix_matched</code></pre>
 <pre><code>$ python3 -c "limit_gb = 10; print('cache_limit_10gb_valid' if limit_gb == 10 else 'fail')"
 cache_limit_10gb_valid</code></pre>
       </li>
-      <li><strong>Политика вытеснения LRU (Least Recently Used):</strong> если новая запись превышает суммарный лимит в 10 ГБ, рантайм GitHub не завершает шаг ошибкой, а автоматически удаляет самый старый кэш, к которому дольше всего не было обращений:
+      <li><strong>Политика вытеснения <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">LRU (Least Recently Used)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Политика LRU</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Алгоритм вытеснения наименее востребованных кэшей при превышении квоты в 10 ГБ.</span><span class="term-links"><a href="glossary.html#term-lru">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>:</strong> если новая запись превышает суммарный лимит в 10 ГБ, рантайм GitHub не завершает шаг ошибкой, а автоматически удаляет самый старый кэш, к которому дольше всего не было обращений:
 <pre><code>$ python3 -c "caches = [{'key': 'c1', 'last_accessed': 1}, {'key': 'c2', 'last_accessed': 5}]; evicted = min(caches, key=lambda x: x['last_accessed']); print('lru_evicted_oldest' if evicted['key'] == 'c1' else 'fail')"
 lru_evicted_oldest</code></pre>
       </li>

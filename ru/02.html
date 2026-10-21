@@ -93,7 +93,7 @@
 
   <main id="main">
     <h1>События: что запускает workflow</h1>
-    <p class="page-size" data-words="1496">Слов: 1496</p>
+    <p class="page-size" data-words="1511">Слов: 1511</p>
     <p class="lead">Каталог событий GitHub Actions: триггеры push и pull_request, фильтры путей, планировщик cron в UTC и архитектура безопасного выполнения форков.</p>
 
     <div class="box key" id="key-idea">
@@ -105,7 +105,7 @@
     <p>Двумя фундаментальными рабочими триггерами в любом репозитории являются события <code>push</code> и <code>pull_request</code>. Несмотря на внешнее сходство, они обладают принципиально разной семантикой выполнения:</p>
     <ul>
       <li><strong>Событие <code>push</code></strong> возникает в момент фактического обновления ссылки в репозитории (ветки или тега). Workflow исполняется строго на коммите, который был отправлен на сервер, а переменная <code>github.sha</code> указывает на точный хеш вершины ветки.</li>
-      <li><strong>Событие <code>pull_request</code></strong> моделирует процесс интеграции. По умолчанию оно слушает ровно три типа действий жизненного цикла: открытие пулл-реквеста (<code>opened</code>), добавление новых коммитов в ветку PR (<code>synchronize</code>) и повторное открытие ранее закрытого PR (<code>reopened</code>):
+      <li><strong>Событие <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">pull_request (PR)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Pull Request (PR)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Ключевое интеграционное событие Git, запускающее конвейеры автоматической валидации.</span><span class="term-links"><a href="glossary.html#term-pull-request">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span></strong> моделирует процесс интеграции. По умолчанию оно слушает ровно три типа действий жизненного цикла: открытие пулл-реквеста (<code>opened</code>), добавление новых коммитов в ветку PR (<code>synchronize</code>) и повторное открытие ранее закрытого PR (<code>reopened</code>):
 <pre><code>$ node -e 'const defaults = ["opened", "synchronize", "reopened"]; console.log(defaults.join(","))'
 opened,synchronize,reopened</code></pre>
       </li>
